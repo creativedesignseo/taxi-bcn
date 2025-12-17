@@ -121,8 +121,8 @@ const App = () => {
             style={{ backgroundImage: "url('/img/hero-desktop.jpg')" }}
           ></div>
 
-          {/* Overlay and Blur Effect for Harmony */}
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+          {/* Overlay for Harmony */}
+          <div className="absolute inset-0 bg-black/60"></div>
 
           {/* Subtle Glows (kept for premium feel) */}
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-[120px] animate-pulse"></div>
