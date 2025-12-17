@@ -118,7 +118,7 @@ const App = () => {
           {/* Desktop Image */}
           <div
             className="absolute inset-0 bg-cover bg-center hidden md:block"
-            style={{ backgroundImage: "url('/img/Desktop_hero_2.jpg')" }}
+            style={{ backgroundImage: "url('/img/Desktop_hero_3.jpg')" }}
           ></div>
 
           {/* Overlay for Harmony */}
