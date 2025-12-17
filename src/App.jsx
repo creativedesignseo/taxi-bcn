@@ -113,12 +113,12 @@ const App = () => {
           {/* Mobile Image */}
           <div
             className="absolute inset-0 bg-cover bg-center md:hidden"
-            style={{ backgroundImage: "url('/img/hero-mobile.png')" }}
+            style={{ backgroundImage: "url('/img/hero-mobile.jpg')" }}
           ></div>
           {/* Desktop Image */}
           <div
             className="absolute inset-0 bg-cover bg-center hidden md:block"
-            style={{ backgroundImage: "url('/img/hero-desktop.png')" }}
+            style={{ backgroundImage: "url('/img/hero-desktop.jpg')" }}
           ></div>
 
           {/* Overlay and Blur Effect for Harmony */}
