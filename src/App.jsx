@@ -122,7 +122,7 @@ const App = () => {
           ></div>
 
           {/* Overlay for Harmony */}
-          <div className="absolute inset-0 bg-black/80"></div>
+          <div className="absolute inset-0 bg-black/70"></div>
 
           {/* Subtle Glows (kept for premium feel) */}
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-[120px] animate-pulse"></div>
