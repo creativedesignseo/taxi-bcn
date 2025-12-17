@@ -108,14 +108,27 @@ const App = () => {
 
       {/* --- HERO SECTION --- */}
       <header className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-        {/* Abstract Background Elements */}
-        <div className="absolute inset-0 z-0 opacity-40">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-yellow-500 rounded-full blur-[120px] opacity-20 animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-yellow-400 rounded-full blur-[150px] opacity-10"></div>
+        {/* Background Images with Effects */}
+        <div className="absolute inset-0 z-0">
+          {/* Mobile Image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center md:hidden"
+            style={{ backgroundImage: "url('/img/hero-mobile.png')" }}
+          ></div>
+          {/* Desktop Image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center hidden md:block"
+            style={{ backgroundImage: "url('/img/hero-desktop.png')" }}
+          ></div>
+
+          {/* Overlay and Blur Effect for Harmony */}
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+
+          {/* Subtle Glows (kept for premium feel) */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-[120px] animate-pulse"></div>
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-yellow-400/5 rounded-full blur-[150px]"></div>
         </div>
 
-        {/* Dynamic Pattern */}
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 z-0"></div>
 
         <div className="container mx-auto px-4 z-10 relative mt-16 md:mt-0">
           <div className="grid md:grid-cols-2 gap-12 items-center">
