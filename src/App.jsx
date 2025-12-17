@@ -316,7 +316,7 @@ const App = () => {
           <h2 className="text-2xl md:text-3xl font-bold mb-8">"El mejor servicio de taxi que he usado en Barcelona. Rápido, limpio y el conductor súper amable."</h2>
           <div className="flex items-center justify-center gap-4">
             <div className="w-12 h-12 bg-gray-200 rounded-full overflow-hidden">
-              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User" />
+              <img src="/img/Cliente.png" alt="User" />
             </div>
             <div className="text-left">
               <p className="font-bold text-slate-900">Marc G.</p>
