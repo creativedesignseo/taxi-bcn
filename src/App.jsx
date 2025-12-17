@@ -113,7 +113,7 @@ const App = () => {
           {/* Mobile Image */}
           <div
             className="absolute inset-0 bg-cover bg-center md:hidden"
-            style={{ backgroundImage: "url('/img/hero-mobile.jpg')" }}
+            style={{ backgroundImage: "url('/img/Mobile_hero_2.jpg')" }}
           ></div>
           {/* Desktop Image */}
           <div
