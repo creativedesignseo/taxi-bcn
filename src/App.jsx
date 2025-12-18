@@ -105,6 +105,12 @@ const App = () => {
           <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-white border-b border-gray-800 pb-4">{t('nav.home')}</a>
           <a href="#servicios" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-white border-b border-gray-800 pb-4">{t('nav.services')}</a>
           <a href="#tarifas" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-white border-b border-gray-800 pb-4">{t('nav.rates')}</a>
+
+          {/* Language Switcher for Mobile */}
+          <div className="border-b border-gray-800 pb-4">
+            <LanguageSwitcher />
+          </div>
+
           <button onClick={handleCall} className="mt-4 w-full bg-yellow-400 text-black py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2">
             <Phone /> {t('hero.ctaCall')}
           </button>
