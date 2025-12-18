@@ -4,6 +4,7 @@ import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { LegalNotice, PrivacyPolicy, CookiesPolicy } from './pages/LegalPages';
 import FAQ from './components/FAQ';
 import PaymentMethods from './components/PaymentMethods';
+import SEO from './components/SEO';
 import { Phone, MessageCircle, MapPin, Clock, Shield, Star, Menu, X, ChevronRight, Zap, Globe } from 'lucide-react';
 import LanguageSwitcher from './components/LanguageSwitcher';
 
@@ -92,6 +93,11 @@ const App = () => {
 
   return (
     <div className="font-sans text-slate-900 bg-slate-50 min-h-screen selection:bg-yellow-400 selection:text-black">
+      <SEO
+        title={t('seo.title')}
+        description={t('seo.description')}
+        lang={i18n.language}
+      />
 
       {/* --- NAVIGATION --- */}
       <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-md py-3 shadow-lg' : 'bg-transparent py-6'}`}>
