@@ -2,15 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { LegalNotice, PrivacyPolicy, CookiesPolicy } from './pages/LegalPages';
-import {
-  Phone,
-  MessageCircle,
-  MapPin,
-  Clock,
-  ChevronRight,
-  ShieldCheck,
-  CreditCard,
-  Star,
+import FAQ from './components/FAQ';
+import PaymentMethods from './components/PaymentMethods';
+import { Phone, MessageCircle, MapPin, Clock, Shield, Star, Menu, X, ChevronRight, Zap } from 'lucide-react';
+Star,
   Zap,
   Menu,
   X,
@@ -430,6 +425,9 @@ const App = () => {
               </div>
             </div>
           </section>
+
+          <FAQ />
+          <PaymentMethods />
         </>} />
         <Route path="/aviso-legal" element={<LegalNotice />} />
         <Route path="/privacidad" element={<PrivacyPolicy />} />
