@@ -56,7 +56,7 @@
         "port": "Puerto Cruceros",
         "sants": "Estación Sants",
         "parkGuell": "Park Güell",
-        "disclaimer": "*Precio estimado sujeto a tráfico"
+        "consultRate": "Consultar Tarifa"
     },
     "testimonials": {
         "quote": "El mejor servicio de taxi que he usado en Barcelona. Rápido, limpio y el conductor súper amable.",

@@ -344,21 +344,25 @@ const App = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { dest: t('rates.airport'), price: "35€ - 40€", time: "25 min" },
-              { dest: t('rates.port'), price: "20€ - 25€", time: "15 min" },
-              { dest: t('rates.sants'), price: "15€ - 20€", time: "12 min" },
-              { dest: t('rates.parkGuell'), price: "22€ - 28€", time: "20 min" },
+              { dest: t('rates.airport'), time: "25 min" },
+              { dest: t('rates.port'), time: "15 min" },
+              { dest: t('rates.sants'), time: "12 min" },
+              { dest: t('rates.parkGuell'), time: "20 min" },
             ].map((route, idx) => (
-              <div key={idx} className="bg-slate-800/50 p-6 rounded-2xl border border-white/5 hover:border-yellow-400/50 transition-colors cursor-default">
+              <div key={idx} className="bg-slate-800/50 p-6 rounded-2xl border border-white/5 hover:border-yellow-400/50 transition-all group">
                 <div className="flex justify-between items-start mb-4">
                   <div className="bg-yellow-400/10 p-2 rounded-lg">
                     <MapPin className="text-yellow-400" size={20} />
                   </div>
                   <span className="text-xs font-mono text-gray-400 bg-black/30 px-2 py-1 rounded">~{route.time}</span>
                 </div>
-                <h4 className="font-bold text-lg mb-1">{route.dest}</h4>
-                <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">{route.price}</p>
-                <p className="text-xs text-gray-500 mt-2">{t('rates.disclaimer')}</p>
+                <h4 className="font-bold text-lg mb-4">{route.dest}</h4>
+                <button
+                  onClick={handleWhatsAppBooking}
+                  className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 group-hover:scale-105"
+                >
+                  {t('rates.consultRate')} <ChevronRight size={18} />
+                </button>
               </div>
             ))}
           </div>

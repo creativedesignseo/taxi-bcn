@@ -56,7 +56,7 @@
         "port": "Cruise Port",
         "sants": "Sants Station",
         "parkGuell": "Park Güell",
-        "disclaimer": "*Estimated price subject to traffic"
+        "consultRate": "Get Quote"
     },
     "testimonials": {
         "quote": "The best taxi service I've used in Barcelona. Fast, clean and the driver was super friendly.",
