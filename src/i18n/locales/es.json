@@ -1,0 +1,81 @@
+{
+    "nav": {
+        "home": "Inicio",
+        "services": "Servicios",
+        "rates": "Tarifas"
+    },
+    "hero": {
+        "badge": "El taxi más rápido de Barcelona",
+        "title": "Muévete por",
+        "titleHighlight": "Barcelona",
+        "titleEnd": "sin esperas.",
+        "subtitle": "Servicio premium 24/7. Aeropuerto, Puerto y larga distancia. Reservas instantáneas vía WhatsApp prioritario.",
+        "ctaWhatsApp": "Pedir por WhatsApp",
+        "ctaCall": "Llamar",
+        "bookingTitle": "Reserva Express",
+        "pickupPlaceholder": "¿Dónde te recogemos?",
+        "destinationPlaceholder": "Destino (Opcional)",
+        "timeNow": "Lo antes posible (Ahora)",
+        "time15": "En 15 minutos",
+        "time30": "En 30 minutos",
+        "timeLater": "Programar para más tarde",
+        "requestButton": "Solicitar Taxi",
+        "responseTime": "Tiempo de respuesta medio: 2 minutos"
+    },
+    "services": {
+        "title": "Servicios Especializados",
+        "subtitle": "Expertos en traslados turísticos y logística de transporte en Barcelona.",
+        "airport": {
+            "title": "Aeropuerto de Barcelona (BCN)",
+            "desc": "Traslados directos hacia y desde la T1 y T2. Monitoreo de vuelos e inmediatez.",
+            "tag": "Popular"
+        },
+        "port": {
+            "title": "Puerto de Cruceros",
+            "desc": "Recogidas en muelles y traslados personalizados para cruceristas.",
+            "tag": "Directo"
+        },
+        "cityTour": {
+            "title": "Tours por la Ciudad",
+            "desc": "Descubre la Sagrada Familia, Park Güell y los rincones más icónicos con comodidad.",
+            "tag": "Turismo"
+        },
+        "business": {
+            "title": "Servicio Business",
+            "desc": "Transporte puntual y discreto para altos ejecutivos y eventos corporativos.",
+            "tag": "Premium"
+        },
+        "bookService": "Reservar Servicio"
+    },
+    "rates": {
+        "title": "Destinos Frecuentes",
+        "subtitle": "Precios aproximados desde el centro de Barcelona.",
+        "tariff1": "Tarifa 1 (Día)",
+        "tariff2": "Tarifa 2 (Noche/Finde)",
+        "airport": "Aeropuerto T1/T2",
+        "port": "Puerto Cruceros",
+        "sants": "Estación Sants",
+        "parkGuell": "Park Güell",
+        "disclaimer": "*Precio estimado sujeto a tráfico"
+    },
+    "testimonials": {
+        "quote": "El mejor servicio de taxi que he usado en Barcelona. Rápido, limpio y el conductor súper amable.",
+        "name": "Marc G.",
+        "verified": "Cliente verificado"
+    },
+    "footer": {
+        "description": "Servicio oficial de taxi en el Área Metropolitana de Barcelona. Licencias oficiales y tarifas reguladas.",
+        "contact": "Contacto",
+        "email": "info@taxibcn.com",
+        "location": "Barcelona, España",
+        "legal": "Legal",
+        "legalNotice": "Aviso Legal",
+        "privacy": "Política de Privacidad",
+        "cookies": "Cookies",
+        "copyright": "Taxi BCN Service. Todos los derechos reservados."
+    },
+    "mobile": {
+        "call": "Llamar",
+        "whatsapp": "WhatsApp"
+    }
+}

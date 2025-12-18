@@ -1,0 +1,81 @@
+{
+    "nav": {
+        "home": "Home",
+        "services": "Services",
+        "rates": "Rates"
+    },
+    "hero": {
+        "badge": "Barcelona's Fastest Taxi",
+        "title": "Move around",
+        "titleHighlight": "Barcelona",
+        "titleEnd": "without waiting.",
+        "subtitle": "24/7 premium service. Airport, Port and long distance. Instant bookings via priority WhatsApp.",
+        "ctaWhatsApp": "Book via WhatsApp",
+        "ctaCall": "Call Now",
+        "bookingTitle": "Express Booking",
+        "pickupPlaceholder": "Where should we pick you up?",
+        "destinationPlaceholder": "Destination (Optional)",
+        "timeNow": "As soon as possible (Now)",
+        "time15": "In 15 minutes",
+        "time30": "In 30 minutes",
+        "timeLater": "Schedule for later",
+        "requestButton": "Request Taxi",
+        "responseTime": "Average response time: 2 minutes"
+    },
+    "services": {
+        "title": "Specialized Services",
+        "subtitle": "Experts in tourist transfers and transport logistics in Barcelona.",
+        "airport": {
+            "title": "Barcelona Airport (BCN)",
+            "desc": "Direct transfers to and from T1 and T2. Flight monitoring and immediacy.",
+            "tag": "Popular"
+        },
+        "port": {
+            "title": "Cruise Port",
+            "desc": "Dock pickups and personalized transfers for cruise passengers.",
+            "tag": "Direct"
+        },
+        "cityTour": {
+            "title": "City Tours",
+            "desc": "Discover Sagrada Familia, Park Güell and the most iconic corners in comfort.",
+            "tag": "Tourism"
+        },
+        "business": {
+            "title": "Business Service",
+            "desc": "Punctual and discreet transport for senior executives and corporate events.",
+            "tag": "Premium"
+        },
+        "bookService": "Book Service"
+    },
+    "rates": {
+        "title": "Frequent Destinations",
+        "subtitle": "Approximate prices from Barcelona city center.",
+        "tariff1": "Tariff 1 (Day)",
+        "tariff2": "Tariff 2 (Night/Weekend)",
+        "airport": "Airport T1/T2",
+        "port": "Cruise Port",
+        "sants": "Sants Station",
+        "parkGuell": "Park Güell",
+        "disclaimer": "*Estimated price subject to traffic"
+    },
+    "testimonials": {
+        "quote": "The best taxi service I've used in Barcelona. Fast, clean and the driver was super friendly.",
+        "name": "Marc G.",
+        "verified": "Verified customer"
+    },
+    "footer": {
+        "description": "Official taxi service in the Barcelona Metropolitan Area. Official licenses and regulated rates.",
+        "contact": "Contact",
+        "email": "info@taxibcn.com",
+        "location": "Barcelona, Spain",
+        "legal": "Legal",
+        "legalNotice": "Legal Notice",
+        "privacy": "Privacy Policy",
+        "cookies": "Cookies",
+        "copyright": "Taxi BCN Service. All rights reserved."
+    },
+    "mobile": {
+        "call": "Call",
+        "whatsapp": "WhatsApp"
+    }
+}
