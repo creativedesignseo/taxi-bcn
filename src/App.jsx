@@ -65,13 +65,12 @@ const App = () => {
       {/* --- NAVIGATION --- */}
       <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-md py-3 shadow-lg' : 'bg-transparent py-6'}`}>
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <div className="flex items-center gap-2 group cursor-pointer">
-            <div className="w-10 h-10 bg-yellow-400 rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform">
-              <span className="text-2xl font-bold text-black">T</span>
-            </div>
-            <span className={`text-xl font-bold tracking-tighter ${isScrolled ? 'text-white' : 'text-white'}`}>
-              TAXI<span className="text-yellow-400">BCN</span>
-            </span>
+          <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
+            <img
+              src="/img/logo-main.png"
+              alt="Taxi BCN Logo"
+              className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
           </div>
 
           {/* Desktop Menu */}
