@@ -67,8 +67,8 @@ const App = () => {
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
             <img
-              src="/img/logo-main.png"
-              alt="Taxi BCN Logo"
+              src="/img/logo-taxi.svg"
+              alt="Taxi Movit Logo"
               className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </div>
@@ -391,9 +391,13 @@ const App = () => {
       <footer className="bg-black text-white py-12 border-t border-gray-800">
         <div className="container mx-auto px-4 grid md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
-            <span className="text-2xl font-bold tracking-tighter mb-4 block">
-              TAXI<span className="text-yellow-400">BCN</span>
-            </span>
+            <div className="mb-4">
+              <img
+                src="/img/logo-taxi.svg"
+                alt="Taxi Movit"
+                className="h-12 w-auto object-contain"
+              />
+            </div>
             <p className="text-gray-500 max-w-xs">
               {t('footer.description')}
             </p>
