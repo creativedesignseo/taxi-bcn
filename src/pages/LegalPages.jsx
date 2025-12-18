@@ -9,7 +9,7 @@ const LegalLayout = ({ title, children }) => {
 
     return (
         <div className="font-sans text-slate-900 bg-slate-50 min-h-screen">
-            <div className="container mx-auto px-4 py-12 max-w-4xl">
+            <div className="container mx-auto px-4 pt-32 pb-12 max-w-4xl">
                 <Link to="/" className="inline-flex items-center gap-2 text-gray-500 hover:text-yellow-500 font-medium mb-6 transition-colors text-sm uppercase tracking-wide">
                     <ChevronLeft size={16} /> Volver al Inicio
                 </Link>
