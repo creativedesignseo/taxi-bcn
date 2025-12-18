@@ -12,7 +12,7 @@ const LegalLayout = ({ title, children }) => {
                 <a href="/" className="inline-flex items-center gap-2 text-yellow-600 hover:text-yellow-700 font-bold mb-8 transition-colors">
                     <ChevronLeft size={20} /> Volver al inicio
                 </a>
-                <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl">
+                <div className="">
                     <h1 className="text-3xl md:text-4xl font-bold mb-8 text-slate-900 border-b pb-6 border-yellow-400">{title}</h1>
                     <div className="prose prose-slate max-w-none text-gray-600 text-justify space-y-6">
                         {children}
