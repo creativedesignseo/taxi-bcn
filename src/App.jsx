@@ -4,13 +4,7 @@ import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { LegalNotice, PrivacyPolicy, CookiesPolicy } from './pages/LegalPages';
 import FAQ from './components/FAQ';
 import PaymentMethods from './components/PaymentMethods';
-import { Phone, MessageCircle, MapPin, Clock, Shield, Star, Menu, X, ChevronRight, Zap } from 'lucide-react';
-Star,
-  Zap,
-  Menu,
-  X,
-  Globe
-} from 'lucide-react';
+import { Phone, MessageCircle, MapPin, Clock, Shield, Star, Menu, X, ChevronRight, Zap, Globe } from 'lucide-react';
 import LanguageSwitcher from './components/LanguageSwitcher';
 
 const App = () => {

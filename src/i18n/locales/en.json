@@ -63,6 +63,27 @@
         "name": "Marc G.",
         "verified": "Verified customer"
     },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "q1": "Can I book an Airport transfer in advance?",
+        "a1": "Absolutely! We recommend booking early to secure your ride. Your driver will be punctual and monitor your flight schedule.",
+        "q2": "What areas do you cover?",
+        "a2": "We cover the entire Barcelona Metropolitan Area and provide long-distance transfers to any destination in Catalonia (Girona, Tarragona) or rest of Spain.",
+        "q3": "We are a large group or have lots of luggage, do you have suitable vehicles?",
+        "a3": "Yes, our fleet includes spacious minivans for up to 6-7 passengers. Let us know when booking to assign the perfect vehicle.",
+        "q4": "Is the service available at night or on holidays?",
+        "a4": "We operate 24/7, 365 days a year. Whether it's an early morning flight or a late night out, we are always available.",
+        "q5": "What payment methods do you accept?",
+        "a5": "We accept cash and all major credit cards directly in the taxi for your convenience."
+    },
+    "payment": {
+        "title": "Accepted Payment Methods",
+        "subtitle": "Security and convenience",
+        "visa": "Visa",
+        "mastercard": "Mastercard",
+        "cash": "Cash",
+        "cards": "Cards"
+    },
     "footer": {
         "description": "Official taxi service in the Barcelona Metropolitan Area. Official licenses and regulated rates.",
         "contact": "Contact",

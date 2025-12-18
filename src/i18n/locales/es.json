@@ -63,6 +63,27 @@
         "name": "Marc G.",
         "verified": "Cliente verificado"
     },
+    "faq": {
+        "title": "¿Tienes dudas? Te ayudamos",
+        "q1": "¿Es posible agendar un traslado al Aeropuerto con anticipación?",
+        "a1": "¡Sin duda! Recomendamos reservar con antelación para asegurar tu plaza, especialmente en horas punta. Tu conductor te esperará puntual, controlando el horario de tu vuelo.",
+        "q2": "¿Hasta dónde llegan vuestros servicios?",
+        "a2": "Cubrimos toda el Área Metropolitana de Barcelona y realizamos traslados de larga distancia a cualquier punto de Cataluña o ciudades nacionales (Girona, Tarragona, etc.).",
+        "q3": "Somos un grupo o llevamos equipaje voluminoso, ¿tenéis solución?",
+        "a3": "Sí, disponemos de una flota versátil que incluye vehículos monovolumen de hasta 6-7 plazas. Avísanos al reservar.",
+        "q4": "¿El servicio está operativo de noche o en festivos?",
+        "a4": "Operamos ininterrumpidamente 24 horas al día, 365 días al año. Ya sea un vuelo de madrugada o una salida nocturna, siempre estamos disponibles.",
+        "q5": "¿Qué métodos de pago aceptáis?",
+        "a5": "Aceptamos efectivo, tarjetas de crédito (Visa, Mastercard) y tarjetas de débito directamente en el taxi."
+    },
+    "payment": {
+        "title": "Métodos de Pago Aceptados",
+        "subtitle": "Facilidad y seguridad en cada trayecto",
+        "visa": "Visa",
+        "mastercard": "Mastercard",
+        "cash": "Efectivo",
+        "cards": "Tarjetas"
+    },
     "footer": {
         "description": "Servicio oficial de taxi en el Área Metropolitana de Barcelona. Licencias oficiales y tarifas reguladas.",
         "contact": "Contacto",
