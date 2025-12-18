@@ -13,7 +13,7 @@ i18n
             en: { translation: en },
             es: { translation: es }
         },
-        fallbackLng: 'en', // Default language
+        fallbackLng: 'es', // Default language is Spanish
         detection: {
             order: ['path', 'localStorage', 'navigator'],
             caches: ['localStorage']

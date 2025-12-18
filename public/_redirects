@@ -1,0 +1,6 @@
+# Redirects for SPA
+/*    /index.html   200
+
+# Redirect /es/ to root (Spanish is default)
+/es/*  /  200
+/en/*  /  200
