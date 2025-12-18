@@ -101,7 +101,7 @@ const App = () => {
       {/* --- NAVIGATION --- */}
       <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-md py-3 shadow-lg' : 'bg-transparent py-6'}`}>
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
+          <div className="flex items-center gap-2 group cursor-pointer" onClick={() => navigate('/')}>
             <img
               src="/img/logo-final.svg"
               alt="Taxi Movit Logo"
