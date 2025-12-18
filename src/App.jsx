@@ -243,40 +243,75 @@ const App = () => {
         </div>
       </header>
 
-      {/* --- SERVICES / FEATURES --- */}
-      <section id="servicios" className="py-20 px-4 bg-white relative">
+      {/* --- SPECIALIZED SERVICES / TOURISM --- */}
+      <section className="py-20 px-4 bg-slate-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Más que un simple trayecto</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Servicios Especializados</h2>
             <p className="text-gray-500 max-w-2xl mx-auto">
-              Redefinimos la experiencia del taxi en Barcelona combinando tecnología, confort y profesionalidad.
+              Expertos en traslados turísticos y logística de transporte en Barcelona.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                icon: <Zap size={32} />,
-                title: "Inmediatez",
-                desc: "Sin esperas innecesarias. Nuestra flota está distribuida estratégicamente por toda el área metropolitana de Barcelona."
+                title: "Aeropuerto de Barcelona (BCN)",
+                desc: "Traslados directos hacia y desde la T1 y T2. Monitoreo de vuelos e inmediatez.",
+                img: "/img/Aerepuertos.jpg",
+                tag: "Popular"
               },
               {
-                icon: <ShieldCheck size={32} />,
-                title: "Seguridad Total",
-                desc: "Vehículos higienizados, conductores profesionales certificados y trazabilidad del viaje en tiempo real."
+                title: "Puerto de Cruceros",
+                desc: "Recogidas en muelles y traslados personalizados para cruceristas.",
+                img: "/img/Puerto-barcelona.jpg",
+                tag: "Directo"
               },
               {
-                icon: <CreditCard size={32} />,
-                title: "Pago Flexible",
-                desc: "Paga como quieras: Efectivo, Tarjeta, Bizum o Contactless. Sin sorpresas ni costes ocultos."
+                title: "Tours por la Ciudad",
+                desc: "Descubre la Sagrada Familia, Park Güell y los rincones más icónicos con comodidad.",
+                img: "/img/Barcelona-cidudad.jpg",
+                tag: "Turismo"
+              },
+              {
+                title: "Servicio Business",
+                desc: "Transporte puntual y discreto para altos ejecutivos y eventos corporativos.",
+                img: "/img/Hombre_Ejecutivo_en_taxi.jpg",
+                tag: "Premium"
               }
-            ].map((item, idx) => (
-              <div key={idx} className="bg-slate-50 p-8 rounded-3xl hover:shadow-xl transition-shadow border border-slate-100 group">
-                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-yellow-500 shadow-sm mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {item.icon}
+            ].map((service, idx) => (
+              <div
+                key={idx}
+                className="group relative h-80 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/10"
+              >
+                {/* Background Image */}
+                <img
+                  src={service.img}
+                  alt={service.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+
+                {/* Content */}
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <div className="mb-3">
+                    <span className="px-3 py-1 bg-yellow-400 text-black text-xs font-bold rounded-full uppercase">
+                      {service.tag}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>
+                  <p className="text-gray-300 text-sm max-w-sm transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    {service.desc}
+                  </p>
+
+                  <div className="mt-4 flex items-center text-yellow-400 font-bold text-sm">
+                    <button onClick={handleWhatsAppBooking} className="flex items-center gap-2">
+                      Reservar Servicio <ChevronRight size={16} />
+                    </button>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-gray-500 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -390,7 +425,7 @@ const App = () => {
         </button>
       </div>
 
-    </div>
+    </div >
   );
 };
 
