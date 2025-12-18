@@ -21,7 +21,7 @@ const App = () => {
   });
 
   // Número de la empresa
-  const PHONE_NUMBER = "34625030000";
+  const PHONE_NUMBER = "+34625030000";
   const PHONE_DISPLAY = "+34 625 03 00 00";
 
   // Efecto para la barra de navegación al hacer scroll
