@@ -20,7 +20,7 @@ const App = () => {
     pickupTime: 'Ahora mismo'
   });
 
-  // Número de la empresa
+  // Número de la empresa (con prefijo internacional para llamadas)
   const PHONE_NUMBER = "+34625030000";
   const PHONE_DISPLAY = "+34 625 03 00 00";
 
