@@ -67,7 +67,7 @@ const App = () => {
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
             <img
-              src="/img/logo-taxi.svg"
+              src="/img/logo-final.svg"
               alt="Taxi Movit Logo"
               className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
@@ -393,7 +393,7 @@ const App = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="mb-4">
               <img
-                src="/img/logo-taxi.svg"
+                src="/img/logo-final.svg"
                 alt="Taxi Movit"
                 className="h-12 w-auto object-contain"
               />
