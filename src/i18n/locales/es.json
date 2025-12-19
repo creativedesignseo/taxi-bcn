@@ -1,116 +1,116 @@
 {
-    "seo": {
-        "title": "Taxi Movit - Taxi Barcelona y Aeropuerto 24h",
-        "description": "El mejor servicio de Taxi Barcelona es Taxi Movit. Reserva oficial 24h al Aeropuerto, Puerto y larga distancia. Taxis rápidos y seguros."
+  "mobile": {
+    "call": "Llamar",
+    "whatsapp": "WhatsApp"
+  },
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "rates": "Tarifas"
+  },
+  "payment": {
+    "title": "Métodos de Pago Aceptados",
+    "subtitle": "Facilidad y seguridad en cada trayecto",
+    "visa": "Visa",
+    "mastercard": "Mastercard",
+    "cash": "Efectivo",
+    "cards": "Tarjetas"
+  },
+  "rates": {
+    "port": "Puerto Cruceros",
+    "airport": "Aeropuerto T1/T2",
+    "consultRate": "Consultar Tarifa",
+    "parkGuell": "Park Güell",
+    "tariff1": "Tarifa 1 (Día)",
+    "tariff2": "Tarifa 2 (Noche/Finde)",
+    "subtitle": "Precios aproximados desde el centro de Barcelona.",
+    "title": "Destinos Frecuentes",
+    "sants": "Estación Sants"
+  },
+  "testimonials": {
+    "quote": "El mejor servicio de taxi que he usado en Barcelona. Rápido, limpio y el conductor súper amable.",
+    "name": "Laura M.",
+    "verified": "Cliente verificada"
+  },
+  "faq": {
+    "q1": "¿Es posible agendar un traslado al Aeropuerto con anticipación?",
+    "q2": "¿Hasta dónde llegan vuestros servicios?",
+    "q3": "Somos un grupo o llevamos equipaje voluminoso, ¿tenéis solución?",
+    "q4": "¿El servicio está operativo de noche o en festivos?",
+    "q5": "¿Qué métodos de pago aceptáis?",
+    "a1": "¡Sin duda! Recomendamos reservar con antelación para asegurar tu plaza, especialmente en horas punta. Tu conductor te esperará puntual, controlando el horario de tu vuelo.",
+    "a2": "Cubrimos toda el Área Metropolitana de Barcelona y realizamos traslados de larga distancia a cualquier punto de Cataluña o ciudades nacionales (Girona, Tarragona, etc.).",
+    "a3": "Sí, disponemos de una flota versátil que incluye vehículos monovolumen de hasta 6-7 plazas. Avísanos al reservar.",
+    "a4": "Operamos ininterrumpidamente 24 horas al día, 365 días al año. Ya sea un vuelo de madrugada o una salida nocturna, siempre estamos disponibles.",
+    "a5": "Aceptamos efectivo, tarjetas de crédito (Visa, Mastercard) y tarjetas de débito directamente en el taxi.",
+    "title": "¿Tienes dudas? Te ayudamos"
+  },
+  "hero": {
+    "requestButton": "Solicitar Taxi",
+    "ctaWhatsApp": "Pedir por WhatsApp",
+    "titleEnd": "sin esperas.",
+    "badge": "El taxi más rápido de Barcelona",
+    "destinationPlaceholder": "Destino (Opcional)",
+    "timeNow": "Lo antes posible (Ahora)",
+    "time30": "En 30 minutos",
+    "ctaCall": "Llamar",
+    "responseTime": "Tiempo de respuesta medio: 2 minutos",
+    "time15": "En 15 minutos",
+    "pickupPlaceholder": "¿Dónde te recogemos?",
+    "subtitle": "Servicio premium 24/7. Aeropuerto, Puerto y larga distancia. Reservas instantáneas vía WhatsApp prioritario.",
+    "title": "Muévete por   peru",
+    "titleHighlight": "Barcelona",
+    "bookingTitle": "Reserva Express",
+    "timeLater": "Programar para más tarde"
+  },
+  "footer": {
+    "contact": "Contacto",
+    "copyright": "Taxi Movit",
+    "privacy": "Política de Privacidad",
+    "cookies": "Cookies",
+    "legalNotice": "Aviso Legal",
+    "location": "Barcelona, España",
+    "legal": "Legal",
+    "email": "info@taxibcn.com",
+    "description": "Servicio oficial de taxi en el Área Metropolitana de Barcelona. Licencias oficiales y tarifas reguladas."
+  },
+  "cookiesBanner": {
+    "message": "Utilizamos cookies propias para recordar tu idioma y mejorar tu experiencia.",
+    "accept": "Aceptar",
+    "link": "Ver Política de Cookies"
+  },
+  "seo": {
+    "title": "Taxi Movit - Taxi Barcelona y Aeropuerto 24h",
+    "description": "El mejor servicio de Taxi Barcelona es Taxi Movit. Reserva oficial 24h al Aeropuerto, Puerto y larga distancia. Taxis rápidos y seguros."
+  },
+  "services": {
+    "title": "Servicios Especializados",
+    "subtitle": "Expertos en traslados turísticos y logística de transporte en Barcelona.",
+    "airport": {
+      "title": "Aeropuerto de Barcelona (BCN)",
+      "desc": "Traslados directos hacia y desde la T1 y T2. Monitoreo de vuelos e inmediatez.",
+      "tag": "Popular"
     },
-    "nav": {
-        "home": "Inicio",
-        "services": "Servicios",
-        "rates": "Tarifas"
+    "port": {
+      "title": "Puerto de Cruceros",
+      "desc": "Recogidas en muelles y traslados personalizados para cruceristas.",
+      "tag": "Directo"
     },
-    "hero": {
-        "badge": "El taxi más rápido de Barcelona",
-        "title": "Muévete por",
-        "titleHighlight": "Barcelona",
-        "titleEnd": "sin esperas.",
-        "subtitle": "Servicio premium 24/7. Aeropuerto, Puerto y larga distancia. Reservas instantáneas vía WhatsApp prioritario.",
-        "ctaWhatsApp": "Pedir por WhatsApp",
-        "ctaCall": "Llamar",
-        "bookingTitle": "Reserva Express",
-        "pickupPlaceholder": "¿Dónde te recogemos?",
-        "destinationPlaceholder": "Destino (Opcional)",
-        "timeNow": "Lo antes posible (Ahora)",
-        "time15": "En 15 minutos",
-        "time30": "En 30 minutos",
-        "timeLater": "Programar para más tarde",
-        "requestButton": "Solicitar Taxi",
-        "responseTime": "Tiempo de respuesta medio: 2 minutos"
+    "cityTour": {
+      "title": "Tours por la Ciudad",
+      "desc": "Descubre la Sagrada Familia, Park Güell y los rincones más icónicos con comodidad.",
+      "tag": "Turismo"
     },
-    "services": {
-        "title": "Servicios Especializados",
-        "subtitle": "Expertos en traslados turísticos y logística de transporte en Barcelona.",
-        "airport": {
-            "title": "Aeropuerto de Barcelona (BCN)",
-            "desc": "Traslados directos hacia y desde la T1 y T2. Monitoreo de vuelos e inmediatez.",
-            "tag": "Popular"
-        },
-        "port": {
-            "title": "Puerto de Cruceros",
-            "desc": "Recogidas en muelles y traslados personalizados para cruceristas.",
-            "tag": "Directo"
-        },
-        "cityTour": {
-            "title": "Tours por la Ciudad",
-            "desc": "Descubre la Sagrada Familia, Park Güell y los rincones más icónicos con comodidad.",
-            "tag": "Turismo"
-        },
-        "business": {
-            "title": "Servicio Business",
-            "desc": "Transporte puntual y discreto para altos ejecutivos y eventos corporativos.",
-            "tag": "Premium"
-        },
-        "fira": {
-            "title": "Fira de Barcelona / Eventos",
-            "desc": "Traslados ejecutivos para Mobile World Congress (MWC) y ferias internacionales.",
-            "tag": "Negocios"
-        },
-        "bookService": "Reservar Servicio"
+    "business": {
+      "title": "Servicio Business",
+      "desc": "Transporte puntual y discreto para altos ejecutivos y eventos corporativos.",
+      "tag": "Premium"
     },
-    "rates": {
-        "title": "Destinos Frecuentes",
-        "subtitle": "Precios aproximados desde el centro de Barcelona.",
-        "tariff1": "Tarifa 1 (Día)",
-        "tariff2": "Tarifa 2 (Noche/Finde)",
-        "airport": "Aeropuerto T1/T2",
-        "port": "Puerto Cruceros",
-        "sants": "Estación Sants",
-        "parkGuell": "Park Güell",
-        "consultRate": "Consultar Tarifa"
+    "fira": {
+      "title": "Fira de Barcelona / Eventos",
+      "desc": "Traslados ejecutivos para Mobile World Congress (MWC) y ferias internacionales.",
+      "tag": "Negocios"
     },
-    "testimonials": {
-        "quote": "El mejor servicio de taxi que he usado en Barcelona. Rápido, limpio y el conductor súper amable.",
-        "name": "Laura M.",
-        "verified": "Cliente verificada"
-    },
-    "faq": {
-        "title": "¿Tienes dudas? Te ayudamos",
-        "q1": "¿Es posible agendar un traslado al Aeropuerto con anticipación?",
-        "a1": "¡Sin duda! Recomendamos reservar con antelación para asegurar tu plaza, especialmente en horas punta. Tu conductor te esperará puntual, controlando el horario de tu vuelo.",
-        "q2": "¿Hasta dónde llegan vuestros servicios?",
-        "a2": "Cubrimos toda el Área Metropolitana de Barcelona y realizamos traslados de larga distancia a cualquier punto de Cataluña o ciudades nacionales (Girona, Tarragona, etc.).",
-        "q3": "Somos un grupo o llevamos equipaje voluminoso, ¿tenéis solución?",
-        "a3": "Sí, disponemos de una flota versátil que incluye vehículos monovolumen de hasta 6-7 plazas. Avísanos al reservar.",
-        "q4": "¿El servicio está operativo de noche o en festivos?",
-        "a4": "Operamos ininterrumpidamente 24 horas al día, 365 días al año. Ya sea un vuelo de madrugada o una salida nocturna, siempre estamos disponibles.",
-        "q5": "¿Qué métodos de pago aceptáis?",
-        "a5": "Aceptamos efectivo, tarjetas de crédito (Visa, Mastercard) y tarjetas de débito directamente en el taxi."
-    },
-    "payment": {
-        "title": "Métodos de Pago Aceptados",
-        "subtitle": "Facilidad y seguridad en cada trayecto",
-        "visa": "Visa",
-        "mastercard": "Mastercard",
-        "cash": "Efectivo",
-        "cards": "Tarjetas"
-    },
-    "cookiesBanner": {
-        "message": "Utilizamos cookies propias para recordar tu idioma y mejorar tu experiencia.",
-        "accept": "Aceptar",
-        "link": "Ver Política de Cookies"
-    },
-    "footer": {
-        "description": "Servicio oficial de taxi en el Área Metropolitana de Barcelona. Licencias oficiales y tarifas reguladas.",
-        "contact": "Contacto",
-        "email": "info@taxibcn.com",
-        "location": "Barcelona, España",
-        "legal": "Legal",
-        "legalNotice": "Aviso Legal",
-        "privacy": "Política de Privacidad",
-        "cookies": "Cookies",
-        "copyright": "Taxi Movit"
-    },
-    "mobile": {
-        "call": "Llamar",
-        "whatsapp": "WhatsApp"
-    }
+    "bookService": "Reservar Servicio"
+  }
 }
