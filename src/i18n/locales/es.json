@@ -20,7 +20,7 @@
   "rates": {
     "active": true,
     "port": "Puerto Cruceros",
-    "consultRate": "Consultar Disponibilidad",
+    "consultRate": "Consultar",
     "parkGuell": "Park Güell",
     "tariff1": "Tarifa 1 (Día)",
     "tariff2": "Tarifa 2 (Noche/Finde)",

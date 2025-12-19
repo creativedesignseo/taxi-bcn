@@ -387,7 +387,7 @@ const App = () => {
                   <p className="text-gray-400">{t('rates.subtitle')}</p>
                 </div>
 
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6">
                   {[
                     {
                       title: t('rates.babySeat'),
@@ -428,7 +428,7 @@ const App = () => {
                         </p>
                         <button
                           onClick={(e) => handleWhatsAppBooking(e, service.msg)}
-                          className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 text-sm"
+                          className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2.5 px-1 rounded-xl transition-all flex items-center justify-center gap-1 text-[13px]"
                         >
                           {t('rates.consultRate')} <ChevronRight size={18} />
                         </button>
