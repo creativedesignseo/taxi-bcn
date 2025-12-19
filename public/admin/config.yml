@@ -5,66 +5,47 @@ backend:
 media_folder: "public/img"
 public_folder: "/img"
 
-# URL del sitio para previsualizar
 site_url: https://taximovit.com
-
-# Logo del panel (Opcional, usa el de la web)
 logo_url: /img/logo-main.png
-
-# Idioma del panel
 locale: 'es'
 
-# Configuración de las colecciones (lo que se puede editar)
 collections:
   - name: "config"
-    label: "⚙️ Configuración del Negocio"
+    label: "⚙️ Configuración"
     files:
       - name: "contact_info"
-        label: "Datos de Contacto (Teléfono/Email)"
+        label: "Datos de Contacto"
         file: "src/i18n/locales/es.json"
-        description: "Edita aquí el teléfono y email que aparecen en TODA la web."
         fields:
-          # Nota: Estoy mapeando campos existentes o futuros. 
-          # Como los JSON de i18n tienen estructura anidada, Decap necesita configuración especial para i18n.
-          # Por simplificación inicial, permitiremos editar los textos principales.
-          - {label: "Teléfono (Visible)", name: "phone_display", widget: "string", default: "+34 625 03 00 00"} 
+          - {label: "Teléfono Visual", name: "phone_display", widget: "string"}
           
   - name: "pages"
-    label: "📄 Páginas Web"
+    label: "📄 Contenido Web"
     files:
       - name: "home_es"
         label: "Inicio (Español)"
         file: "src/i18n/locales/es.json"
         fields:
-          - label: "SEO Título"
+          - label: "SEO"
             name: "seo"
             widget: "object"
             fields:
-              - {label: "Título Google", name: "title", widget: "string"}
-              - {label: "Descripción Google", name: "description", widget: "text"}
-          
-          - label: "Héroe (Portada)"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Título Principal", name: "title", widget: "string"}
-              - {label: "Subtítulo", name: "subtitle", widget: "string"}
-              
-          - label: "Tarifas y Destinos"
+              - {label: "Título", name: "title", widget: "string"}
+              - {label: "Descripción", name: "description", widget: "text"}
+          - label: "Precios"
             name: "rates"
             widget: "object"
             fields:
-              - {label: "Precio Aeropuerto", name: "airport", widget: "string"}
-              - {label: "Precio Puerto", name: "port", widget: "string"}
+              - {label: "Aeropuerto", name: "airport", widget: "string"}
+              - {label: "Puerto", name: "port", widget: "string"}
               
-      - name: "home_en"
-        label: "Inicio (Inglés)"
-        file: "src/i18n/locales/en.json"
+  - name: "billing"
+    label: "💳 Suscripción y Pagos"
+    files:
+      - name: "stripe_portal"
+        label: "Gestión de Facturas"
+        file: "src/i18n/locales/billing.json"
+        description: "⚠️ Haz clic en el enlace de abajo para ir a tu Área de Cliente en Stripe y gestionar tus pagos."
         fields:
-          - label: "SEO Title"
-            name: "seo"
-            widget: "object"
-            fields:
-              - {label: "Google Title", name: "title", widget: "string"}
-              - {label: "Google Description", name: "description", widget: "text"}
-
+          - {label: "Aviso", name: "billing_notice", widget: "string", readonly: true}
+          - {label: "Tu enlace de Stripe", name: "stripe_url", widget: "string", readonly: true}

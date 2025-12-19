@@ -1,32 +1,70 @@
-/* Ocultar el logo de Decap en el pie de página */
+/* --- APPLE MINIMALIST DESIGN FOR DECAP CMS --- */
+
+/* Fondo general y tipografía */
+body,
+#nc-root {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    background-color: #f5f5f7 !important;
+}
+
+/* Ocultar logos de terceros */
 .decap-cms-logo,
 [class^="decap-cms-logo"],
-div[class*="LogoContainer"],
-footer a {
+footer a,
+footer p,
+[class*="LogoContainer"] {
     display: none !important;
 }
 
-/* Limpiar la pantalla de login */
-#nc-root [class^="StyledAuthenticationPage"] footer {
-    display: none !important;
-}
-
-/* Personalizar el botón de entrada si es posible */
-.netlify-identity-button {
-    background-color: #facc15 !important;
-    /* Amarillo Taxi */
-    color: black !important;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-/* Estilos extra para que el panel se vea más "blanco" y limpio */
+/* Encabezado estilo cristal (Glassmorphism) */
 .nc-app-header-fixed {
-    background-color: white !important;
-    color: #1e293b !important;
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1) !important;
+    background-color: rgba(255, 255, 255, 0.72) !important;
+    backdrop-filter: saturate(180%) blur(20px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: none !important;
 }
 
-.nc-app-header-button {
-    color: #1e293b !important;
+/* Texto de la barra superior */
+.nc-app-header-button,
+[class*="AppHeaderButton"] {
+    color: #1d1d1f !important;
+    font-weight: 500 !important;
+}
+
+/* Sidebar minimalista */
+aside[class*="Sidebar"] {
+    background-color: #f5f5f7 !important;
+    border-right: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Estilo de los "Contenedores" de edición */
+[class*="ControlContainer"] {
+    background: white !important;
+    border-radius: 12px !important;
+    border: 1px solid #d2d2d7 !important;
+    padding: 24px !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Botones estilo Apple (Azul San Francisco) */
+button[class*="PublishButton"],
+.nc-app-header-button-publish {
+    background-color: #0071e3 !important;
+    border-radius: 18px !important;
+    color: white !important;
+    font-weight: 600 !important;
+    padding: 6px 16px !important;
+}
+
+/* Pantalla de Login */
+div[class*="StyledAuthenticationPage"] {
+    background-color: white !important;
+}
+
+.netlify-identity-button {
+    background-color: #1d1d1f !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    padding: 14px 28px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
 }

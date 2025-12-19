@@ -1,0 +1,4 @@
+{
+    "billing_notice": "Para gestionar tus pagos, facturas o cambiar de plan, utiliza el botón de Stripe abajo.",
+    "stripe_url": "https://billing.stripe.com/p/login/your_custom_url"
+}
