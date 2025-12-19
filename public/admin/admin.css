@@ -8,7 +8,6 @@ body,
 }
 
 /* ❌ ELIMINACIÓN TOTAL DE LOGOS (DECAP/NETLIFY/FOOTERS) ❌ */
-/* Atacamos por clases dinámicas, etiquetas y contenedores */
 [class*="LogoContainer"],
 [class*="NetlifyCredit"],
 [class*="IconWrapper"],
@@ -17,7 +16,6 @@ body,
 footer,
 .nc-app-footer,
 svg[viewBox="0 0 100 100"],
-/* Logo de Decap común */
 a[href*="decapcms"],
 a[href*="netlify"] {
     display: none !important;
@@ -26,14 +24,26 @@ a[href*="netlify"] {
     pointer-events: none !important;
 }
 
-/* --- ESTILO APPLE PREMIUM --- */
-
-/* Barra Superior Cristalina */
+/* Barra Superior Cristalina (Fija arriba) */
 .nc-app-header-fixed {
     background-color: rgba(255, 255, 255, 0.8) !important;
     backdrop-filter: saturate(180%) blur(20px) !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
     box-shadow: none !important;
+    z-index: 100 !important;
+}
+
+/* ❌ FIX: BARRA FLOTANTE INTERMEDIA ❌ */
+/* Esta es la barra que veías en medio del contenido */
+[class*="StyledAppHeader"] {
+    position: relative !important;
+    top: 0 !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    background: white !important;
+    margin-bottom: 20px !important;
+    width: 100% !important;
 }
 
 /* Botones Apple Originales */
@@ -41,9 +51,18 @@ button[class*="PublishButton"],
 .nc-app-header-button-publish,
 button[class*="Button"] {
     border-radius: 980px !important;
-    /* Estilo Apple pill */
     font-weight: 500 !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Hacer visible el botón de Logout en rojo */
+[class*="LogoutButton"],
+button[class*="StyledLogoutButton"] {
+    color: #ff3b30 !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
 }
 
 /* Color Azul Apple */
@@ -63,6 +82,7 @@ button[class*="PublishButton"]:hover {
     border: 1px solid rgba(0, 0, 0, 0.1) !important;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01) !important;
     margin-bottom: 24px !important;
+    padding: 24px !important;
 }
 
 /* Login Page Branding */
