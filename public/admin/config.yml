@@ -36,7 +36,7 @@ collections:
             name: "rates"
             widget: "object"
             fields:
-              - {label: "Sección Activa", name: "active", widget: "boolean", default: true}
+              - {label: "🟢 Mostrar Sección de Tarifas", name: "active", widget: "boolean", default: true}
               - {label: "Aeropuerto", name: "airport", widget: "string"}
               - {label: "Puerto", name: "port", widget: "string"}
               
