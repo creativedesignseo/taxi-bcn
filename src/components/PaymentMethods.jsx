@@ -22,23 +22,23 @@ const PaymentMethods = () => {
 
             <div className="relative flex overflow-x-hidden">
                 {/* Carrusel Infinito */}
-                <div className="animate-marquee whitespace-nowrap flex items-center py-4">
+                <div className="animate-marquee whitespace-nowrap flex items-center py-8">
                     {/* Primera tanda de logos */}
                     {logos.map((logo, idx) => (
-                        <div key={`logo-1-${idx}`} className="mx-8 flex-shrink-0">
-                            <img src={logo} alt="Payment Method" className="h-10 md:h-12 w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+                        <div key={`logo-1-${idx}`} className="mx-12 flex-shrink-0">
+                            <img src={logo} alt="Payment Method" className="h-14 md:h-18 w-auto transition-all duration-300 drop-shadow-md hover:drop-shadow-xl hover:scale-110" />
                         </div>
                     ))}
                     {/* Segunda tanda de logos para el loop infinito */}
                     {logos.map((logo, idx) => (
-                        <div key={`logo-2-${idx}`} className="mx-8 flex-shrink-0">
-                            <img src={logo} alt="Payment Method" className="h-10 md:h-12 w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+                        <div key={`logo-2-${idx}`} className="mx-12 flex-shrink-0">
+                            <img src={logo} alt="Payment Method" className="h-14 md:h-18 w-auto transition-all duration-300 drop-shadow-md hover:drop-shadow-xl hover:scale-110" />
                         </div>
                     ))}
                     {/* Tercera tanda de logos para pantallas muy anchas */}
                     {logos.map((logo, idx) => (
-                        <div key={`logo-3-${idx}`} className="mx-8 flex-shrink-0">
-                            <img src={logo} alt="Payment Method" className="h-10 md:h-12 w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300" />
+                        <div key={`logo-3-${idx}`} className="mx-12 flex-shrink-0">
+                            <img src={logo} alt="Payment Method" className="h-14 md:h-18 w-auto transition-all duration-300 drop-shadow-md hover:drop-shadow-xl hover:scale-110" />
                         </div>
                     ))}
                 </div>
