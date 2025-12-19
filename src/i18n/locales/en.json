@@ -58,15 +58,21 @@
     },
     "rates": {
         "active": true,
-        "title": "Frequent Destinations",
-        "subtitle": "Approximate prices from Barcelona city center.",
+        "title": "Special Services",
+        "subtitle": "Specialized assistance for every passenger's needs.",
         "tariff1": "Tariff 1 (Day)",
         "tariff2": "Tariff 2 (Night/Weekend)",
         "airport": "Airport T1/T2",
         "port": "Cruise Port",
         "sants": "Sants Station",
         "parkGuell": "Park Güell",
-        "consultRate": "Get Quote"
+        "consultRate": "Check Availability",
+        "babySeat": "Baby Seats",
+        "babySeatDesc": "Approved Group 0+ seats and carriers for the little ones.",
+        "childSeat": "Child Seats",
+        "childSeatDesc": "Group 1, 2, and 3 seats adapted to your child's age and weight.",
+        "pmr": "Adapted Taxi (PRM)",
+        "pmrDesc": "Eurotaxi vehicles adapted for passengers with reduced mobility."
     },
     "testimonials": {
         "quote": "The best taxi service I've used in Barcelona. Fast, clean and the driver was super friendly.",

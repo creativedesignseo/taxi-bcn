@@ -382,27 +382,41 @@ const App = () => {
                   <p className="text-gray-400">{t('rates.subtitle')}</p>
                 </div>
 
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                   {[
-                    { dest: t('rates.airport'), time: "25 min", img: "/img/Cluster 1-1 aereo.jpg" },
-                    { dest: t('rates.port'), time: "15 min", img: "/img/Puerto-2.jpg" },
-                    { dest: t('rates.sants'), time: "12 min", img: "/img/Barcelona-cidudad.jpg" },
-                    { dest: t('rates.parkGuell'), time: "20 min", img: "/img/Park-Guell.jpg" },
-                  ].map((route, idx) => (
-                    <div key={idx} className="bg-slate-800/50 rounded-2xl border border-white/5 hover:border-yellow-400/50 transition-all group overflow-hidden">
-                      <div className="h-32 md:h-40 overflow-hidden relative">
-                        <img src={route.img} alt={route.dest} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                        <div className="absolute top-2 right-2 md:top-3 md:right-3">
-                          <span className="text-[10px] font-mono text-white bg-black/60 backdrop-blur-sm px-2 py-1 rounded">~{route.time}</span>
+                    {
+                      title: t('rates.babySeat'),
+                      desc: t('rates.babySeatDesc'),
+                      img: "/img/Taxi con silla infantil  silla para niños 2.jpg"
+                    },
+                    {
+                      title: t('rates.childSeat'),
+                      desc: t('rates.childSeatDesc'),
+                      img: "/img/Taxi con silla infantil  silla para niños 1.jpg"
+                    },
+                    {
+                      title: t('rates.pmr'),
+                      desc: t('rates.pmrDesc'),
+                      img: "/img/Persona con movilidad reducida (PMR).jpg"
+                    },
+                  ].map((service, idx) => (
+                    <div key={idx} className="bg-slate-800/50 rounded-2xl border border-white/5 hover:border-yellow-400/50 transition-all group overflow-hidden flex flex-col">
+                      <div className="h-52 overflow-hidden relative">
+                        <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                        <div className="absolute top-4 left-4">
+                          <span className="bg-yellow-400 text-black text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded">Servicio Oficial</span>
                         </div>
                       </div>
-                      <div className="p-4 md:p-5">
-                        <h4 className="font-bold text-sm md:text-lg mb-4 line-clamp-1">{route.dest}</h4>
+                      <div className="p-6 flex flex-col flex-grow">
+                        <h4 className="font-bold text-xl mb-3 text-white">{service.title}</h4>
+                        <p className="text-gray-400 text-sm mb-6 flex-grow">
+                          {service.desc}
+                        </p>
                         <button
                           onClick={handleWhatsAppBooking}
-                          className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2.5 md:py-3 rounded-lg md:rounded-xl transition-all flex items-center justify-center gap-2 text-xs md:text-base"
+                          className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2"
                         >
-                          {t('rates.consultRate')} <ChevronRight size={16} />
+                          {t('rates.consultRate')} <ChevronRight size={20} />
                         </button>
                       </div>
                     </div>
