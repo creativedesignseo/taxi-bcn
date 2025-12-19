@@ -374,41 +374,43 @@ const App = () => {
           </section>
 
           {/* --- ESTIMATED RATES --- */}
-          <section id="tarifas" className="py-20 px-4 bg-slate-900 text-white">
-            <div className="container mx-auto max-w-5xl">
-              <div className="mb-12 border-b border-gray-800 pb-8">
-                <h2 className="text-3xl font-bold text-yellow-400 mb-2">{t('rates.title')}</h2>
-                <p className="text-gray-400">{t('rates.subtitle')}</p>
-              </div>
+          {t('rates.active') !== 'false' && (
+            <section id="tarifas" className="py-20 px-4 bg-slate-900 text-white">
+              <div className="container mx-auto max-w-5xl">
+                <div className="mb-12 border-b border-gray-800 pb-8">
+                  <h2 className="text-3xl font-bold text-yellow-400 mb-2">{t('rates.title')}</h2>
+                  <p className="text-gray-400">{t('rates.subtitle')}</p>
+                </div>
 
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                {[
-                  { dest: t('rates.airport'), time: "25 min", img: "/img/Cluster 1-1 aereo.jpg" },
-                  { dest: t('rates.port'), time: "15 min", img: "/img/Puerto-2.jpg" },
-                  { dest: t('rates.sants'), time: "12 min", img: "/img/Barcelona-cidudad.jpg" },
-                  { dest: t('rates.parkGuell'), time: "20 min", img: "/img/Park-Guell.jpg" },
-                ].map((route, idx) => (
-                  <div key={idx} className="bg-slate-800/50 rounded-2xl border border-white/5 hover:border-yellow-400/50 transition-all group overflow-hidden">
-                    <div className="h-32 md:h-40 overflow-hidden relative">
-                      <img src={route.img} alt={route.dest} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                      <div className="absolute top-2 right-2 md:top-3 md:right-3">
-                        <span className="text-[10px] font-mono text-white bg-black/60 backdrop-blur-sm px-2 py-1 rounded">~{route.time}</span>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                  {[
+                    { dest: t('rates.airport'), time: "25 min", img: "/img/Cluster 1-1 aereo.jpg" },
+                    { dest: t('rates.port'), time: "15 min", img: "/img/Puerto-2.jpg" },
+                    { dest: t('rates.sants'), time: "12 min", img: "/img/Barcelona-cidudad.jpg" },
+                    { dest: t('rates.parkGuell'), time: "20 min", img: "/img/Park-Guell.jpg" },
+                  ].map((route, idx) => (
+                    <div key={idx} className="bg-slate-800/50 rounded-2xl border border-white/5 hover:border-yellow-400/50 transition-all group overflow-hidden">
+                      <div className="h-32 md:h-40 overflow-hidden relative">
+                        <img src={route.img} alt={route.dest} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                        <div className="absolute top-2 right-2 md:top-3 md:right-3">
+                          <span className="text-[10px] font-mono text-white bg-black/60 backdrop-blur-sm px-2 py-1 rounded">~{route.time}</span>
+                        </div>
+                      </div>
+                      <div className="p-4 md:p-5">
+                        <h4 className="font-bold text-sm md:text-lg mb-4 line-clamp-1">{route.dest}</h4>
+                        <button
+                          onClick={handleWhatsAppBooking}
+                          className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2.5 md:py-3 rounded-lg md:rounded-xl transition-all flex items-center justify-center gap-2 text-xs md:text-base"
+                        >
+                          {t('rates.consultRate')} <ChevronRight size={16} />
+                        </button>
                       </div>
                     </div>
-                    <div className="p-4 md:p-5">
-                      <h4 className="font-bold text-sm md:text-lg mb-4 line-clamp-1">{route.dest}</h4>
-                      <button
-                        onClick={handleWhatsAppBooking}
-                        className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2.5 md:py-3 rounded-lg md:rounded-xl transition-all flex items-center justify-center gap-2 text-xs md:text-base"
-                      >
-                        {t('rates.consultRate')} <ChevronRight size={16} />
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          )}
 
           {/* --- REVIEWS / SOCIAL PROOF --- */}
           <section className="py-20 px-4 bg-white">

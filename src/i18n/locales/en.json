@@ -57,6 +57,7 @@
         "bookService": "Book Service"
     },
     "rates": {
+        "active": true,
         "title": "Frequent Destinations",
         "subtitle": "Approximate prices from Barcelona city center.",
         "tariff1": "Tariff 1 (Day)",

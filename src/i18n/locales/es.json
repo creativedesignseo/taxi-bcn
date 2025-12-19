@@ -18,6 +18,7 @@
   },
   "phone_display": "655354411",
   "rates": {
+    "active": true,
     "port": "Puerto Cruceros",
     "airport": "Aeropuerto T1/T2",
     "consultRate": "Consultar Tarifa",
