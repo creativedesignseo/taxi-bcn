@@ -381,7 +381,7 @@ const App = () => {
                 <p className="text-gray-400">{t('rates.subtitle')}</p>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {[
                   { dest: t('rates.airport'), time: "25 min", img: "/img/Cluster 1-1 aereo.jpg" },
                   { dest: t('rates.port'), time: "15 min", img: "/img/Puerto-2.jpg" },
@@ -389,19 +389,19 @@ const App = () => {
                   { dest: t('rates.parkGuell'), time: "20 min", img: "/img/Sagrada-familia-02.jpg" },
                 ].map((route, idx) => (
                   <div key={idx} className="bg-slate-800/50 rounded-2xl border border-white/5 hover:border-yellow-400/50 transition-all group overflow-hidden">
-                    <div className="h-40 overflow-hidden relative">
+                    <div className="h-32 md:h-40 overflow-hidden relative">
                       <img src={route.img} alt={route.dest} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                      <div className="absolute top-3 right-3">
+                      <div className="absolute top-2 right-2 md:top-3 md:right-3">
                         <span className="text-[10px] font-mono text-white bg-black/60 backdrop-blur-sm px-2 py-1 rounded">~{route.time}</span>
                       </div>
                     </div>
-                    <div className="p-5">
-                      <h4 className="font-bold text-lg mb-4">{route.dest}</h4>
+                    <div className="p-4 md:p-5">
+                      <h4 className="font-bold text-sm md:text-lg mb-4 line-clamp-1">{route.dest}</h4>
                       <button
                         onClick={handleWhatsAppBooking}
-                        className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2"
+                        className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2.5 md:py-3 rounded-lg md:rounded-xl transition-all flex items-center justify-center gap-2 text-xs md:text-base"
                       >
-                        {t('rates.consultRate')} <ChevronRight size={18} />
+                        {t('rates.consultRate')} <ChevronRight size={16} />
                       </button>
                     </div>
                   </div>
