@@ -18,8 +18,8 @@
   },
   "phone_display": "655354411",
   "rates": {
-    "active": true,
     "port": "Puerto Cruceros",
+    "active": false,
     "airport": "Aeropuerto T1/T2",
     "consultRate": "Consultar Tarifa",
     "parkGuell": "Park Güell",
