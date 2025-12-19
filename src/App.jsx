@@ -375,43 +375,34 @@ const App = () => {
           {/* --- ESTIMATED RATES --- */}
           <section id="tarifas" className="py-20 px-4 bg-slate-900 text-white">
             <div className="container mx-auto max-w-5xl">
-              <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-gray-800 pb-8 gap-6">
-                <div>
-                  <h2 className="text-3xl font-bold text-yellow-400 mb-2">{t('rates.title')}</h2>
-                  <p className="text-gray-400">{t('rates.subtitle')}</p>
-                </div>
-                <div className="flex gap-2">
-                  <button className="px-4 py-2 rounded-full bg-white text-black font-semibold text-sm">{t('rates.tariff1')}</button>
-                  <button className="px-4 py-2 rounded-full border border-gray-700 text-gray-400 font-semibold text-sm">{t('rates.tariff2')}</button>
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {[
-                  { dest: t('rates.airport'), time: "25 min" },
-                  { dest: t('rates.port'), time: "15 min" },
-                  { dest: t('rates.sants'), time: "12 min" },
-                  { dest: t('rates.parkGuell'), time: "20 min" },
-                ].map((route, idx) => (
-                  <div key={idx} className="bg-slate-800/50 p-6 rounded-2xl border border-white/5 hover:border-yellow-400/50 transition-all group">
-                    <div className="flex justify-between items-start mb-4">
-                      <div className="bg-yellow-400/10 p-2 rounded-lg">
-                        <MapPin className="text-yellow-400" size={20} />
-                      </div>
-                      <span className="text-xs font-mono text-gray-400 bg-black/30 px-2 py-1 rounded">~{route.time}</span>
-                    </div>
-                    <h4 className="font-bold text-lg mb-4">{route.dest}</h4>
-                    <button
-                      onClick={handleWhatsAppBooking}
-                      className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 group-hover:scale-105"
-                    >
-                      {t('rates.consultRate')} <ChevronRight size={18} />
-                    </button>
-                  </div>
-                ))}
-              </div>
             </div>
-          </section>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { dest: t('rates.airport'), time: "25 min" },
+                { dest: t('rates.port'), time: "15 min" },
+                { dest: t('rates.sants'), time: "12 min" },
+                { dest: t('rates.parkGuell'), time: "20 min" },
+              ].map((route, idx) => (
+                <div key={idx} className="bg-slate-800/50 p-6 rounded-2xl border border-white/5 hover:border-yellow-400/50 transition-all group">
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="bg-yellow-400/10 p-2 rounded-lg">
+                      <MapPin className="text-yellow-400" size={20} />
+                    </div>
+                    <span className="text-xs font-mono text-gray-400 bg-black/30 px-2 py-1 rounded">~{route.time}</span>
+                  </div>
+                  <h4 className="font-bold text-lg mb-4">{route.dest}</h4>
+                  <button
+                    onClick={handleWhatsAppBooking}
+                    className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 group-hover:scale-105"
+                  >
+                    {t('rates.consultRate')} <ChevronRight size={18} />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
           {/* --- REVIEWS / SOCIAL PROOF --- */}
           <section className="py-20 px-4 bg-white">
