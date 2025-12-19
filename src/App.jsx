@@ -9,7 +9,7 @@ import { Phone, MessageCircle, MapPin, Clock, Shield, Star, Menu, X, ChevronRigh
 import LanguageSwitcher from './components/LanguageSwitcher';
 
 const App = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('book'); // book | rates | fleet
