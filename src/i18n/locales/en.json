@@ -93,6 +93,11 @@
         "cash": "Cash",
         "cards": "Cards"
     },
+    "cookiesBanner": {
+        "message": "We use our own cookies to remember your language and improve your experience.",
+        "accept": "Accept",
+        "link": "View Cookie Policy"
+    },
     "footer": {
         "description": "Official taxi service in the Barcelona Metropolitan Area. Official licenses and regulated rates.",
         "contact": "Contact",

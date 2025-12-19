@@ -93,6 +93,11 @@
         "cash": "Efectivo",
         "cards": "Tarjetas"
     },
+    "cookiesBanner": {
+        "message": "Utilizamos cookies propias para recordar tu idioma y mejorar tu experiencia.",
+        "accept": "Aceptar",
+        "link": "Ver Política de Cookies"
+    },
     "footer": {
         "description": "Servicio oficial de taxi en el Área Metropolitana de Barcelona. Licencias oficiales y tarifas reguladas.",
         "contact": "Contacto",

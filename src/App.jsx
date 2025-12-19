@@ -7,6 +7,7 @@ import PaymentMethods from './components/PaymentMethods';
 import SEO from './components/SEO';
 import { Phone, MessageCircle, MapPin, Clock, Shield, Star, Menu, X, ChevronRight, Zap, Globe } from 'lucide-react';
 import LanguageSwitcher from './components/LanguageSwitcher';
+import CookieConsent from './components/CookieConsent';
 
 const App = () => {
   const { t, i18n } = useTranslation();
@@ -489,6 +490,7 @@ const App = () => {
         </button>
       </div>
 
+      <CookieConsent />
     </div >
   );
 };
