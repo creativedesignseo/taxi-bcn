@@ -307,13 +307,13 @@ const App = () => {
                   {
                     title: t('services.airport.title'),
                     desc: t('services.airport.desc'),
-                    img: "/img/Aerepuertos.jpg",
+                    img: "/img/Cluster 1-1 aereo.jpg",
                     tag: t('services.airport.tag')
                   },
                   {
                     title: t('services.port.title'),
                     desc: t('services.port.desc'),
-                    img: "/img/Puerto-barcelona.jpg",
+                    img: "/img/Puerto-2.jpg",
                     tag: t('services.port.tag')
                   },
                   {
