@@ -1,0 +1,32 @@
+/* Ocultar el logo de Decap en el pie de página */
+.decap-cms-logo,
+[class^="decap-cms-logo"],
+div[class*="LogoContainer"],
+footer a {
+    display: none !important;
+}
+
+/* Limpiar la pantalla de login */
+#nc-root [class^="StyledAuthenticationPage"] footer {
+    display: none !important;
+}
+
+/* Personalizar el botón de entrada si es posible */
+.netlify-identity-button {
+    background-color: #facc15 !important;
+    /* Amarillo Taxi */
+    color: black !important;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Estilos extra para que el panel se vea más "blanco" y limpio */
+.nc-app-header-fixed {
+    background-color: white !important;
+    color: #1e293b !important;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1) !important;
+}
+
+.nc-app-header-button {
+    color: #1e293b !important;
+}
