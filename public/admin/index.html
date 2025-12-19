@@ -18,6 +18,16 @@
 <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+        // Brute force to hide branding logos every second (handles dynamic rendering)
+        setInterval(() => {
+            const selectors = ['.decap-cms-logo', 'footer', '[class*="LogoContainer"]', '[class*="StyledAuthenticationPage"] footer'];
+            selectors.forEach(s => {
+                const el = document.querySelector(s);
+                if (el) el.style.display = 'none';
+            });
+        }, 1000);
+    </script>
 </body>
 
 </html>

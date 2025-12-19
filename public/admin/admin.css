@@ -7,13 +7,22 @@ body,
     background-color: #f5f5f7 !important;
 }
 
-/* Ocultar logos de terceros */
+/* ❌ OCULTAR BRANDING (DECAP/NETLIFY/CREDITS) ❌ */
 .decap-cms-logo,
 [class^="decap-cms-logo"],
-footer a,
-footer p,
-[class*="LogoContainer"] {
+[class*="LogoContainer"],
+[class*="StyledAuthenticationPage"] footer,
+[class*="StyledAuthenticationPage"] svg,
+[class*="StyledAuthenticationPage"] a,
+footer,
+.nc-app-footer,
+#nc-root footer {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
 }
 
 /* Encabezado estilo cristal (Glassmorphism) */
@@ -59,6 +68,10 @@ button[class*="PublishButton"],
 /* Pantalla de Login */
 div[class*="StyledAuthenticationPage"] {
     background-color: white !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .netlify-identity-button {
