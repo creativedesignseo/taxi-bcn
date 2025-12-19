@@ -387,7 +387,7 @@ const App = () => {
                   <p className="text-gray-400">{t('rates.subtitle')}</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                   {[
                     {
                       title: t('rates.babySeat'),
@@ -406,6 +406,12 @@ const App = () => {
                       desc: t('rates.pmrDesc'),
                       msg: t('rates.pmrMsg'),
                       img: "/img/Persona con movilidad reducida (PMR).jpg"
+                    },
+                    {
+                      title: t('rates.bigLuggage'),
+                      desc: t('rates.bigLuggageDesc'),
+                      msg: t('rates.bigLuggageMsg'),
+                      img: "/img/coches con maletero grandes.jpg"
                     },
                   ].map((service, idx) => (
                     <div key={idx} className="bg-slate-800/50 rounded-2xl border border-white/5 hover:border-yellow-400/50 transition-all group overflow-hidden flex flex-col">
