@@ -49,6 +49,11 @@
             "desc": "Transporte puntual y discreto para altos ejecutivos y eventos corporativos.",
             "tag": "Premium"
         },
+        "fira": {
+            "title": "Fira de Barcelona / Eventos",
+            "desc": "Traslados ejecutivos para Mobile World Congress (MWC) y ferias internacionales.",
+            "tag": "Negocios"
+        },
         "bookService": "Reservar Servicio"
     },
     "rates": {

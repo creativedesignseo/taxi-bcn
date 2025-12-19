@@ -301,7 +301,7 @@ const App = () => {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-3 gap-6">
                 {[
                   {
                     title: t('services.airport.title'),
@@ -316,9 +316,15 @@ const App = () => {
                     tag: t('services.port.tag')
                   },
                   {
+                    title: t('services.fira.title'),
+                    desc: t('services.fira.desc'),
+                    img: "/img/Fira.jpg",
+                    tag: t('services.fira.tag')
+                  },
+                  {
                     title: t('services.cityTour.title'),
                     desc: t('services.cityTour.desc'),
-                    img: "/img/Barcelona-cidudad.jpg",
+                    img: "/img/Sagrada-familia-02.jpg",
                     tag: t('services.cityTour.tag')
                   },
                   {

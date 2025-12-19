@@ -49,6 +49,11 @@
             "desc": "Punctual and discreet transport for senior executives and corporate events.",
             "tag": "Premium"
         },
+        "fira": {
+            "title": "Fira de Barcelona / Events",
+            "desc": "Executive transfers for Mobile World Congress (MWC) and international trade fairs.",
+            "tag": "Business"
+        },
         "bookService": "Book Service"
     },
     "rates": {
