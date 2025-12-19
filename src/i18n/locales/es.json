@@ -36,9 +36,9 @@
     "babySeatMsg": "Hola, me gustaría reservar un taxi con silla para bebé (Maxicosi / Grupo 0+).",
     "childSeatMsg": "Hola, me gustaría reservar un taxi con silla para niños (Grupo 1, 2 o 3).",
     "pmrMsg": "Hola, me gustaría reservar un taxi adaptado PMR para silla de ruedas.",
-    "bigLuggage": "Taxi Gran Maletero Barcelona",
-    "bigLuggageDesc": "Vehículos con capacidad extra para maletas grandes, equipos deportivos y traslados con mucho equipaje.",
-    "bigLuggageMsg": "Hola, me gustaría reservar un taxi con gran maletero para llevar muchas maletas."
+    "bigLuggage": "Taxi XL 7 personas y maletero",
+    "bigLuggageDesc": "Vehículos monovolumen ideales para grupos, familias y traslados con gran volumen de equipaje.",
+    "bigLuggageMsg": "Hola, me gustaría reservar un taxi XL para 7 personas con maletero grande."
   },
   "testimonials": {
     "quote": "El mejor servicio de taxi que he usado en Barcelona. Rápido, limpio y el conductor súper amable.",

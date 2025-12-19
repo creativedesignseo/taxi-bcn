@@ -76,9 +76,9 @@
         "babySeatMsg": "Hello, I would like to book a taxi with a baby seat (Maxicosi / Group 0+).",
         "childSeatMsg": "Hello, I would like to book a taxi with a child seat (Group 1, 2, or 3).",
         "pmrMsg": "Hello, I would like to book a PRM adapted taxi for wheelchair access.",
-        "bigLuggage": "Large Trunk Taxi Barcelona",
-        "bigLuggageDesc": "Vehicles with extra capacity for large suitcases, sports equipment, and high-volume luggage transfers.",
-        "bigLuggageMsg": "Hello, I would like to book a taxi with a large trunk for many suitcases."
+        "bigLuggage": "Taxi XL 7 Passengers & Luggage",
+        "bigLuggageDesc": "Minivans ideal for groups, families, and transfers with high-volume luggage.",
+        "bigLuggageMsg": "Hello, I would like to book an XL taxi for 7 passengers with a large trunk."
     },
     "testimonials": {
         "quote": "The best taxi service I've used in Barcelona. Fast, clean and the driver was super friendly.",

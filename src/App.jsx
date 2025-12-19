@@ -387,7 +387,7 @@ const App = () => {
                   <p className="text-gray-400">{t('rates.subtitle')}</p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                   {[
                     {
                       title: t('rates.babySeat'),
@@ -415,22 +415,22 @@ const App = () => {
                     },
                   ].map((service, idx) => (
                     <div key={idx} className="bg-slate-800/50 rounded-2xl border border-white/5 hover:border-yellow-400/50 transition-all group overflow-hidden flex flex-col">
-                      <div className="h-52 overflow-hidden relative">
+                      <div className="h-44 overflow-hidden relative">
                         <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                        <div className="absolute top-4 left-4">
-                          <span className="bg-yellow-400 text-black text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded">Servicio Oficial</span>
+                        <div className="absolute top-3 left-3">
+                          <span className="bg-yellow-400 text-black text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">Oficial</span>
                         </div>
                       </div>
-                      <div className="p-6 flex flex-col flex-grow">
-                        <h4 className="font-bold text-xl mb-3 text-white">{service.title}</h4>
-                        <p className="text-gray-400 text-sm mb-6 flex-grow">
+                      <div className="p-4 flex flex-col flex-grow">
+                        <h4 className="font-bold text-lg mb-2 text-white leading-tight">{service.title}</h4>
+                        <p className="text-gray-400 text-xs mb-4 flex-grow line-clamp-2">
                           {service.desc}
                         </p>
                         <button
                           onClick={(e) => handleWhatsAppBooking(e, service.msg)}
-                          className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2"
+                          className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 text-sm"
                         >
-                          {t('rates.consultRate')} <ChevronRight size={20} />
+                          {t('rates.consultRate')} <ChevronRight size={18} />
                         </button>
                       </div>
                     </div>
