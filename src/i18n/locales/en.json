@@ -72,7 +72,10 @@
         "childSeat": "Child Seats",
         "childSeatDesc": "Group 1, 2, and 3 seats adapted to your child's age and weight.",
         "pmr": "Adapted Taxi (PRM)",
-        "pmrDesc": "Eurotaxi vehicles adapted for passengers with reduced mobility."
+        "pmrDesc": "Eurotaxi vehicles adapted for passengers with reduced mobility.",
+        "babySeatMsg": "Hello, I would like to book a taxi with a baby seat (Maxicosi / Group 0+).",
+        "childSeatMsg": "Hello, I would like to book a taxi with a child seat (Group 1, 2, or 3).",
+        "pmrMsg": "Hello, I would like to book a PRM adapted taxi for wheelchair access."
     },
     "testimonials": {
         "quote": "The best taxi service I've used in Barcelona. Fast, clean and the driver was super friendly.",

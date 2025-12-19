@@ -36,14 +36,19 @@ const App = () => {
   }, []);
 
   // Función inteligente para construir el mensaje de WhatsApp
-  const handleWhatsAppBooking = (e) => {
-    if (e) e.preventDefault();
+  const handleWhatsAppBooking = (e, customMsg = null) => {
+    if (e && e.preventDefault) e.preventDefault();
 
-    const origin = bookingData.origin || "Mi ubicación actual";
-    const dest = bookingData.destination || "A consultar";
-    const time = bookingData.pickupTime;
+    let text = '';
 
-    const text = `Hola, quiero pedir un taxi.%0A🚖 *Origen:* ${origin}%0A📍 *Destino:* ${dest}%0A⏰ *Hora:* ${time}`;
+    if (customMsg) {
+      text = encodeURIComponent(customMsg);
+    } else {
+      const origin = bookingData.origin || "Mi ubicación actual";
+      const dest = bookingData.destination || "A consultar";
+      const time = bookingData.pickupTime;
+      text = encodeURIComponent(`Hola, quiero pedir un taxi.\n🚖 Origen: ${origin}\n📍 Destino: ${dest}\n⏰ Hora: ${time}`);
+    }
 
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${text}`, '_blank');
   };
@@ -387,16 +392,19 @@ const App = () => {
                     {
                       title: t('rates.babySeat'),
                       desc: t('rates.babySeatDesc'),
+                      msg: t('rates.babySeatMsg'),
                       img: "/img/Taxi con silla infantil  silla para niños 2.jpg"
                     },
                     {
                       title: t('rates.childSeat'),
                       desc: t('rates.childSeatDesc'),
+                      msg: t('rates.childSeatMsg'),
                       img: "/img/Taxi con silla infantil  silla para niños 1.jpg"
                     },
                     {
                       title: t('rates.pmr'),
                       desc: t('rates.pmrDesc'),
+                      msg: t('rates.pmrMsg'),
                       img: "/img/Persona con movilidad reducida (PMR).jpg"
                     },
                   ].map((service, idx) => (
@@ -413,7 +421,7 @@ const App = () => {
                           {service.desc}
                         </p>
                         <button
-                          onClick={handleWhatsAppBooking}
+                          onClick={(e) => handleWhatsAppBooking(e, service.msg)}
                           className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2"
                         >
                           {t('rates.consultRate')} <ChevronRight size={20} />

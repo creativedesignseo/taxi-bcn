@@ -32,7 +32,10 @@
     "childSeat": "Sillas para Niños",
     "childSeatDesc": "Sillas grupo 1, 2 y 3 adaptadas a la edad y peso de tus hijos.",
     "pmr": "Taxi Adaptado (PMR)",
-    "pmrDesc": "Vehículos Eurotaxi adaptados para sillas de ruedas y movilidad reducida."
+    "pmrDesc": "Vehículos Eurotaxi adaptados para sillas de ruedas y movilidad reducida.",
+    "babySeatMsg": "Hola, me gustaría reservar un taxi con silla para bebé (Maxicosi / Grupo 0+).",
+    "childSeatMsg": "Hola, me gustaría reservar un taxi con silla para niños (Grupo 1, 2 o 3).",
+    "pmrMsg": "Hola, me gustaría reservar un taxi adaptado PMR para silla de ruedas."
   },
   "testimonials": {
     "quote": "El mejor servicio de taxi que he usado en Barcelona. Rápido, limpio y el conductor súper amable.",
