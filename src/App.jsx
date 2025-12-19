@@ -386,7 +386,7 @@ const App = () => {
                   { dest: t('rates.airport'), time: "25 min", img: "/img/Cluster 1-1 aereo.jpg" },
                   { dest: t('rates.port'), time: "15 min", img: "/img/Puerto-2.jpg" },
                   { dest: t('rates.sants'), time: "12 min", img: "/img/Barcelona-cidudad.jpg" },
-                  { dest: t('rates.parkGuell'), time: "20 min", img: "/img/Sagrada-familia-02.jpg" },
+                  { dest: t('rates.parkGuell'), time: "20 min", img: "/img/Park-Guell.jpg" },
                 ].map((route, idx) => (
                   <div key={idx} className="bg-slate-800/50 rounded-2xl border border-white/5 hover:border-yellow-400/50 transition-all group overflow-hidden">
                     <div className="h-32 md:h-40 overflow-hidden relative">
