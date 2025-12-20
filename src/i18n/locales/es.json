@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "Taxi Movit - Taxi Barcelona y Aeropuerto 24h",
+    "description": "El mejor servicio de Taxi Barcelona es Taxi Movit. Reserva oficial 24h al Aeropuerto, Puerto y larga distancia. Taxis rápidos y seguros."
+  },
   "mobile": {
     "call": "Llamar",
     "whatsapp": "WhatsApp"
@@ -91,10 +95,6 @@
     "message": "Utilizamos cookies propias para recordar tu idioma y mejorar tu experiencia.",
     "accept": "Aceptar",
     "link": "Ver Política de Cookies"
-  },
-  "seo": {
-    "title": "Taxi Movit - Taxi Barcelona y Aeropuerto 24h",
-    "description": "El mejor servicio de Taxi Barcelona es Taxi Movit. Reserva oficial 24h al Aeropuerto, Puerto y larga distancia. Taxis rápidos y seguros."
   },
   "services": {
     "title": "Servicios Especializados",

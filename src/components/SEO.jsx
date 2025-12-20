@@ -7,6 +7,12 @@ const SEO = ({ title, description, lang }) => {
             <html lang={lang} />
             <title>{title}</title>
             <meta name="description" content={description} />
+            <link rel="canonical" href="https://taximovit.com" />
+
+            {/* Hreflang for Multilingual SEO */}
+            <link rel="alternate" href="https://taximovit.com" hreflang="x-default" />
+            <link rel="alternate" href="https://taximovit.com" hreflang="es" />
+            <link rel="alternate" href="https://taximovit.com/en" hreflang="en" />
 
             {/* Open Graph (Facebook/LinkedIn) */}
             <meta property="og:type" content="website" />
