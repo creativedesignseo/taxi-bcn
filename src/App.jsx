@@ -50,6 +50,15 @@ const App = () => {
       text = encodeURIComponent(`Hola, quiero pedir un taxi.\n🚖 Origen: ${origin}\n📍 Destino: ${dest}\n⏰ Hora: ${time}`);
     }
 
+    // Google Tag Manager Event Tracking
+    if (window.dataLayer) {
+      window.dataLayer.push({
+        'event': 'whatsapp_booking',
+        'service_message': customMsg || 'Generic Request',
+        'language': i18n.language
+      });
+    }
+
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${text}`, '_blank');
   };
 
