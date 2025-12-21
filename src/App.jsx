@@ -405,10 +405,10 @@ const App = () => {
                       img: "/img/Taxi con silla infantil  silla para niños 2.jpg"
                     },
                     {
-                      title: t('rates.childSeat'),
-                      desc: t('rates.childSeatDesc'),
-                      msg: t('rates.childSeatMsg'),
-                      img: "/img/Taxi con silla infantil  silla para niños 1.jpg"
+                      title: t('rates.petFriendly'),
+                      desc: t('rates.petFriendlyDesc'),
+                      msg: t('rates.petFriendlyMsg'),
+                      img: "/img/Animales.jpg"
                     },
                     {
                       title: t('rates.pmr'),
