@@ -203,6 +203,14 @@ const App = () => {
                     <Zap size={14} className="fill-yellow-400" />
                     {t('hero.badge')}
                   </div>
+
+                  {/* Phone Number Display for Desktop & Mobile */}
+                  <a
+                    href={`tel:${PHONE_NUMBER}`}
+                    className="block text-3xl md:text-4xl font-black text-white hover:text-yellow-400 transition-colors tracking-tighter"
+                  >
+                    {PHONE_DISPLAY}
+                  </a>
                   <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight tracking-tight">
                     {t('hero.title')} <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">{t('hero.titleHighlight')}</span> {t('hero.titleEnd')}
