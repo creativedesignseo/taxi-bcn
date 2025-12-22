@@ -6,7 +6,7 @@
     "nav": {
         "home": "Home",
         "services": "Services",
-        "rates": "Rates"
+        "rates": "Assistance"
     },
     "hero": {
         "badge": "Barcelona's Fastest Taxi",
@@ -27,7 +27,7 @@
         "responseTime": "Average response time: 2 minutes"
     },
     "services": {
-        "title": "Specialized Services",
+        "title": "Transfers and Destinations",
         "subtitle": "Experts in tourist transfers and transport logistics in Barcelona.",
         "airport": {
             "title": "Barcelona Airport (BCN)",
@@ -58,7 +58,7 @@
     },
     "rates": {
         "active": true,
-        "title": "Special Services",
+        "title": "Equipment and Assistance",
         "subtitle": "Specialized assistance for every passenger's needs.",
         "tariff1": "Tariff 1 (Day)",
         "tariff2": "Tariff 2 (Night/Weekend)",
@@ -114,7 +114,7 @@
     "footer": {
         "description": "Official taxi service in the Barcelona Metropolitan Area. Official licenses and regulated rates.",
         "contact": "Contact",
-        "email": "info@taxibcn.com",
+        "email": "taximovit@gmail.com",
         "location": "Barcelona, Spain",
         "legal": "Legal",
         "legalNotice": "Legal Notice",
