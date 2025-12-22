@@ -29,7 +29,7 @@
     "tariff1": "Tarifa 1 (Día)",
     "tariff2": "Tarifa 2 (Noche/Finde)",
     "subtitle": "Asistencia especializada para cada necesidad en tus trayectos.",
-    "title": "Servicios Especiales",
+    "title": "Equipamiento y Asistencia",
     "sants": "Estación Sants",
     "babySeat": "Sillas para Bebé",
     "babySeatDesc": "Maxicosi y sillas grupo 0+ homologadas para los más pequeños.",
@@ -97,7 +97,7 @@
     "link": "Ver Política de Cookies"
   },
   "services": {
-    "title": "Servicios Especializados",
+    "title": "Traslados y Destinos",
     "subtitle": "Expertos en traslados turísticos y logística de transporte en Barcelona.",
     "airport": {
       "title": "Aeropuerto de Barcelona (BCN)",

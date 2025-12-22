@@ -315,7 +315,7 @@ const App = () => {
           </header>
 
           {/* --- SPECIALIZED SERVICES / TOURISM --- */}
-          <section className="py-20 px-4 bg-slate-50">
+          <section id="servicios" className="py-20 px-4 bg-slate-50">
             <div className="container mx-auto max-w-6xl">
               <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">{t('services.title')}</h2>
