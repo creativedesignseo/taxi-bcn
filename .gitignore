@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Google Credentials
+.google-credentials.json
+.google-ads-tokens.json
+scripts/*.js
