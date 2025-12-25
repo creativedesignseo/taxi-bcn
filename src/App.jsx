@@ -459,7 +459,7 @@ const App = () => {
           )}
 
           {/* --- REVIEWS / SOCIAL PROOF --- */}
-          <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+          <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
             <div className="container mx-auto max-w-7xl">
               {/* Header */}
               <div className="text-center mb-16">
@@ -478,37 +478,49 @@ const App = () => {
                 </div>
               </div>
 
-              {/* Testimonials Grid */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {t('testimonials.reviews', { returnObjects: true }).map((testimonial, index) => (
-                  <div
-                    key={index}
-                    className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-yellow-400"
-                  >
-                    {/* Stars */}
-                    <div className="flex gap-1 mb-4">
-                      {[1, 2, 3, 4, 5].map(i => (
-                        <Star key={i} className="text-yellow-400 fill-yellow-400" size={18} />
-                      ))}
-                    </div>
+              {/* Testimonials Carousel */}
+              <div className="relative">
+                {/* Carousel Container */}
+                <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                  <div className="flex gap-6 px-4">
+                    {t('testimonials.reviews', { returnObjects: true }).map((testimonial, index) => (
+                      <div
+                        key={index}
+                        className="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-start"
+                      >
+                        <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-yellow-400 h-full">
+                          {/* Stars */}
+                          <div className="flex gap-1 mb-4">
+                            {[1, 2, 3, 4, 5].map(i => (
+                              <Star key={i} className="text-yellow-400 fill-yellow-400" size={18} />
+                            ))}
+                          </div>
 
-                    {/* Review Text */}
-                    <p className="text-gray-700 text-base leading-relaxed mb-6 italic">
-                      {testimonial.text}
-                    </p>
+                          {/* Review Text */}
+                          <p className="text-gray-700 text-base leading-relaxed mb-6 italic min-h-[100px]">
+                            {testimonial.text}
+                          </p>
 
-                    {/* Author */}
-                    <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center text-white font-bold text-lg shadow-md">
-                        {testimonial.name.charAt(0)}
+                          {/* Author */}
+                          <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center text-white font-bold text-lg shadow-md">
+                              {testimonial.name.charAt(0)}
+                            </div>
+                            <div className="text-left">
+                              <p className="font-semibold text-gray-900">{testimonial.name}</p>
+                              <p className="text-sm text-gray-500">{testimonial.location}</p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div className="text-left">
-                        <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                        <p className="text-sm text-gray-500">{testimonial.location}</p>
-                      </div>
-                    </div>
+                    ))}
                   </div>
-                ))}
+                </div>
+
+                {/* Scroll Hint for Mobile */}
+                <div className="text-center mt-6 md:hidden">
+                  <p className="text-gray-400 text-sm">← Desliza para ver más →</p>
+                </div>
               </div>
 
               {/* Trust Badge */}
