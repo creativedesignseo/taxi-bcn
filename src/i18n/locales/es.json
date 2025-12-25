@@ -45,9 +45,37 @@
     "bigLuggageMsg": "Hola, me gustaría reservar un taxi XL para 7 personas con maletero grande."
   },
   "testimonials": {
-    "quote": "El mejor servicio de taxi que he usado en Barcelona. Rápido, limpio y el conductor súper amable.",
-    "name": "Laura M.",
-    "verified": "Cliente verificada"
+    "title": "Lo Que Dicen Nuestros Clientes",
+    "subtitle": "Miles de viajeros confían en nosotros cada mes",
+    "reviews_count": "reseñas",
+    "verified": "Reseñas verificadas de clientes reales",
+    "reviews": [
+      {
+        "text": "El mejor servicio de taxi que he usado en Barcelona. Rápido, limpio y el conductor súper amable.",
+        "name": "Laura M.",
+        "location": "Barcelona, España"
+      },
+      {
+        "text": "Llegué al aeropuerto sin problemas. El taxista me esperaba con un cartel y me ayudó con las maletas. Muy profesional.",
+        "name": "Carlos R.",
+        "location": "Madrid, España"
+      },
+      {
+        "text": "Reservé un taxi XL para mi familia (éramos 6 personas) y fue perfecto. Espacioso, cómodo y puntual. 100% recomendado.",
+        "name": "Ana G.",
+        "location": "Valencia, España"
+      },
+      {
+        "text": "Viajé con mi perro y no tuve ningún problema. El conductor fue muy amable y el coche estaba impecable. Volveré a usar el servicio.",
+        "name": "Miguel S.",
+        "location": "Zaragoza, España"
+      },
+      {
+        "text": "Excelente relación calidad-precio. El trayecto del puerto al hotel fue rápido y el taxista muy educado. Sin duda, la mejor opción en Barcelona.",
+        "name": "Patricia L.",
+        "location": "Sevilla, España"
+      }
+    ]
   },
   "faq": {
     "q1": "¿Es posible agendar un traslado al Aeropuerto con anticipación?",

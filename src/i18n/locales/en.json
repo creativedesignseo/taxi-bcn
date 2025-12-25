@@ -80,11 +80,6 @@
         "bigLuggageDesc": "Minivans ideal for groups, families, and transfers with high-volume luggage.",
         "bigLuggageMsg": "Hello, I would like to book an XL taxi for 7 passengers with a large trunk."
     },
-    "testimonials": {
-        "quote": "The best taxi service I've used in Barcelona. Fast, clean and the driver was super friendly.",
-        "name": "Laura M.",
-        "verified": "Verified customer"
-    },
     "faq": {
         "title": "Frequently Asked Questions",
         "q1": "Can I book an Airport transfer in advance?",
@@ -125,5 +120,38 @@
     "mobile": {
         "call": "Call",
         "whatsapp": "WhatsApp"
+    },
+    "testimonials": {
+        "title": "What Our Customers Say",
+        "subtitle": "Thousands of travelers trust us every month",
+        "reviews_count": "reviews",
+        "verified": "Verified reviews from real customers",
+        "reviews": [
+            {
+                "text": "The best taxi service I've used in Barcelona. Fast, clean, and the driver was super friendly.",
+                "name": "Laura M.",
+                "location": "Barcelona, Spain"
+            },
+            {
+                "text": "I arrived at the airport without any issues. The driver was waiting for me with a sign and helped with my luggage. Very professional.",
+                "name": "Carlos R.",
+                "location": "Madrid, Spain"
+            },
+            {
+                "text": "I booked an XL taxi for my family (we were 6 people) and it was perfect. Spacious, comfortable, and punctual. 100% recommended.",
+                "name": "Ana G.",
+                "location": "Valencia, Spain"
+            },
+            {
+                "text": "I traveled with my dog and had no problems. The driver was very kind and the car was spotless. Will use the service again.",
+                "name": "Miguel S.",
+                "location": "Zaragoza, Spain"
+            },
+            {
+                "text": "Excellent value for money. The trip from the port to the hotel was quick and the driver was very polite. Definitely the best option in Barcelona.",
+                "name": "Patricia L.",
+                "location": "Seville, Spain"
+            }
+        ]
     }
 }
