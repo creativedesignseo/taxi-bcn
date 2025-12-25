@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 import FAQ from './components/FAQ';
 import PaymentMethods from './components/PaymentMethods';
 import SEO from './components/SEO';
-import { Phone, MessageCircle, MapPin, Clock, Shield, Star, Menu, X, ChevronRight, Zap, Globe } from 'lucide-react';
+import { Phone, MessageCircle, MapPin, Clock, Shield, Star, Menu, X, ChevronRight, ChevronLeft, Zap, Globe } from 'lucide-react';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import CookieConsent from './components/CookieConsent';
 
