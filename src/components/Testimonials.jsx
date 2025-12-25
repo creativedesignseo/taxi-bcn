@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Testimonials = () => {
     const { t } = useTranslation();
@@ -62,13 +62,11 @@ const Testimonials = () => {
                             <div
                                 key={index}
                                 className={`absolute inset-0 transition-all duration-700 ease-in-out ${index === currentIndex
-                                        ? 'opacity-100 scale-100 z-10'
-                                        : 'opacity-0 scale-95 z-0'
+                                    ? 'opacity-100 scale-100 z-10'
+                                    : 'opacity-0 scale-95 z-0'
                                     }`}
                             >
                                 <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-xl p-12 md:p-16 rounded-3xl border border-gray-700/50 shadow-2xl shadow-yellow-500/10">
-                                    {/* Quote Icon */}
-                                    <Quote className="w-16 h-16 text-yellow-400/20 mb-8 mx-auto" />
 
                                     {/* Stars */}
                                     <div className="flex gap-1 mb-8 justify-center">
@@ -114,14 +112,14 @@ const Testimonials = () => {
                     </button>
 
                     {/* Dots Indicator */}
-                    <div className="flex justify-center gap-2 mt-12">
+                    <div className="flex justify-center gap-2 mt-16">
                         {testimonials.map((_, index) => (
                             <button
                                 key={index}
                                 onClick={() => goToSlide(index)}
                                 className={`transition-all duration-300 rounded-full ${index === currentIndex
-                                        ? 'w-12 h-3 bg-yellow-400'
-                                        : 'w-3 h-3 bg-gray-600 hover:bg-gray-500'
+                                    ? 'w-12 h-3 bg-yellow-400'
+                                    : 'w-3 h-3 bg-gray-600 hover:bg-gray-500'
                                     }`}
                                 aria-label={`Go to testimonial ${index + 1}`}
                             />
