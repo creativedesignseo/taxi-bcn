@@ -39,10 +39,10 @@ const Testimonials = () => {
             <div className="container mx-auto px-4">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                    <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
                         {t('testimonials.title')}
                     </h2>
-                    <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-6">
+                    <p className="text-gray-300 text-xl max-w-2xl mx-auto mb-8 font-light">
                         {t('testimonials.subtitle')}
                     </p>
                     <div className="flex justify-center items-center gap-1">
@@ -76,7 +76,7 @@ const Testimonials = () => {
                                     </div>
 
                                     {/* Review Text */}
-                                    <p className="text-gray-200 text-xl md:text-2xl leading-relaxed mb-10 text-center italic font-light">
+                                    <p className="text-white text-2xl md:text-3xl leading-relaxed mb-12 text-center italic font-light">
                                         "{testimonial.text}"
                                     </p>
 
@@ -86,8 +86,8 @@ const Testimonials = () => {
                                             {testimonial.name.charAt(0)}
                                         </div>
                                         <div className="text-left">
-                                            <p className="text-white font-semibold text-lg">{testimonial.name}</p>
-                                            <p className="text-gray-400">{testimonial.location}</p>
+                                            <p className="text-white font-semibold text-xl">{testimonial.name}</p>
+                                            <p className="text-gray-300 text-base">{testimonial.location}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -129,7 +129,7 @@ const Testimonials = () => {
 
                 {/* Trust Badge */}
                 <div className="text-center mt-16">
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-gray-300 text-base">
                         ✓ {t('testimonials.verified')}
                     </p>
                 </div>
