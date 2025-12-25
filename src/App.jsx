@@ -480,8 +480,32 @@ const App = () => {
 
               {/* Testimonials Carousel */}
               <div className="relative">
+                {/* Left Arrow */}
+                <button
+                  onClick={() => {
+                    const container = document.querySelector('.testimonials-scroll');
+                    container.scrollBy({ left: -400, behavior: 'smooth' });
+                  }}
+                  className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white hover:bg-yellow-400 text-gray-800 hover:text-white p-4 rounded-full shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200"
+                  aria-label="Previous reviews"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+
+                {/* Right Arrow */}
+                <button
+                  onClick={() => {
+                    const container = document.querySelector('.testimonials-scroll');
+                    container.scrollBy({ left: 400, behavior: 'smooth' });
+                  }}
+                  className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white hover:bg-yellow-400 text-gray-800 hover:text-white p-4 rounded-full shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200"
+                  aria-label="Next reviews"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+
                 {/* Carousel Container */}
-                <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                <div className="testimonials-scroll overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                   <div className="flex gap-6 px-4">
                     {t('testimonials.reviews', { returnObjects: true }).map((testimonial, index) => (
                       <div
