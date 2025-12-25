@@ -505,7 +505,7 @@ const App = () => {
                 </button>
 
                 {/* Carousel Container */}
-                <div className="testimonials-scroll overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                <div className="testimonials-scroll overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', scrollBehavior: 'smooth' }}>
                   <div className="flex gap-6 px-4">
                     {t('testimonials.reviews', { returnObjects: true }).map((testimonial, index) => (
                       <div
