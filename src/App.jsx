@@ -459,20 +459,63 @@ const App = () => {
           )}
 
           {/* --- REVIEWS / SOCIAL PROOF --- */}
-          <section className="py-20 px-4 bg-white">
-            <div className="container mx-auto max-w-4xl text-center">
-              <div className="flex justify-center gap-1 mb-6">
-                {[1, 2, 3, 4, 5].map(i => <Star key={i} className="text-yellow-400 fill-yellow-400" size={24} />)}
+          <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+            <div className="container mx-auto max-w-7xl">
+              {/* Header */}
+              <div className="text-center mb-16">
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                  {t('testimonials.title')}
+                </h2>
+                <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-8">
+                  {t('testimonials.subtitle')}
+                </p>
+                <div className="flex justify-center items-center gap-1">
+                  {[1, 2, 3, 4, 5].map(i => (
+                    <Star key={i} className="text-yellow-400 fill-yellow-400" size={28} />
+                  ))}
+                  <span className="ml-3 text-gray-900 text-xl font-semibold">5.0</span>
+                  <span className="text-gray-500 ml-2">({t('testimonials.reviews', { returnObjects: true }).length} {t('testimonials.reviews_count')})</span>
+                </div>
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-8">"{t('testimonials.quote')}"</h2>
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-12 h-12 bg-gray-200 rounded-full overflow-hidden">
-                  <img src="/img/Cliente.png" alt="User" />
-                </div>
-                <div className="text-left">
-                  <p className="font-bold text-slate-900">{t('testimonials.name')}</p>
-                  <p className="text-sm text-gray-500">{t('testimonials.verified')}</p>
-                </div>
+
+              {/* Testimonials Grid */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {t('testimonials.reviews', { returnObjects: true }).map((testimonial, index) => (
+                  <div
+                    key={index}
+                    className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-yellow-400"
+                  >
+                    {/* Stars */}
+                    <div className="flex gap-1 mb-4">
+                      {[1, 2, 3, 4, 5].map(i => (
+                        <Star key={i} className="text-yellow-400 fill-yellow-400" size={18} />
+                      ))}
+                    </div>
+
+                    {/* Review Text */}
+                    <p className="text-gray-700 text-base leading-relaxed mb-6 italic">
+                      {testimonial.text}
+                    </p>
+
+                    {/* Author */}
+                    <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center text-white font-bold text-lg shadow-md">
+                        {testimonial.name.charAt(0)}
+                      </div>
+                      <div className="text-left">
+                        <p className="font-semibold text-gray-900">{testimonial.name}</p>
+                        <p className="text-sm text-gray-500">{testimonial.location}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Trust Badge */}
+              <div className="text-center mt-12">
+                <p className="text-gray-500 text-sm">
+                  ✓ {t('testimonials.verified')}
+                </p>
               </div>
             </div>
           </section>
