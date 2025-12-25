@@ -126,13 +126,6 @@ const Testimonials = () => {
                         ))}
                     </div>
                 </div>
-
-                {/* Trust Badge */}
-                <div className="text-center mt-16">
-                    <p className="text-gray-300 text-base">
-                        ✓ {t('testimonials.verified')}
-                    </p>
-                </div>
             </div>
         </section>
     );
