@@ -1,0 +1,25 @@
+# Taxi Movit - Robots Configuration
+# Bloquear acceso a páginas administrativas y técnicas
+
+User-agent: *
+
+# Permitir páginas principales
+Allow: /
+Allow: /en
+
+# BLOQUEAR páginas administrativas (SEGURIDAD)
+Disallow: /admin
+Disallow: /admin/
+
+# BLOQUEAR páginas técnicas (no aportan SEO)
+Disallow: /cookies
+Disallow: /privacy
+Disallow: /legal
+
+# BLOQUEAR archivos de configuración
+Disallow: /*.json$
+Disallow: /*.yml$
+Disallow: /*.config.js$
+
+# Sitemap (cuando lo tengamos)
+Sitemap: https://taximovit.com/sitemap.xml

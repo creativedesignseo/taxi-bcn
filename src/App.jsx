@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { LegalNotice, PrivacyPolicy, CookiesPolicy } from './pages/LegalPages';
+import { Helmet } from 'react-helmet-async';
 import FAQ from './components/FAQ';
 import PaymentMethods from './components/PaymentMethods';
 import SEO from './components/SEO';
@@ -479,9 +480,30 @@ const App = () => {
           <FAQ />
           <PaymentMethods />
         </>} />
-        <Route path="/aviso-legal" element={<LegalNotice />} />
-        <Route path="/privacidad" element={<PrivacyPolicy />} />
-        <Route path="/cookies" element={<CookiesPolicy />} />
+        <Route path="/aviso-legal" element={
+          <>
+            <Helmet>
+              <meta name="robots" content="noindex, nofollow" />
+            </Helmet>
+            <LegalNotice />
+          </>
+        } />
+        <Route path="/privacidad" element={
+          <>
+            <Helmet>
+              <meta name="robots" content="noindex, nofollow" />
+            </Helmet>
+            <PrivacyPolicy />
+          </>
+        } />
+        <Route path="/cookies" element={
+          <>
+            <Helmet>
+              <meta name="robots" content="noindex, nofollow" />
+            </Helmet>
+            <CookiesPolicy />
+          </>
+        } />
       </Routes>
 
       {/* --- FOOTER --- */}
