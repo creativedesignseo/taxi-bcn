@@ -5,7 +5,6 @@ import { LegalNotice, PrivacyPolicy, CookiesPolicy } from './pages/LegalPages';
 import { Helmet } from 'react-helmet-async';
 import FAQ from './components/FAQ';
 import PaymentMethods from './components/PaymentMethods';
-import Testimonials from './components/Testimonials';
 import SEO from './components/SEO';
 import { Phone, MessageCircle, MapPin, Clock, Shield, Star, Menu, X, ChevronRight, Zap, Globe } from 'lucide-react';
 import LanguageSwitcher from './components/LanguageSwitcher';
@@ -478,7 +477,6 @@ const App = () => {
             </div>
           </section>
 
-          <Testimonials />
           <FAQ />
           <PaymentMethods />
         </>} />
