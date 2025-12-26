@@ -1,3 +1,20 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build output
+dist
+dist-ssr
+*.local
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
 # Logs
 logs
 *.log
@@ -6,11 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
-node_modules
-dist
-dist-ssr
-*.local
 
 # Editor directories and files
 .vscode/*
@@ -23,7 +35,42 @@ dist-ssr
 *.sln
 *.sw?
 
-# Google Credentials
+# Testing
+coverage
+*.lcov
+.nyc_output
+
+# Cache
+.cache
+.parcel-cache
+.eslintcache
+.stylelintcache
+.node_repl_history
+
+# Temporary files
+*.tmp
+*.temp
+.temp
+.tmp
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# Optional npm cache directory
+.npm
+
+# Netlify
+.netlify
+
+# Google Credentials (IMPORTANT: Keep these ignored!)
 .google-credentials.json
 .google-ads-tokens.json
-scripts/*.js
+scripts/google-*.js
+scripts/*-credentials.js
+
+# But DO NOT ignore optimization scripts
+!scripts/convert-to-webp.js
+!scripts/clean-duplicates.js
+!scripts/optimize-images.js
+
