@@ -18,7 +18,7 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const ASSETS_DIR = join(__dirname, '../src/assets');
+const ASSETS_DIR = join(__dirname, '../public/img');
 
 // Supported image formats to convert
 const IMAGE_EXTENSIONS = ['.png', '.jpg', '.jpeg'];
