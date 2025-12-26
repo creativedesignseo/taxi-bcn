@@ -330,31 +330,31 @@ const App = () => {
                   {
                     title: t('services.airport.title'),
                     desc: t('services.airport.desc'),
-                    img: "/img/Cluster 1-1 aereo.jpg",
+                    img: "/img/Cluster 1-1 aereo.webp",
                     tag: t('services.airport.tag')
                   },
                   {
                     title: t('services.port.title'),
                     desc: t('services.port.desc'),
-                    img: "/img/Puerto-2.jpg",
+                    img: "/img/Puerto-2.webp",
                     tag: t('services.port.tag')
                   },
                   {
                     title: t('services.fira.title'),
                     desc: t('services.fira.desc'),
-                    img: "/img/Fira.jpg",
+                    img: "/img/Fira.webp",
                     tag: t('services.fira.tag')
                   },
                   {
                     title: t('services.cityTour.title'),
                     desc: t('services.cityTour.desc'),
-                    img: "/img/Sagrada-familia-02.jpg",
+                    img: "/img/Sagrada-familia-02.webp",
                     tag: t('services.cityTour.tag')
                   },
                   {
                     title: t('services.business.title'),
                     desc: t('services.business.desc'),
-                    img: "/img/Hombre_Ejecutivo_en_taxi.jpg",
+                    img: "/img/Hombre_Ejecutivo_en_taxi.webp",
                     tag: t('services.business.tag')
                   }
                 ].map((service, idx) => (
@@ -411,25 +411,25 @@ const App = () => {
                       title: t('rates.babySeat'),
                       desc: t('rates.babySeatDesc'),
                       msg: t('rates.babySeatMsg'),
-                      img: "/img/Taxi con silla infantil  silla para niños 2.jpg"
+                      img: "/img/Taxi con silla infantil  silla para niños 2.webp"
                     },
                     {
                       title: t('rates.petFriendly'),
                       desc: t('rates.petFriendlyDesc'),
                       msg: t('rates.petFriendlyMsg'),
-                      img: "/img/Animales.jpg"
+                      img: "/img/Animales.webp"
                     },
                     {
                       title: t('rates.pmr'),
                       desc: t('rates.pmrDesc'),
                       msg: t('rates.pmrMsg'),
-                      img: "/img/Persona con movilidad reducida (PMR).jpg"
+                      img: "/img/Persona con movilidad reducida (PMR).webp"
                     },
                     {
                       title: t('rates.bigLuggage'),
                       desc: t('rates.bigLuggageDesc'),
                       msg: t('rates.bigLuggageMsg'),
-                      img: "/img/coches con maletero grandes.jpg"
+                      img: "/img/coches con maletero grandes.webp"
                     },
                   ].map((service, idx) => (
                     <div key={idx} className="bg-slate-800/50 rounded-2xl border border-white/5 hover:border-yellow-400/50 transition-all group overflow-hidden flex flex-col">
