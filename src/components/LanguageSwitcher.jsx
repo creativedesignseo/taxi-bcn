@@ -43,7 +43,7 @@ const LanguageSwitcher = () => {
                     className={`w-full px-4 py-2 text-left hover:bg-yellow-400 transition-colors flex items-center gap-2 ${i18n.language === 'es' ? 'bg-yellow-100 font-bold' : 'text-gray-700'
                         }`}
                 >
-                    <img src="/img/espana.png" alt="Español" className="w-4 h-4 rounded-full object-cover" />
+                    <img src="/img/espana.webp" alt="Español" className="w-4 h-4 rounded-full object-cover" />
                     Español
                 </button>
             </div>

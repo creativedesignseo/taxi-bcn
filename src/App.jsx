@@ -10,6 +10,15 @@ import { Phone, MessageCircle, MapPin, Clock, Shield, Star, Menu, X, ChevronRigh
 import LanguageSwitcher from './components/LanguageSwitcher';
 import CookieConsent from './components/CookieConsent';
 
+// MobileLink component extracted to avoid re-creation on every render
+const MobileLink = ({ href, children, onClick }) => {
+  return (
+    <a href={href} onClick={(e) => { e.preventDefault(); onClick(href); }} className="text-2xl font-bold text-white border-b border-gray-800 pb-4">
+      {children}
+    </a>
+  );
+};
+
 const App = () => {
   const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -89,22 +98,13 @@ const App = () => {
     }
   };
 
-  const MobileLink = ({ href, children }) => {
-    const isAnchor = href.startsWith('#');
-    const handleClick = (e) => {
-      e.preventDefault();
-      setMobileMenuOpen(false);
-      if (isAnchor) {
-        handleNavClick(href.substring(1));
-      } else {
-        navigate(href);
-      }
-    };
-    return (
-      <a href={href} onClick={handleClick} className="text-2xl font-bold text-white border-b border-gray-800 pb-4">
-        {children}
-      </a>
-    );
+  const handleMobileLinkClick = (href) => {
+    setMobileMenuOpen(false);
+    if (href.startsWith('#')) {
+      handleNavClick(href.substring(1));
+    } else {
+      navigate(href);
+    }
   };
 
   return (
@@ -154,9 +154,9 @@ const App = () => {
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl pt-24 px-6 flex flex-col gap-6 md:hidden">
-          <MobileLink href="#top">{t('nav.home')}</MobileLink>
-          <MobileLink href="#servicios">{t('nav.services')}</MobileLink>
-          <MobileLink href="#tarifas">{t('nav.rates')}</MobileLink>
+          <MobileLink href="#top" onClick={handleMobileLinkClick}>{t('nav.home')}</MobileLink>
+          <MobileLink href="#servicios" onClick={handleMobileLinkClick}>{t('nav.services')}</MobileLink>
+          <MobileLink href="#tarifas" onClick={handleMobileLinkClick}>{t('nav.rates')}</MobileLink>
 
           {/* Language Switcher for Mobile */}
           <div className="border-b border-gray-800 pb-4">
@@ -178,12 +178,11 @@ const App = () => {
               {/* Mobile Image */}
               <div
                 className="absolute inset-0 bg-cover bg-center md:hidden"
-                style={{ backgroundImage: "url('/img/Mobile_hero_2.jpg')" }}
-              ></div>
+                style={{ backgroundImage: "url('/img/Mobile_hero_2.webp')" }}></div>
               {/* Desktop Image */}
               <div
                 className="absolute inset-0 bg-cover bg-center hidden md:block"
-                style={{ backgroundImage: "url('/img/Desktop_hero_4.jpg')" }}
+                style={{ backgroundImage: "url('/img/Desktop_hero_4.webp')" }}
               ></div>
 
               {/* Overlay for Harmony */}
