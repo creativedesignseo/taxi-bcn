@@ -112,7 +112,7 @@ const BookingForm = () => {
 
         <div className="space-y-6 flex-grow">
           {/* Origin Input */}
-          <div className="relative">
+          <div className={`relative ${activeInput === 'origin' ? 'z-50' : 'z-20'}`}>
             <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">RECOGIDA</label>
             <div className="flex gap-2">
               <div className="flex-1 flex items-center bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-3 focus-within:border-yellow-400 focus-within:ring-1 focus-within:ring-yellow-400 transition-all">
@@ -161,7 +161,7 @@ const BookingForm = () => {
           </div>
 
           {/* Destination Input */}
-          <div className="relative">
+          <div className={`relative ${activeInput === 'destination' ? 'z-50' : 'z-10'}`}>
              <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">DESTINO</label>
             <div className="flex items-center bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-3 focus-within:border-yellow-400 focus-within:ring-1 focus-within:ring-yellow-400 transition-all">
               <MapPin className="text-red-400 mr-3" size={20} />
