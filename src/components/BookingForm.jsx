@@ -179,59 +179,62 @@ const BookingForm = () => {
     <div className="w-full bg-slate-900 rounded-3xl shadow-2xl border border-gray-800 relative">
       
       {/* FORM PANEL */}
-      <div className="p-6 md:p-8">
-        <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-2">
+      <div className="p-4 md:p-8">
+        <h3 className="text-xl md:text-3xl font-bold text-white mb-5 flex items-center gap-2">
           <Navigation className="text-yellow-400" /> 
           {t('hero.bookingTitle', 'Reserva Express')}
         </h3>
 
-        <div className="space-y-4 flex-grow">
+        <div className="space-y-3 flex-grow">
           
           {/* Row 1: Date & Time */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3">
             {/* Date */}
             <div className="relative">
-              <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">{t('booking.form.dateLabel', 'FECHA')}</label>
+              <label className="text-[10px] uppercase text-gray-400 font-bold ml-1 mb-1 block tracking-wider">{t('booking.form.dateLabel', 'FECHA')}</label>
               
-              {/* Trigger Input - LOOKS like an input but toggles the calendar */}
+              {/* Trigger Input */}
               <div 
                 onClick={() => setShowDatePicker(!showDatePicker)}
-                className="flex items-center bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-4 hover:border-yellow-400 transition-colors cursor-pointer"
+                className="flex items-center bg-gray-800/50 border border-gray-700 rounded-xl px-3 py-3 md:px-4 md:py-4 hover:border-yellow-400 transition-colors cursor-pointer"
               >
-                <Calendar className="text-blue-400 mr-3" size={24} />
-                <span className="text-white font-bold text-lg">
+                <Calendar className="text-blue-400 mr-2 md:mr-3 flex-shrink-0" size={20} />
+                <span className="text-white font-bold text-base md:text-lg whitespace-nowrap overflow-hidden text-ellipsis">
                   {date.split('-').reverse().join('-')}
                 </span>
               </div>
 
-              {/* Custom Date Picker Popover */}
+              {/* Custom Date Picker Modal Overlay */}
               {showDatePicker && (
-                <div className="absolute top-full left-0 mt-2 z-50 animate-fadeIn">
-                  {/* Backdrop to close when clicking outside */}
-                  <div className="fixed inset-0 z-40" onClick={() => setShowDatePicker(false)}></div>
+                <>
+                  {/* Backdrop */}
+                  <div className="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm" onClick={() => setShowDatePicker(false)}></div>
                   
-                  <div className="relative z-50">
-                    <CustomDatePicker 
-                      selectedDate={date} 
-                      onChange={(newDate) => {
-                        setDate(newDate);
-                        setShowDatePicker(false);
-                      }} 
-                    />
+                  {/* Centered Calendar */}
+                  <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 pointer-events-none">
+                    <div className="pointer-events-auto w-full max-w-sm animate-scale-in">
+                      <CustomDatePicker 
+                        selectedDate={date} 
+                        onChange={(newDate) => {
+                          setDate(newDate);
+                          setShowDatePicker(false);
+                        }} 
+                      />
+                    </div>
                   </div>
-                </div>
+                </>
               )}
             </div>
             {/* Time */}
             <div>
-              <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">{t('booking.form.timeLabel', 'HORA')}</label>
-              <div className="flex items-center bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-4 relative hover:border-yellow-400 transition-colors">
-                <Clock className="text-blue-400 mr-3 z-10" size={24} />
+              <label className="text-[10px] uppercase text-gray-400 font-bold ml-1 mb-1 block tracking-wider">{t('booking.form.timeLabel', 'HORA')}</label>
+              <div className="flex items-center bg-gray-800/50 border border-gray-700 rounded-xl px-3 py-3 md:px-4 md:py-4 relative hover:border-yellow-400 transition-colors">
+                <Clock className="text-blue-400 mr-2 md:mr-3 z-10 flex-shrink-0" size={20} />
                 <select 
                   value={time}
                   onChange={(e) => setTime(e.target.value)}
                   onFocus={() => setTick(t => t + 1)} // Refresh slots when user opens menu
-                  className="bg-transparent w-full text-white outline-none font-bold text-lg appearance-none relative z-20 cursor-pointer pl-1"
+                  className="bg-transparent w-full text-white outline-none font-bold text-base md:text-lg appearance-none relative z-20 cursor-pointer pl-1"
                   style={{ backgroundColor: 'transparent' }}
                 >
                   {availableSlots.map(slot => (
@@ -249,17 +252,17 @@ const BookingForm = () => {
 
           {/* Row 2: Origin Input */}
           <div className={`relative ${activeInput === 'origin' ? 'z-50' : 'z-20'}`}>
-            <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">{t('booking.form.pickupLabel', 'RECOGIDA')}</label>
+            <label className="text-[10px] uppercase text-gray-400 font-bold ml-1 mb-1 block tracking-wider">{t('booking.form.pickupLabel', 'RECOGIDA')}</label>
             <div className="flex gap-2">
-              <div className="flex-1 flex items-center bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-3 focus-within:border-yellow-400 focus-within:ring-1 focus-within:ring-yellow-400 transition-all">
-                <MapPin className="text-green-400 mr-3" size={20} />
+              <div className="flex-1 flex items-center bg-gray-800/50 border border-gray-700 rounded-xl px-3 py-3 md:px-4 md:py-3 focus-within:border-yellow-400 focus-within:ring-1 focus-within:ring-yellow-400 transition-all">
+                <MapPin className="text-green-400 mr-2 md:mr-3 flex-shrink-0" size={20} />
                 <input 
                   type="text" 
                   value={origin}
                   onChange={(e) => setOrigin(e.target.value)}
                   onFocus={() => setActiveInput('origin')}
                   placeholder={t('booking.form.pickupPlaceholder', '¿Dónde te recogemos?')}
-                  className="bg-transparent w-full text-white placeholder-gray-500 outline-none font-medium"
+                  className="bg-transparent w-full text-white placeholder-gray-500 outline-none font-medium text-sm md:text-base truncate"
                 />
                 {origin && <button onClick={() => {setOrigin(''); setOriginCoords(null)}} className="text-gray-500 hover:text-white"><div className="text-xs">✕</div></button>}
               </div>
@@ -268,7 +271,7 @@ const BookingForm = () => {
               <button
                 onClick={handleUseMyLocation}
                 disabled={isLoadingLocation}
-                className="flex items-center justify-center bg-gray-800/50 border border-gray-700 rounded-xl px-4 hover:bg-gray-700 hover:border-yellow-400 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex items-center justify-center bg-gray-800/50 border border-gray-700 rounded-xl px-3 md:px-4 hover:bg-gray-700 hover:border-yellow-400 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 title={t('booking.form.useLocation', 'Usar mi ubicación')}
               >
                 {isLoadingLocation ? (
@@ -298,16 +301,16 @@ const BookingForm = () => {
 
           {/* Row 3: Destination Input */}
           <div className={`relative ${activeInput === 'destination' ? 'z-50' : 'z-10'}`}>
-             <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">{t('booking.form.destinationLabel', 'DESTINO')}</label>
-            <div className="flex items-center bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-3 focus-within:border-yellow-400 focus-within:ring-1 focus-within:ring-yellow-400 transition-all">
-              <MapPin className="text-red-400 mr-3" size={20} />
+             <label className="text-[10px] uppercase text-gray-400 font-bold ml-1 mb-1 block tracking-wider">{t('booking.form.destinationLabel', 'DESTINO')}</label>
+            <div className="flex items-center bg-gray-800/50 border border-gray-700 rounded-xl px-3 py-3 md:px-4 md:py-3 focus-within:border-yellow-400 focus-within:ring-1 focus-within:ring-yellow-400 transition-all">
+              <MapPin className="text-red-400 mr-2 md:mr-3 flex-shrink-0" size={20} />
               <input 
                 type="text" 
                 value={destination}
                 onChange={(e) => setDestination(e.target.value)}
                 onFocus={() => setActiveInput('destination')}
                 placeholder={t('booking.form.destinationPlaceholder', '¿A dónde vas?')}
-                className="bg-transparent w-full text-white placeholder-gray-500 outline-none font-medium"
+                className="bg-transparent w-full text-white placeholder-gray-500 outline-none font-medium text-sm md:text-base truncate"
               />
               {destination && <button onClick={() => {setDestination(''); setDestCoords(null)}} className="text-gray-500 hover:text-white"><div className="text-xs">✕</div></button>}
             </div>
