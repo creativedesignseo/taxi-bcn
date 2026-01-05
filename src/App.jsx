@@ -19,6 +19,7 @@ const MobileLink = ({ href, children, onClick }) => {
   );
 };
 import BookingForm from './components/BookingForm';
+import BookingPage from './pages/BookingPage'; // [NEW]
 
 const App = () => {
   const { t, i18n } = useTranslation();
@@ -193,19 +194,19 @@ const App = () => {
 
                 {/* Text Content */}
                 <div className="space-y-3 md:space-y-6 text-center md:text-left">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-400/20 border border-yellow-400/30 text-yellow-400 text-sm font-semibold animate-fade-in-up">
+                  <div className="hidden md:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-400/20 border border-yellow-400/30 text-yellow-400 text-sm font-semibold animate-fade-in-up">
                     <Zap size={14} className="fill-yellow-400" />
                     {t('hero.badge')}
                   </div>
 
-                  {/* Phone Number Display for Desktop & Mobile */}
+                  {/* Phone Number Display for Desktop & Mobile (Hidden on Mobile now) */}
                   <a
                     href={`tel:${PHONE_NUMBER}`}
-                    className="block text-2xl md:text-4xl font-black text-white hover:text-yellow-400 transition-colors tracking-tighter"
+                    className="hidden md:block text-2xl md:text-4xl font-black text-white hover:text-yellow-400 transition-colors tracking-tighter"
                   >
                     {PHONE_DISPLAY}
                   </a>
-                  <h1 className="mb-0 md:mb-auto text-4xl md:text-7xl font-bold text-white leading-tight tracking-tight">
+                  <h1 className="hidden md:block mb-0 md:mb-auto text-4xl md:text-7xl font-bold text-white leading-tight tracking-tight">
                     {/* Mobile: shorter text */}
                     <span className="md:hidden">
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">Barcelona</span> sin esperas
@@ -497,6 +498,10 @@ const App = () => {
           <FAQ />
           <PaymentMethods />
         </>} />
+
+        {/* [NEW] Booking Confirmation Page */}
+        <Route path="/reservar" element={<BookingPage />} />
+
         <Route path="/aviso-legal" element={
           <>
             <Helmet>

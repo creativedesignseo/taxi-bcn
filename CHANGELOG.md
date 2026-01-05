@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2026-01-05
+
+### Added
+- **Uber-Style Booking Flow**: Implemented a new multi-step booking experience.
+- **Dedicated Confirmation Page**: Created `/reservar` page with split layout (Desktop) and stacked layout (Mobile).
+- **Route Visualization**: Integrated static Mapbox map to display trip route (Origin to Destination).
+
+### Changed
+- **Navigation**: "Confirmar Ruta" button now redirects to the dedicated confirmation page instead of opening a modal.
+- **Cleanup**: Removed legacy `BookingModal` component.
+
 ## [1.3.8] - 2026-01-05
 
 ### Changed

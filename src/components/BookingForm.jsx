@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { MapPin, Clock, Navigation, Loader2, Locate, ArrowRight, Calendar, Users, Briefcase, ChevronDown, X } from 'lucide-react';
 import { getPlaceSuggestions, getRouteData, reverseGeocode, getPlaceDetails, generateSessionToken } from '../lib/mapbox';
 import { getCurrentLocation } from '../lib/whatsapp';
-import BookingModal from './BookingModal';
 import CustomDatePicker from './CustomDatePicker';
 
 const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 
 const BookingForm = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   
   // State
   const [origin, setOrigin] = useState('');
@@ -380,8 +381,38 @@ const BookingForm = () => {
 
           {/* Action Button */}
           <button 
+            type="button"
             disabled={!routeInfo}
-            onClick={() => setShowModal(true)}
+            onClick={() => {
+              if (origin && destination && routeInfo) {
+                  // Default to 'now' if not set, or use current date/time
+                  const isImmediate = bookingType === 'now';
+                  
+                  const bookingData = {
+                      origin: { address: origin, coords: originCoords },
+                      destination: { address: destination, coords: destCoords },
+                      date: isImmediate ? t('hero.timeNow', 'Ahora') : date,
+                      time: isImmediate ? 'Inmediato' : time,
+                      passengers,
+                      luggage,
+                      vehicle: passengers > 4 ? 'Minivan' : 'Standard',
+                      price: 'Approx',
+                      timeEstimate: Math.round(routeInfo.durationSeconds / 60)
+                  };
+                  
+                  console.log("Navigating to /reservar with:", bookingData); // Debug
+                  navigate('/reservar', { 
+                    state: { 
+                      bookingData,
+                      routeGeometry: routeInfo.geometry,
+                      originCoords,
+                      destCoords
+                    } 
+                  });
+              } else {
+                console.log("Missing data for navigation:", { origin, destination, routeInfo });
+              }
+            }}
             className={`w-full py-4 rounded-xl font-bold text-xl flex justify-center items-center gap-2 transition-all shadow-lg mt-4
               ${routeInfo 
                 ? 'bg-black text-white hover:bg-gray-800 transform hover:scale-[1.02]' 
@@ -396,30 +427,6 @@ const BookingForm = () => {
           </button>
         </div>
       </div>
-
-      {/* Booking Modal */}
-      {routeInfo && (
-        <BookingModal 
-          isOpen={showModal}
-          onClose={() => setShowModal(false)}
-          bookingData={{
-            origin: {
-              address: origin,
-              coordinates: originCoords
-            },
-            destination: {
-              address: destination,
-              coordinates: destCoords
-            },
-            date,
-            time,
-            passengers,
-            luggage,
-            timeEstimate: ~~(routeInfo.durationSeconds / 60),
-            priceEstimate: parseFloat(estimatePrice(routeInfo.distanceMeters))
-          }}
-        />
-      )}
 
       {/* Schedule Selection Modal (Now vs Later) */}
       {showScheduleModal && (
