@@ -204,23 +204,41 @@ const BookingForm = () => {
                 </span>
               </div>
 
-              {/* Custom Date Picker Modal Overlay */}
+              {/* Custom Date Picker: Responsive Behavior */}
               {showDatePicker && (
                 <>
-                  {/* Backdrop */}
-                  <div className="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm" onClick={() => setShowDatePicker(false)}></div>
-                  
-                  {/* Centered Calendar */}
-                  <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 pointer-events-none">
-                    <div className="pointer-events-auto w-full max-w-sm animate-scale-in">
-                      <CustomDatePicker 
-                        selectedDate={date} 
-                        onChange={(newDate) => {
-                          setDate(newDate);
-                          setShowDatePicker(false);
-                        }} 
-                      />
-                    </div>
+                  {/* MOBILE: Centered Modal with Dark Backdrop */}
+                  <div className="md:hidden fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
+                      {/* Backdrop Click to Close */}
+                      <div className="absolute inset-0" onClick={() => setShowDatePicker(false)}></div>
+                      
+                      {/* Calendar Card */}
+                      <div className="relative z-10 w-full max-w-xs animate-scale-in shadow-2xl">
+                        <CustomDatePicker 
+                          selectedDate={date} 
+                          onChange={(newDate) => {
+                            setDate(newDate);
+                            setShowDatePicker(false);
+                          }} 
+                        />
+                      </div>
+                  </div>
+
+                  {/* DESKTOP: Absolute Popover (Dropdown) - No Darkening */}
+                  <div className="hidden md:block absolute top-[110%] left-0 z-50 animate-fadeIn min-w-[320px]">
+                       {/* Transparent Click Catcher for outside clicks */}
+                       <div className="fixed inset-0 z-40 bg-transparent" onClick={() => setShowDatePicker(false)}></div>
+                       
+                       {/* Calendar Card */}
+                       <div className="relative z-50 shadow-2xl rounded-2xl overflow-hidden ring-1 ring-black/5">
+                          <CustomDatePicker 
+                            selectedDate={date} 
+                            onChange={(newDate) => {
+                              setDate(newDate);
+                              setShowDatePicker(false);
+                            }} 
+                          />
+                       </div>
                   </div>
                 </>
               )}
