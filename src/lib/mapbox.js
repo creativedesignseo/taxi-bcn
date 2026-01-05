@@ -1,4 +1,4 @@
-import mapboxgl from 'mapbox-gl';
+
 
 const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 
