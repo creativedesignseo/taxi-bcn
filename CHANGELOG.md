@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.6] - 2026-01-05
+
+### Changed
+- **Mobile UI (Prefix Selector)**: Increased width to `140px` and disabled shrinking (`flex-shrink-0`) to prevent layout compression. Reduced internal padding (`py-2`, `pl-2`) for a more compact and cleaner look.
+- **Mobile UI (Calendar)**: Reduced container padding (`p-6` -> `p-3`) to maximize horizontal space, giving the days grid more room ("more air") as requested.
+
 ## [1.3.5] - 2026-01-05
 
 ### Changed

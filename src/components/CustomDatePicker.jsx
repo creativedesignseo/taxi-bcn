@@ -97,7 +97,7 @@ const CustomDatePicker = ({ selectedDate, onChange, onClose }) => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-3xl shadow-2xl w-full max-w-sm mx-auto border border-gray-100">
+    <div className="bg-white p-3 rounded-3xl shadow-2xl w-full max-w-sm mx-auto border border-gray-100">
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <button 
