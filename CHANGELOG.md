@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.1] - 2026-01-05
+
+### Fixed
+- **WhatsApp Button**: Fixed crash caused by data structure mismatch (`coords` vs `coordinates`).
+- **Back Button**: Improved logic to use `history.back()` and fixed z-index layering issues for better responsiveness.
+- **Interactions**: Added visual feedback and error logging for easier debugging.
+
 ## [1.4.0] - 2026-01-05
 
 ### Added

@@ -43,11 +43,21 @@ export default function BookingPage() {
   }, [setValue]);
 
   const onSubmit = (userData) => {
+    console.log("Form Submitted", userData);
     const fullPhone = `${userData.prefix || defaultPrefix} ${userData.phone}`;
     const finalUserData = { ...userData, phone: fullPhone.trim() };
 
-    const whatsappLink = generateWhatsAppLink(bookingData, finalUserData);
-    window.open(whatsappLink, '_blank');
+    try {
+        const whatsappLink = generateWhatsAppLink(bookingData, finalUserData);
+        console.log("WhatsApp Link:", whatsappLink);
+        window.open(whatsappLink, '_blank');
+    } catch (e) {
+        console.error("Error generating WhatsApp link:", e);
+    }
+  };
+
+  const onError = (errors) => {
+    console.log("Form Errors:", errors);
   };
 
   if (!bookingData) return null;
@@ -59,12 +69,16 @@ export default function BookingPage() {
       </Helmet>
 
       {/* --- LEFT COLUMN (Desktop) / BOTTOM (Mobile): FORM --- */}
-      <div className="order-2 md:order-1 w-full md:w-1/2 lg:w-5/12 p-6 md:p-12 overflow-y-auto h-[60vh] md:h-screen flex flex-col relative z-20 bg-white -mt-6 md:mt-0 rounded-t-3xl md:rounded-none shadow-[0_-10px_40px_rgba(0,0,0,0.1)] md:shadow-none">
+      <div className="order-2 md:order-1 w-full md:w-1/2 lg:w-5/12 p-6 md:p-12 overflow-y-auto h-[60vh] md:h-screen flex flex-col relative z-[100] bg-white -mt-6 md:mt-0 rounded-t-3xl md:rounded-none shadow-[0_-10px_40px_rgba(0,0,0,0.1)] md:shadow-none">
         
         {/* Back Button */}
         <button 
-          onClick={() => navigate('/')} 
-          className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors mb-6"
+          type="button"
+          onClick={() => {
+            console.log("Back clicked");
+            navigate(-1);
+          }} 
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors mb-6 cursor-pointer relative z-50"
         >
           <ArrowLeft size={20} className="text-gray-700" />
         </button>
@@ -103,7 +117,7 @@ export default function BookingPage() {
         </div>
 
         {/* Booking Form */}
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+        <form onSubmit={handleSubmit(onSubmit, onError)} className="space-y-5">
            <div>
               <label className="block text-sm font-bold text-gray-700 mb-2">
                 {t('booking.modal.name', 'Nombre Completo')}

@@ -389,8 +389,8 @@ const BookingForm = () => {
                   const isImmediate = bookingType === 'now';
                   
                   const bookingData = {
-                      origin: { address: origin, coords: originCoords },
-                      destination: { address: destination, coords: destCoords },
+                      origin: { address: origin, coordinates: originCoords },
+                      destination: { address: destination, coordinates: destCoords },
                       date: isImmediate ? t('hero.timeNow', 'Ahora') : date,
                       time: isImmediate ? 'Inmediato' : time,
                       passengers,
