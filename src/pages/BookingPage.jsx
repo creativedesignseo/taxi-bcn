@@ -69,7 +69,7 @@ export default function BookingPage() {
       </Helmet>
 
       {/* --- LEFT COLUMN (Desktop) / BOTTOM SHEET (Mobile): FORM --- */}
-      <div className="relative z-10 mt-[38vh] w-full md:mt-0 md:w-1/2 lg:w-5/12 bg-white rounded-t-3xl md:rounded-none p-6 md:p-12 min-h-[80vh] md:h-screen md:overflow-y-auto flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.1)] md:shadow-none md:order-1">
+      <div className="relative z-10 mt-[38vh] w-full md:mt-0 md:w-1/2 lg:w-5/12 bg-white rounded-t-3xl md:rounded-none p-6 md:p-12 min-h-screen md:h-screen md:overflow-y-auto flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.1)] md:shadow-none md:order-1">
         
         {/* Back Button */}
         <button 

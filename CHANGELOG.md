@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.9] - 2026-01-05
+
+### UI Polish
+- **Mobile Experience**: Reduced the top margin of the Home Booking Form to `16px` (`mt-4`) to bring it visually closer to the header, making it the primary focal point.
+- **Visual Stability**: Applied `min-h-screen` to the Booking Form container to ensure a "solid" background without gaps.
+- **Stacking Logic**: Added `z-index: 50` to the global Footer to ensure it properly covers the fixed map at the bottom of the scroll.
+
+## [1.4.8] - 2026-01-05
+
+### UI Polish
+- **Mobile Experience**: Extended the Booking Form height to `min-h-screen` to prevent background gaps (map appearing) when scrolling to the very bottom on taller mobile screens.
+
 ## [1.4.7] - 2026-01-05
 
 ### UI/UX

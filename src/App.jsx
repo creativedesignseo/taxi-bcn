@@ -191,7 +191,7 @@ const App = () => {
             </div>
 
 
-            <div className="container mx-auto px-4 z-10 relative mt-16 md:mt-0">
+            <div className="container mx-auto px-4 z-10 relative mt-4 md:mt-0">
               <div className="grid md:grid-cols-2 gap-4 md:gap-12 items-center">
 
                 {/* Text Content */}
@@ -531,7 +531,7 @@ const App = () => {
       </Routes>
 
       {/* --- FOOTER --- */}
-      <footer className="bg-black text-white py-12 border-t border-gray-800">
+      <footer className="bg-black text-white py-12 border-t border-gray-800 relative z-50">
         <div className="container mx-auto px-4 grid md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="mb-4">

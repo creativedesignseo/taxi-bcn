@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { MapPin, Clock, Navigation, Loader2, Locate, ArrowRight, Calendar, Users, Briefcase, ChevronDown, X } from 'lucide-react';
+import { MapPin, Navigation, Loader2, Locate, ArrowRight, Users, Briefcase } from 'lucide-react';
 import { getPlaceSuggestions, getRouteData, reverseGeocode, getPlaceDetails, generateSessionToken } from '../lib/mapbox';
 import { getCurrentLocation } from '../lib/whatsapp';
-import CustomDatePicker from './CustomDatePicker';
 
 const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 
@@ -22,78 +21,16 @@ const BookingForm = () => {
   const [routeInfo, setRouteInfo] = useState(null);
   const [isLoadingRoute, setIsLoadingRoute] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [showDatePicker, setShowDatePicker] = useState(false); // New state for calendar visibility
-  const [showScheduleModal, setShowScheduleModal] = useState(false); // Modal for choosing "Now" vs "Later"
-  const [bookingType, setBookingType] = useState('now'); // 'now' | 'later'
+  
   const [isLoadingLocation, setIsLoadingLocation] = useState(false);
-  const [tick, setTick] = useState(0); // Force re-render for time slots
   
   // Mapbox Session Token (Search Box API)
   const [sessionToken] = useState(generateSessionToken());
 
-  // New Fields State (Moved up to avoid ReferenceError)
-  const [date, setDate] = useState(() => {
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const day = String(today.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
-  });
-  const [time, setTime] = useState(''); // Will be set by effect
+  // New Fields State
   const [passengers, setPassengers] = useState(1);
   const [luggage, setLuggage] = useState(0);
-  const [transferType, setTransferType] = useState('oneWay'); 
-
-  // Generate 30-minute time slots (Static list)
-  const allTimeSlots = React.useMemo(() => {
-    const slots = [];
-    for (let i = 0; i < 24; i++) {
-        const hour = String(i).padStart(2, '0');
-        slots.push(`${hour}:00`);
-        slots.push(`${hour}:30`);
-    }
-    return slots;
-  }, []);
-
-  // Filter slots based on selected date
-  const getAvailableTimeSlots = useCallback(() => {
-    const today = new Date();
-    // Use local date string (YYYY-MM-DD) instead of UTC
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const day = String(today.getDate()).padStart(2, '0');
-    const todayStr = `${year}-${month}-${day}`;
-    
-    // If selected date is today, filter past times
-    if (date === todayStr) {
-      const currentHour = today.getHours();
-      const currentMinutes = today.getMinutes();
-      
-      // Add a small buffer (e.g. 15 mins) so user doesn't book a taxi for "1 min ago" or "right now" which is impossible
-      const bufferMinutes = 15; 
-      
-      return allTimeSlots.filter(slot => {
-        const [slotHour, slotMin] = slot.split(':').map(Number);
-        const slotTimeInMinutes = slotHour * 60 + slotMin;
-        const currentTimeInMinutes = currentHour * 60 + currentMinutes;
-        
-        return slotTimeInMinutes > (currentTimeInMinutes + bufferMinutes);
-      });
-    }
-    
-    // If future date, show all
-    return allTimeSlots;
-  }, [date, allTimeSlots, tick]);
-
-  const availableSlots = getAvailableTimeSlots();
-
-  useEffect(() => {
-    const slots = getAvailableTimeSlots();
-    if (slots.length > 0 && !slots.includes(time)) {
-       // If current selected time is invalid (e.g. in the past), snap to the first available
-       setTime(slots[0]);
-    }
-  }, [date, getAvailableTimeSlots]); // We don't include 'time' to avoid loops
+  const [transferType, setTransferType] = useState('oneWay');
 
   // Debounce for search
   useEffect(() => {
@@ -206,21 +143,8 @@ const BookingForm = () => {
 
         <div className="space-y-3 flex-grow">
           
-          {/* Schedule Pill */}
-          <div className="flex justify-start">
-             <button 
-               onClick={() => setShowScheduleModal(true)}
-               className="bg-gray-100 hover:bg-gray-200 transition-colors rounded-full px-4 py-2 flex items-center gap-2 text-sm font-bold text-black"
-             >
-               <Clock size={16} className="text-black" />
-               <span>
-                 {bookingType === 'now' 
-                   ? t('booking.form.pickupNow', 'Recoger ahora') 
-                   : `${date.split('-').reverse().join('-')} - ${time}`}
-               </span>
-               <ChevronDown size={16} className="text-black" />
-             </button>
-          </div>
+          {/* Row 2: Origin Input */}
+
 
           {/* Row 2: Origin Input */}
           <div className={`relative mt-4 ${activeInput === 'origin' ? 'z-50' : 'z-20'}`}>
@@ -385,14 +309,11 @@ const BookingForm = () => {
             disabled={!routeInfo}
             onClick={() => {
               if (origin && destination && routeInfo) {
-                  // Default to 'now' if not set, or use current date/time
-                  const isImmediate = bookingType === 'now';
-                  
                   const bookingData = {
                       origin: { address: origin, coordinates: originCoords },
                       destination: { address: destination, coordinates: destCoords },
-                      date: isImmediate ? t('hero.timeNow', 'Ahora') : date,
-                      time: isImmediate ? t('hero.immediate', 'Inmediato') : time,
+                      date: t('hero.timeNow', 'Ahora'),
+                      time: t('hero.immediate', 'Inmediato'),
                       passengers,
                       luggage,
                       vehicle: passengers > 4 ? 'Minivan' : 'Standard',
@@ -428,95 +349,7 @@ const BookingForm = () => {
         </div>
       </div>
 
-      {/* Schedule Selection Modal (Now vs Later) */}
-      {showScheduleModal && (
-        <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fadeIn">
-            {/* Backdrop */}
-            <div className="absolute inset-0" onClick={() => setShowScheduleModal(false)}></div>
-            
-            <div className="relative z-10 bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden animate-scale-in">
-                {/* Title */}
-                <div className="p-4 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-20">
-                  <h3 className="font-bold text-xl text-black">{t('booking.form.whenTitle', '¿Cuándo te recogen?')}</h3>
-                  <button onClick={() => setShowScheduleModal(false)} className="p-1 hover:bg-gray-100 rounded-full transition-colors">
-                    <X size={24} className="text-black"/>
-                  </button>
-                </div>
-                
-                <div className="p-4 space-y-4 max-h-[70vh] overflow-y-auto custom-scrollbar">
-                  {/* Option 1: Pickup Now */}
-                  <div 
-                      onClick={() => setBookingType('now')}
-                      className={`flex items-center justify-between p-4 rounded-xl border cursor-pointer transition-all ${bookingType === 'now' ? 'border-black bg-gray-50' : 'border-gray-100 hover:border-gray-200'}`}
-                  >
-                      <div className="flex items-center gap-3">
-                        <Clock size={20} className={bookingType === 'now' ? "text-black" : "text-gray-400"} />
-                        <span className="font-bold text-black text-lg">{t('booking.form.pickupNow', 'Recoger ahora')}</span>
-                      </div>
-                      <div className={`w-6 h-6 rounded-full flex items-center justify-center border-2 ${bookingType === 'now' ? 'border-black' : 'border-gray-300'}`}>
-                          {bookingType === 'now' && <div className="w-3 h-3 bg-black rounded-full"></div>}
-                      </div>
-                  </div>
 
-                  {/* Option 2: Schedule for later */}
-                  <div 
-                      onClick={() => setBookingType('later')}
-                      className={`flex flex-col p-4 rounded-xl border cursor-pointer transition-all ${bookingType === 'later' ? 'border-black bg-gray-50' : 'border-gray-100 hover:border-gray-200'}`}
-                  >
-                      <div className="flex items-center justify-between w-full mb-3">
-                          <div className="flex items-center gap-3">
-                             <Calendar size={20} className={bookingType === 'later' ? "text-black" : "text-gray-400"} />
-                             <span className="font-bold text-black text-lg">{t('booking.form.scheduleLater', 'Programar para más tarde')}</span>
-                          </div>
-                          <div className={`w-6 h-6 rounded-full flex items-center justify-center border-2 ${bookingType === 'later' ? 'border-black' : 'border-gray-300'}`}>
-                              {bookingType === 'later' && <div className="w-3 h-3 bg-black rounded-full"></div>}
-                          </div>
-                      </div>
-                      
-                      {/* Embedded Calendar & Time Logic (Only if 'later' is selected) */}
-                      {bookingType === 'later' && (
-                          <div className="mt-2 space-y-4 animate-slideDown" onClick={(e) => e.stopPropagation()}>
-                              {/* Date Picker (Inline - Clean) */}
-                              <div className="pt-2">
-                                <CustomDatePicker 
-                                  selectedDate={date} 
-                                  onChange={(newDate) => setDate(newDate)} 
-                                />
-                              </div>
-
-                              {/* Time Selector */}
-                              <div>
-                                <label className="text-xs font-bold text-gray-500 mb-1 block uppercase">{t('booking.form.timeLabel', 'HORA')}</label>
-                                <div className="flex items-center bg-white border border-gray-200 rounded-xl px-3 py-3 hover:border-black transition-colors">
-                                  <Clock className="text-black mr-3" size={20} />
-                                  <select 
-                                    value={time}
-                                    onChange={(e) => setTime(e.target.value)}
-                                    className="bg-transparent w-full text-black font-bold text-lg outline-none cursor-pointer appearance-none"
-                                  >
-                                    {availableSlots.map(slot => (
-                                      <option key={slot} value={slot}>{slot}</option>
-                                    ))}
-                                    {availableSlots.length === 0 && <option disabled>No hours available</option>}
-                                  </select>
-                                </div>
-                              </div>
-                          </div>
-                      )}
-                  </div>
-                </div>
-
-                <div className="p-4 border-t border-gray-100 bg-white sticky bottom-0 z-20">
-                  <button 
-                    onClick={() => setShowScheduleModal(false)}
-                    className="w-full bg-black text-white font-bold py-4 rounded-xl hover:bg-gray-800 transition-colors text-lg"
-                  >
-                    {t('booking.form.confirm', 'Confirmar')}
-                  </button>
-                </div>
-            </div>
-        </div>
-      )}
     </div>
   );
 };
