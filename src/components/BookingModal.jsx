@@ -141,7 +141,7 @@ export default function BookingModal({ isOpen, onClose, bookingData }) {
                   </label>
                   <div className="flex gap-2">
                     {/* Country Code Selector */}
-                    <div className="relative w-[140px] flex-shrink-0">
+                    <div className="relative w-[100px] flex-shrink-0">
                       <select
                         {...register('prefix')}
                         className="w-full appearance-none bg-gray-800 border border-gray-700 rounded-lg py-2 pl-2 pr-8 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all cursor-pointer h-full text-sm"
