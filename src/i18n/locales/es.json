@@ -190,7 +190,11 @@
       "luggageLabel": "Maletas",
       "transferTypeLabel": "Tipo de Trayecto",
       "oneWay": "Solo Ida",
-      "roundTrip": "Ida y Vuelta"
+      "roundTrip": "Ida y Vuelta",
+      "passenger": "Pasajero",
+      "passengers": "Pasajeros",
+      "suitcase": "Maleta",
+      "suitcases": "Maletas"
     }
   }
 }

@@ -39,7 +39,6 @@ export function generateWhatsAppLink(bookingData, userData) {
 
 *Fecha de recogida:* ${bookingData.date}
 *Hora de recogida:* ${bookingData.time}
-*Tipo de servicio:* ${bookingData.transferType === 'oneWay' ? 'Solo Ida' : 'Ida y Vuelta'}
 *Pasajeros:* ${bookingData.passengers}
 *Maletas:* ${bookingData.luggage}
 

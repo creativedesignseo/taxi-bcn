@@ -72,9 +72,6 @@ export default function BookingModal({ isOpen, onClose, bookingData }) {
             
             <div className="flex justify-between pt-2 border-t border-gray-700 text-sm">
                <span className="text-gray-300">
-                 {bookingData.transferType === 'oneWay' ? t('booking.form.oneWay') : t('booking.form.roundTrip')}
-               </span>
-               <span className="text-gray-300">
                  {bookingData.passengers} pax, {bookingData.luggage} bags
                </span>
             </div>

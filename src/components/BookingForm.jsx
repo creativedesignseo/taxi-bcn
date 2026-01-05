@@ -350,52 +350,49 @@ const BookingForm = () => {
             )}
           </div>
 
-          {/* Row 4: Transfer Type */}
-          <div>
-            <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">{t('booking.form.transferTypeLabel', 'TIPO DE TRAYECTO')}</label>
-             <div className="grid grid-cols-2 gap-2 bg-gray-800/50 p-1 rounded-xl border border-gray-700">
-               <button 
-                onClick={() => setTransferType('oneWay')}
-                className={`py-2 rounded-lg text-sm font-bold transition-all ${transferType === 'oneWay' ? 'bg-yellow-400 text-black shadow-lg' : 'text-gray-400 hover:text-white'}`}
-               >
-                 {t('booking.form.oneWay', 'Solo Ida')}
-               </button>
-               <button 
-                onClick={() => setTransferType('roundTrip')}
-                className={`py-2 rounded-lg text-sm font-bold transition-all ${transferType === 'roundTrip' ? 'bg-yellow-400 text-black shadow-lg' : 'text-gray-400 hover:text-white'}`}
-               >
-                 {t('booking.form.roundTrip', 'Ida y Vuelta')}
-               </button>
-             </div>
-          </div>
-
-          {/* Row 5: Passengers & Luggage */}
-          <div className="grid grid-cols-2 gap-4">
+          {/* Row 4: Passengers & Luggage (Now Dropdowns) */}
+          <div className="grid grid-cols-2 gap-3">
             {/* Passengers */}
              <div>
-              <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">{t('booking.form.passengersLabel', 'PASAJEROS')}</label>
-              <div className="flex items-center justify-between bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-3">
-                 <div className="flex items-center gap-2">
-                   <Users className="text-purple-400" size={18} />
-                   <span className="text-white font-bold">{passengers}</span>
-                 </div>
-                 <div className="flex gap-1">
-                   <button onClick={() => setPassengers(Math.max(1, passengers - 1))} className="w-6 h-6 rounded-full bg-gray-700 text-white flex items-center justify-center hover:bg-gray-600">-</button>
-                   <button onClick={() => setPassengers(Math.min(8, passengers + 1))} className="w-6 h-6 rounded-full bg-gray-700 text-white flex items-center justify-center hover:bg-gray-600">+</button>
+              <label className="text-[10px] uppercase text-gray-400 font-bold ml-1 mb-1 block tracking-wider">{t('booking.form.passengersLabel', 'PASAJEROS')}</label>
+              <div className="flex items-center bg-gray-800/50 border border-gray-700 rounded-xl px-3 py-3 md:px-4 md:py-4 relative hover:border-yellow-400 transition-colors">
+                 <Users className="text-purple-400 mr-2 md:mr-3 z-10 flex-shrink-0" size={20} />
+                 <select 
+                   value={passengers}
+                   onChange={(e) => setPassengers(Number(e.target.value))}
+                   className="bg-transparent w-full text-white outline-none font-bold text-base md:text-lg appearance-none relative z-20 cursor-pointer pl-1"
+                 >
+                   {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(num => (
+                     <option key={num} value={num} className="text-black bg-white py-2">
+                       {num} {num === 1 ? t('booking.form.passenger', 'Pasajero') : t('booking.form.passengers', 'Pasajeros')}
+                     </option>
+                   ))}
+                 </select>
+                 {/* Chevron Icon for visual cue */}
+                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none z-10 text-gray-500">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                  </div>
               </div>
             </div>
              {/* Luggage */}
              <div>
-              <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">{t('booking.form.luggageLabel', 'MALETAS')}</label>
-              <div className="flex items-center justify-between bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-3">
-                 <div className="flex items-center gap-2">
-                   <Briefcase className="text-orange-400" size={18} />
-                   <span className="text-white font-bold">{luggage}</span>
-                 </div>
-                 <div className="flex gap-1">
-                   <button onClick={() => setLuggage(Math.max(0, luggage - 1))} className="w-6 h-6 rounded-full bg-gray-700 text-white flex items-center justify-center hover:bg-gray-600">-</button>
-                   <button onClick={() => setLuggage(Math.min(10, luggage + 1))} className="w-6 h-6 rounded-full bg-gray-700 text-white flex items-center justify-center hover:bg-gray-600">+</button>
+              <label className="text-[10px] uppercase text-gray-400 font-bold ml-1 mb-1 block tracking-wider">{t('booking.form.luggageLabel', 'MALETAS')}</label>
+              <div className="flex items-center bg-gray-800/50 border border-gray-700 rounded-xl px-3 py-3 md:px-4 md:py-4 relative hover:border-yellow-400 transition-colors">
+                 <Briefcase className="text-orange-400 mr-2 md:mr-3 z-10 flex-shrink-0" size={20} />
+                 <select 
+                   value={luggage}
+                   onChange={(e) => setLuggage(Number(e.target.value))}
+                   className="bg-transparent w-full text-white outline-none font-bold text-base md:text-lg appearance-none relative z-20 cursor-pointer pl-1"
+                 >
+                   {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
+                     <option key={num} value={num} className="text-black bg-white py-2">
+                       {num} {num === 1 ? t('booking.form.suitcase', 'Maleta') : t('booking.form.suitcases', 'Maletas')}
+                     </option>
+                   ))}
+                 </select>
+                 {/* Chevron Icon */}
+                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none z-10 text-gray-500">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                  </div>
               </div>
             </div>
@@ -453,7 +450,6 @@ const BookingForm = () => {
             time,
             passengers,
             luggage,
-            transferType,
             timeEstimate: ~~(routeInfo.durationSeconds / 60),
             priceEstimate: parseFloat(estimatePrice(routeInfo.distanceMeters))
           }}

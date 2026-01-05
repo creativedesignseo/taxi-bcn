@@ -190,7 +190,11 @@
             "luggageLabel": "Luggage",
             "transferTypeLabel": "Transfer Type",
             "oneWay": "One Way",
-            "roundTrip": "Round Trip"
+            "roundTrip": "Round Trip",
+            "passenger": "Passenger",
+            "passengers": "Passengers",
+            "suitcase": "Suitcase",
+            "suitcases": "Suitcases"
         }
     }
 }
