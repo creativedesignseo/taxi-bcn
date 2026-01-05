@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.8] - 2026-01-05
+
+### Changed
+- **Booking Form UI**: Complete redesign to "Light Mode" with "Uber-style" inputs (High Contrast Black/White).
+- **Scheduling Workflow**: Implemented "Pickup Now" pill button and a dedicated Schedule Modal for better UX.
+- **Input Styling**: Standardized Date, Time, Origin, Destination, Passengers, and Luggage inputs with consistent floating labels and monochrome aesthetics.
+- **Calendar**: Refined CustomDatePicker styles (removed double borders/shadows, reduced padding) for a cleaner, flatter look.
+
 ## [1.3.7] - 2026-01-05
 
 ### Changed
