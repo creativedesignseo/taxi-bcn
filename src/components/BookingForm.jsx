@@ -392,7 +392,7 @@ const BookingForm = () => {
                       origin: { address: origin, coordinates: originCoords },
                       destination: { address: destination, coordinates: destCoords },
                       date: isImmediate ? t('hero.timeNow', 'Ahora') : date,
-                      time: isImmediate ? 'Inmediato' : time,
+                      time: isImmediate ? t('hero.immediate', 'Inmediato') : time,
                       passengers,
                       luggage,
                       vehicle: passengers > 4 ? 'Minivan' : 'Standard',

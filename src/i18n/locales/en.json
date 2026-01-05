@@ -23,6 +23,7 @@
         "time15": "In 15 minutes",
         "time30": "In 30 minutes",
         "timeLater": "Schedule for later",
+        "immediate": "Immediate",
         "requestButton": "Request Taxi",
         "responseTime": "Average response time: 2 minutes"
     },

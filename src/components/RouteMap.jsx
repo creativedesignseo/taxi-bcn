@@ -9,18 +9,26 @@ const RouteMap = ({ originCoords, destCoords, routeGeometry }) => {
   const mapRef = useRef(null);
 
   useEffect(() => {
-    if (!mapRef.current || !originCoords || !destCoords) return;
+    if (!mapRef.current) return;
 
-    // Fit bounds to show both points with padding
-    const bounds = new mapboxgl.LngLatBounds()
-      .extend(originCoords)
-      .extend(destCoords);
+    const bounds = new mapboxgl.LngLatBounds();
 
-    mapRef.current.fitBounds(bounds, {
-      padding: { top: 50, bottom: 50, left: 50, right: 50 },
-      duration: 1000
-    });
-  }, [originCoords, destCoords]);
+    if (routeGeometry && routeGeometry.coordinates) {
+      // Fit to entire route path
+      routeGeometry.coordinates.forEach(coord => bounds.extend(coord));
+    } else {
+      // Fallback to origin/dest only
+      if (originCoords) bounds.extend(originCoords);
+      if (destCoords) bounds.extend(destCoords);
+    }
+
+    if (!bounds.isEmpty()) {
+      mapRef.current.fitBounds(bounds, {
+        padding: { top: 80, bottom: 80, left: 60, right: 60 },
+        duration: 1000
+      });
+    }
+  }, [originCoords, destCoords, routeGeometry]);
 
   const routeGeoJSON = {
     type: 'Feature',

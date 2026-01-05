@@ -106,7 +106,8 @@
     "title": "Muévete por ",
     "titleHighlight": "Barcelona",
     "bookingTitle": "Reserva Express",
-    "timeLater": "Programar para más tarde"
+    "timeLater": "Programar para más tarde",
+    "immediate": "Inmediato"
   },
   "footer": {
     "contact": "Contacto",

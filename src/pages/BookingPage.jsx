@@ -111,7 +111,7 @@ export default function BookingPage() {
                 <span>{bookingData.date} - {bookingData.time}</span>
              </div>
              <span className="bg-white px-3 py-1 rounded-full text-xs font-bold border border-gray-200 shadow-sm">
-               {bookingData.passengers} Pax • {bookingData.luggage} Maletas
+               {bookingData.passengers} {bookingData.passengers === 1 ? t('booking.form.passenger', 'Pasajero') : t('booking.form.passengers', 'Pasajeros')} • {bookingData.luggage} {bookingData.luggage === 1 ? t('booking.form.suitcase', 'Maleta') : t('booking.form.suitcases', 'Maletas')}
              </span>
           </div>
         </div>
