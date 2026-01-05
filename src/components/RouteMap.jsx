@@ -8,25 +8,38 @@ const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 const RouteMap = ({ originCoords, destCoords, routeGeometry }) => {
   const mapRef = useRef(null);
 
-  useEffect(() => {
-    if (!mapRef.current) return;
+  // Function to fit map to markers and route
+  const fitMapToRoute = (mapInstance) => {
+    if (!originCoords || !destCoords) return;
 
     const bounds = new mapboxgl.LngLatBounds();
 
+    // 1. Always include Origin & Destination markers
+    bounds.extend(originCoords);
+    bounds.extend(destCoords);
+
+    // 2. Include the Route path if available
     if (routeGeometry && routeGeometry.coordinates) {
-      // Fit to entire route path
       routeGeometry.coordinates.forEach(coord => bounds.extend(coord));
-    } else {
-      // Fallback to origin/dest only
-      if (originCoords) bounds.extend(originCoords);
-      if (destCoords) bounds.extend(destCoords);
     }
 
+    // 3. Fit bounds with responsive padding
     if (!bounds.isEmpty()) {
-      mapRef.current.fitBounds(bounds, {
-        padding: { top: 80, bottom: 80, left: 60, right: 60 },
+      const isMobile = window.innerWidth < 768;
+      const padding = isMobile 
+        ? { top: 60, bottom: 60, left: 40, right: 40 }
+        : { top: 100, bottom: 100, left: 100, right: 100 };
+
+      mapInstance.fitBounds(bounds, {
+        padding,
         duration: 1000
       });
+    }
+  };
+
+  useEffect(() => {
+    if (mapRef.current) {
+        fitMapToRoute(mapRef.current);
     }
   }, [originCoords, destCoords, routeGeometry]);
 
@@ -48,8 +61,9 @@ const RouteMap = ({ originCoords, destCoords, routeGeometry }) => {
         style={{ width: '100%', height: '100%' }}
         mapStyle="mapbox://styles/mapbox/light-v11"
         mapboxAccessToken={MAPBOX_TOKEN}
-        interactive={false} // Static map feeling
+        interactive={true}
         attributionControl={false}
+        onLoad={(e) => fitMapToRoute(e.target)}
       >
         {/* Origin Marker */}
         <Marker longitude={originCoords[0]} latitude={originCoords[1]} color="#EAB308" />
@@ -76,9 +90,6 @@ const RouteMap = ({ originCoords, destCoords, routeGeometry }) => {
           </Source>
         )}
       </Map>
-      
-      {/* Overlay to Prevent Interaction */}
-      <div className="absolute inset-0 z-10 bg-transparent pointer-events-auto cursor-default"></div>
     </div>
   );
 };
