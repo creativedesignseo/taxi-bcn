@@ -78,9 +78,9 @@ export default function BookingPage() {
             console.log("Back clicked");
             navigate(-1);
           }} 
-          className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors mb-6 cursor-pointer relative z-50"
+          className="w-12 h-12 aspect-square flex-none flex items-center justify-center rounded-full bg-white shadow-md hover:bg-gray-50 transition-all mb-6 cursor-pointer relative z-50 border border-gray-100"
         >
-          <ArrowLeft size={20} className="text-gray-700" />
+          <ArrowLeft size={24} className="text-gray-900" />
         </button>
 
         <h1 className="text-3xl font-black text-gray-900 mb-2">{t('booking.modal.title', 'Confirmar Reserva')}</h1>
