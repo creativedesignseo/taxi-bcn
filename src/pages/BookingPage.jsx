@@ -63,13 +63,13 @@ export default function BookingPage() {
   if (!bookingData) return null;
 
   return (
-    <div className="min-h-screen bg-white flex flex-col md:flex-row">
+    <div className="min-h-screen bg-gray-50 md:bg-white md:flex md:flex-row relative selection:bg-yellow-100">
       <Helmet>
         <title>{t('seo.bookingTitle', 'Confirmar Reserva - Taxi Movit')}</title>
       </Helmet>
 
-      {/* --- LEFT COLUMN (Desktop) / BOTTOM (Mobile): FORM --- */}
-      <div className="order-2 md:order-1 w-full md:w-1/2 lg:w-5/12 p-6 md:p-12 overflow-y-auto h-[60vh] md:h-screen flex flex-col relative z-[100] bg-white -mt-6 md:mt-0 rounded-t-3xl md:rounded-none shadow-[0_-10px_40px_rgba(0,0,0,0.1)] md:shadow-none">
+      {/* --- LEFT COLUMN (Desktop) / BOTTOM SHEET (Mobile): FORM --- */}
+      <div className="relative z-10 mt-[38vh] w-full md:mt-0 md:w-1/2 lg:w-5/12 bg-white rounded-t-3xl md:rounded-none p-6 md:p-12 min-h-[80vh] md:h-screen md:overflow-y-auto flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.1)] md:shadow-none md:order-1">
         
         {/* Back Button */}
         <button 
@@ -117,7 +117,7 @@ export default function BookingPage() {
         </div>
 
         {/* Booking Form */}
-        <form onSubmit={handleSubmit(onSubmit, onError)} className="space-y-5">
+        <form onSubmit={handleSubmit(onSubmit, onError)} className="space-y-5 pb-12">
            <div>
               <label className="block text-sm font-bold text-gray-700 mb-2">
                 {t('booking.modal.name', 'Nombre Completo')}
@@ -175,8 +175,8 @@ export default function BookingPage() {
         </form>
       </div>
 
-      {/* --- RIGHT COLUMN (Desktop) / TOP (Mobile): MAP --- */}
-      <div className="order-1 md:order-2 w-full md:w-1/2 lg:w-7/12 h-[45vh] md:h-screen sticky top-0 md:relative">
+      {/* --- RIGHT COLUMN (Desktop) / BACKGROUND (Mobile): MAP --- */}
+      <div className="fixed top-0 left-0 right-0 h-[45vh] z-0 md:relative md:h-screen md:w-1/2 md:order-2 lg:w-7/12">
          <div className="w-full h-full relative">
             {/* The Map */}
             <RouteMap 
@@ -186,7 +186,7 @@ export default function BookingPage() {
             />
             
             {/* Gradient Overlay for Mobile Bottom Blend */}
-            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent md:hidden pointer-events-none z-10"></div>
+            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/90 to-transparent md:hidden pointer-events-none z-10"></div>
          </div>
       </div>
 
