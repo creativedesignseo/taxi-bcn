@@ -101,7 +101,7 @@ const BookingForm = () => {
   };
 
   return (
-    <div className="w-full bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-gray-800">
+    <div className="w-full bg-slate-900 rounded-3xl shadow-2xl border border-gray-800 relative">
       
       {/* FORM PANEL */}
       <div className="p-6 md:p-8">
