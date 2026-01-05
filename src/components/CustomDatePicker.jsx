@@ -97,48 +97,40 @@ const CustomDatePicker = ({ selectedDate, onChange, onClose }) => {
   };
 
   return (
-    <div className="bg-white p-3 rounded-3xl shadow-2xl w-full max-w-sm mx-auto border border-gray-100">
+    <div className="bg-white w-full max-w-sm mx-auto">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-2">
         <button 
           onClick={(e) => { e.preventDefault(); handlePrevMonth(); }}
-          className="p-2 rounded-full border border-gray-100 hover:bg-gray-50 text-gray-400 transition-colors"
+          className="p-1 rounded-full hover:bg-gray-50 text-gray-400 transition-colors"
         >
           <ChevronLeft size={20} />
         </button>
         
-        <h3 className="text-xl font-bold text-gray-900">
+        <h3 className="text-sm font-bold text-gray-900">
           {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
         </h3>
 
         <button 
           onClick={(e) => { e.preventDefault(); handleNextMonth(); }}
-          className="p-2 rounded-full border border-gray-100 hover:bg-gray-50 text-gray-400 transition-colors"
+          className="p-1 rounded-full hover:bg-gray-50 text-gray-400 transition-colors"
         >
           <ChevronRight size={20} />
         </button>
       </div>
 
       {/* Week Days Header */}
-      <div className="grid grid-cols-7 mb-4">
+      <div className="grid grid-cols-7 mb-2">
         {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map(day => (
-          <div key={day} className="h-10 w-10 flex items-center justify-center text-gray-400 text-xs font-medium mx-auto">
+          <div key={day} className="h-8 w-8 flex items-center justify-center text-gray-300 text-[10px] font-bold mx-auto">
             {day}
           </div>
         ))}
       </div>
 
       {/* Calendar Grid */}
-      <div className="grid grid-cols-7 gap-y-2 justify-items-center">
+      <div className="grid grid-cols-7 gap-y-1 justify-items-center">
         {renderCalendarDays()}
-      </div>
-      
-      {/* Selected Date String (Bottom) */}
-      <div className="mt-8 pt-6 border-t border-gray-100">
-        <div className="text-3xl font-mono text-gray-900 tracking-wider">
-           {selectedDate ? selectedDate.split('-').reverse().join('-') : '-- -- ----'}
-           <span className="animate-pulse ml-1 text-yellow-400">|</span> 
-        </div>
       </div>
     </div>
   );
