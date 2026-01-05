@@ -111,6 +111,7 @@ const App = () => {
       />
 
       {/* --- NAVIGATION --- */}
+      {location.pathname !== '/reservar' && (
       <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-md py-3 shadow-lg' : 'bg-transparent py-6'}`}>
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => navigate('/')}>
@@ -145,6 +146,7 @@ const App = () => {
           </button>
         </div>
       </nav>
+      )}
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
@@ -568,6 +570,7 @@ const App = () => {
       </footer>
 
       {/* --- STICKY MOBILE ACTION BAR --- */}
+      {location.pathname !== '/reservar' && (
       <div className="fixed bottom-4 left-4 right-4 z-50 md:hidden flex gap-3">
         <button
           onClick={handleCall}
@@ -582,6 +585,7 @@ const App = () => {
           <MessageCircle size={20} /> {t('mobile.whatsapp')}
         </button>
       </div>
+      )}
 
       <CookieConsent />
     </div >
