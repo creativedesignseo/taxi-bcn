@@ -153,5 +153,27 @@
       "tag": "Negocios"
     },
     "bookService": "Reservar Servicio"
+  },
+  "booking": {
+    "modal": {
+      "title": "Confirmar Reserva",
+      "from": "Recogida",
+      "to": "Destino",
+      "time": "Tiempo estimado",
+      "price": "Precio aproximado",
+      "guestInfo": "Completa tus datos para continuar",
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre completo",
+      "nameRequired": "El nombre es obligatorio",
+      "nameMin": "Mínimo 2 caracteres",
+      "phone": "Teléfono",
+      "phonePlaceholder": "612345678",
+      "phoneRequired": "El teléfono es obligatorio",
+      "phoneInvalid": "Teléfono inválido (ej: 612345678)",
+      "bookWhatsApp": "Enviar por WhatsApp",
+      "haveAccount": "¿Ya tienes cuenta? Iniciar sesión",
+      "loginComingSoon": "Inicio de sesión próximamente",
+      "backToGuest": "← Volver a reserva de invitado"
+    }
   }
 }

@@ -18,19 +18,16 @@ const MobileLink = ({ href, children, onClick }) => {
     </a>
   );
 };
+import BookingForm from './components/BookingForm';
 
 const App = () => {
   const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('book'); // book | rates | fleet
-
-  // Datos del formulario de reserva rápida
-  const [bookingData, setBookingData] = useState({
-    origin: '',
-    destination: '',
-    pickupTime: 'Ahora mismo'
-  });
+  // Remove unused activeTab state if not used elsewhere, or keep it.
+  
+  // Cleaned up unused state
+  // const [bookingData, setBookingData] = ... (removed)
 
   // Número de la empresa (con prefijo internacional para llamadas)
   const PHONE_NUMBER = "+34625030000";
@@ -54,10 +51,7 @@ const App = () => {
     if (customMsg) {
       text = encodeURIComponent(customMsg);
     } else {
-      const origin = bookingData.origin || "Mi ubicación actual";
-      const dest = bookingData.destination || "A consultar";
-      const time = bookingData.pickupTime;
-      text = encodeURIComponent(`Hola, quiero pedir un taxi.\n🚖 Origen: ${origin}\n📍 Destino: ${dest}\n⏰ Hora: ${time}`);
+      text = encodeURIComponent("Hola, quiero pedir un taxi. Necesito más información.");
     }
 
     // Google Tag Manager Event Tracking
@@ -195,10 +189,10 @@ const App = () => {
 
 
             <div className="container mx-auto px-4 z-10 relative mt-16 md:mt-0">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="grid md:grid-cols-2 gap-4 md:gap-12 items-center">
 
                 {/* Text Content */}
-                <div className="space-y-6 text-center md:text-left">
+                <div className="space-y-3 md:space-y-6 text-center md:text-left">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-400/20 border border-yellow-400/30 text-yellow-400 text-sm font-semibold animate-fade-in-up">
                     <Zap size={14} className="fill-yellow-400" />
                     {t('hero.badge')}
@@ -207,19 +201,26 @@ const App = () => {
                   {/* Phone Number Display for Desktop & Mobile */}
                   <a
                     href={`tel:${PHONE_NUMBER}`}
-                    className="block text-3xl md:text-4xl font-black text-white hover:text-yellow-400 transition-colors tracking-tighter"
+                    className="block text-2xl md:text-4xl font-black text-white hover:text-yellow-400 transition-colors tracking-tighter"
                   >
                     {PHONE_DISPLAY}
                   </a>
-                  <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight tracking-tight">
-                    {t('hero.title')} <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">{t('hero.titleHighlight')}</span> {t('hero.titleEnd')}
+                  <h1 className="mb-0 md:mb-auto text-4xl md:text-7xl font-bold text-white leading-tight tracking-tight">
+                    {/* Mobile: shorter text */}
+                    <span className="md:hidden">
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">Barcelona</span> sin esperas
+                    </span>
+                    {/* Desktop: full text */}
+                    <span className="hidden md:block">
+                      {t('hero.title')} <br />
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">{t('hero.titleHighlight')}</span> {t('hero.titleEnd')}
+                    </span>
                   </h1>
-                  <p className="text-gray-400 text-lg md:text-xl max-w-lg mx-auto md:mx-0">
+                  <p className="hidden md:block text-gray-400 text-lg md:text-xl max-w-lg mx-auto md:mx-0">
                     {t('hero.subtitle')}
                   </p>
 
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
+                  <div className="hidden md:flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
                     <button
                       onClick={handleWhatsAppBooking}
                       className="bg-green-500 hover:bg-green-400 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg shadow-green-500/20 flex items-center justify-center gap-2 group"
@@ -237,71 +238,9 @@ const App = () => {
                   </div>
                 </div>
 
-                {/* Fast Booking Card (Simulated App UI) */}
-                <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-3xl shadow-2xl relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-transparent"></div>
-
-                  <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                    <Clock className="text-yellow-400" /> {t('hero.bookingTitle')}
-                  </h3>
-
-                  <div className="space-y-4">
-                    <div className="bg-white/5 p-3 rounded-xl border border-white/10 flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-yellow-400/20 flex items-center justify-center text-yellow-400">
-                        <MapPin size={16} />
-                      </div>
-                      <input
-                        type="text"
-                        placeholder={t('hero.pickupPlaceholder')}
-                        className="bg-transparent w-full text-white placeholder-gray-500 focus:outline-none"
-                        value={bookingData.origin}
-                        onChange={(e) => setBookingData({ ...bookingData, origin: e.target.value })}
-                      />
-                    </div>
-
-                    <div className="relative">
-                      <div className="absolute left-[1.15rem] -top-4 h-4 w-0.5 bg-gray-700/50"></div>
-                    </div>
-
-                    <div className="bg-white/5 p-3 rounded-xl border border-white/10 flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-gray-400">
-                        <MapPin size={16} />
-                      </div>
-                      <input
-                        type="text"
-                        placeholder={t('hero.destinationPlaceholder')}
-                        className="bg-transparent w-full text-white placeholder-gray-500 focus:outline-none"
-                        value={bookingData.destination}
-                        onChange={(e) => setBookingData({ ...bookingData, destination: e.target.value })}
-                      />
-                    </div>
-
-                    <div className="bg-white/5 p-3 rounded-xl border border-white/10 flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-gray-400">
-                        <Clock size={16} />
-                      </div>
-                      <select
-                        className="bg-transparent w-full text-white focus:outline-none appearance-none cursor-pointer"
-                        value={bookingData.pickupTime}
-                        onChange={(e) => setBookingData({ ...bookingData, pickupTime: e.target.value })}
-                      >
-                        <option className="bg-slate-900 text-white" value="Ahora mismo">{t('hero.timeNow')}</option>
-                        <option className="bg-slate-900 text-white" value="En 15 minutos">{t('hero.time15')}</option>
-                        <option className="bg-slate-900 text-white" value="En 30 minutos">{t('hero.time30')}</option>
-                        <option className="bg-slate-900 text-white" value="Programar más tarde">{t('hero.timeLater')}</option>
-                      </select>
-                    </div>
-
-                    <button
-                      onClick={handleWhatsAppBooking}
-                      className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-4 rounded-xl mt-4 transition-all hover:scale-[1.02] flex justify-center items-center gap-2 text-lg shadow-[0_0_20px_rgba(250,204,21,0.4)]"
-                    >
-                      {t('hero.requestButton')} <ChevronRight size={20} />
-                    </button>
-                    <p className="text-center text-gray-500 text-xs mt-2">
-                      {t('hero.responseTime')}
-                    </p>
-                  </div>
+                {/* Booking Form - Right Column */}
+                <div className="pb-4 md:pb-8">
+                   <BookingForm />
                 </div>
               </div>
             </div>

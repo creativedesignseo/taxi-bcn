@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Hide Mapbox logo only (not attributions) */
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+
+/* Make map controls more compact */
+.mapboxgl-ctrl-group {
+  background: rgba(17, 24, 39, 0.8) !important;
+  backdrop-filter: blur(8px);
+}
+
+

@@ -153,5 +153,27 @@
                 "location": "Seville, Spain"
             }
         ]
+    },
+    "booking": {
+        "modal": {
+            "title": "Confirm Booking",
+            "from": "Pickup",
+            "to": "Destination",
+            "time": "Estimated time",
+            "price": "Estimated price",
+            "guestInfo": "Complete your details to continue",
+            "name": "Name",
+            "namePlaceholder": "Your full name",
+            "nameRequired": "Name is required",
+            "nameMin": "Minimum 2 characters",
+            "phone": "Phone",
+            "phonePlaceholder": "612345678",
+            "phoneRequired": "Phone is required",
+            "phoneInvalid": "Invalid phone (e.g: 612345678)",
+            "bookWhatsApp": "Send via WhatsApp",
+            "haveAccount": "Already have an account? Log in",
+            "loginComingSoon": "Login coming soon",
+            "backToGuest": "← Back to guest booking"
+        }
     }
 }
