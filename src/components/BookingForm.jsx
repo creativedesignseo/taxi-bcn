@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MapPin, Clock, Navigation, Loader2, Locate, ArrowRight } from 'lucide-react';
-import { getPlaceSuggestions, getRouteData } from '../lib/mapbox';
+import { getPlaceSuggestions, getRouteData, reverseGeocode } from '../lib/mapbox';
 import { getCurrentLocation } from '../lib/whatsapp';
 import BookingModal from './BookingModal';
 
@@ -82,14 +82,18 @@ const BookingForm = () => {
     setIsLoadingLocation(true);
     try {
       const position = await getCurrentLocation();
-      const coords = [position.longitude, position.latitude];
+      const { longitude, latitude } = position;
+      const coords = [longitude, latitude];
       
-      // Reverse geocode to get address
-      const suggestions = await getPlaceSuggestions(`${position.latitude},${position.longitude}`);
+      // Reverse geocode to get address using the new dedicated function
+      const place = await reverseGeocode(longitude, latitude);
       
-      if (suggestions.length > 0) {
-        const place = suggestions[0];
+      if (place) {
         setOrigin(place.place_name);
+        setOriginCoords(coords);
+      } else {
+         // Fallback if no specific address found
+        setOrigin(`${latitude.toFixed(4)}, ${longitude.toFixed(4)}`);
         setOriginCoords(coords);
       }
     } catch (error) {

@@ -20,6 +20,24 @@ export const getPlaceSuggestions = async (query) => {
   }
 };
 
+export const reverseGeocode = async (lng, lat) => {
+  if (!lng || !lat) return null;
+  
+  try {
+    const response = await fetch(
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?access_token=${MAPBOX_TOKEN}&types=address,poi&limit=1&language=es`
+    );
+    const data = await response.json();
+    if (data.features && data.features.length > 0) {
+      return data.features[0];
+    }
+    return null;
+  } catch (error) {
+    console.error("Mapbox Reverse Geocoding Error:", error);
+    return null;
+  }
+};
+
 export const getRouteData = async (startCoords, endCoords) => {
   if (!startCoords || !endCoords) return null;
 
