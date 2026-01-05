@@ -2,24 +2,62 @@
 
 const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 
-// Validation standard: Barcelona Bounding Box to restrict search (approximate)
-export const BCN_BBOX = [1.9, 41.1, 2.3, 41.5]; // [minLng, minLat, maxLng, maxLat]
+const BCN_COORDS = '2.1734,41.3851'; // Barcelona Center
 
-export const getPlaceSuggestions = async (query) => {
+// Helper for Session Token (UUID v4)
+export const generateSessionToken = () => {
+  return crypto.randomUUID();
+};
+
+// New Search Box API (v1/suggest)
+export const getPlaceSuggestions = async (query, sessionToken) => {
   if (!query || query.length < 3) return [];
   
   try {
     const response = await fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(query)}.json?access_token=${MAPBOX_TOKEN}&bbox=${BCN_BBOX.join(',')}&country=es&types=address,poi,place&limit=5&language=es`
+      `https://api.mapbox.com/search/searchbox/v1/suggest?q=${encodeURIComponent(query)}&access_token=${MAPBOX_TOKEN}&session_token=${sessionToken}&proximity=${BCN_COORDS}&language=es&limit=8&types=address,poi,district,place,locality`
     );
     const data = await response.json();
-    return data.features || [];
+    
+    // Map Suggestions to a usable format
+    return (data.suggestions || []).map(s => ({
+      id: s.mapbox_id,
+      name: s.name,
+      full_address: s.full_address || s.place_formatted,
+      place_name: s.name + (s.full_address ? `, ${s.full_address}` : ''),
+      action: 'retrieve' // Signal that we need to fetch details
+    }));
   } catch (error) {
-    console.error("Mapbox Geocoding Error:", error);
+    console.error("Mapbox Suggest Error:", error);
     return [];
   }
 };
 
+// Retrieve Details (Coordinates) for a Suggestion
+export const getPlaceDetails = async (mapboxId, sessionToken) => {
+  if (!mapboxId) return null;
+  try {
+    const response = await fetch(
+      `https://api.mapbox.com/search/searchbox/v1/retrieve/${mapboxId}?access_token=${MAPBOX_TOKEN}&session_token=${sessionToken}`
+    );
+    const data = await response.json();
+    const feature = data.features?.[0];
+    
+    if (feature) {
+      return {
+        center: feature.geometry.coordinates, // [lng, lat]
+        place_name: feature.properties.name_preferred || feature.properties.name,
+        full_name: feature.properties.full_address || feature.properties.place_formatted
+      };
+    }
+    return null;
+  } catch (error) {
+    console.error("Mapbox Retrieve Error:", error);
+    return null;
+  }
+};
+
+// Keep Geocoding v5 only for Reverse Geocoding (Coords -> Address)
 export const reverseGeocode = async (lng, lat) => {
   if (!lng || !lat) return null;
   

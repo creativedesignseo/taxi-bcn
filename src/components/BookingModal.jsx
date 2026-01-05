@@ -1,19 +1,41 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { X, MapPin, Clock, Euro, Phone, User, Mail } from 'lucide-react';
 import { generateWhatsAppLink } from '../lib/whatsapp';
+import { countries } from '../lib/countries';
 
 export default function BookingModal({ isOpen, onClose, bookingData }) {
   const { t } = useTranslation();
   const [isGuest, setIsGuest] = useState(true);
+  const [defaultPrefix, setDefaultPrefix] = useState('+34');
   
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+
+  // Auto-detect Country based on Browser Locale
+  useEffect(() => {
+    if (isOpen) {
+      const browserLocale = navigator.language || 'es-ES';
+      const region = browserLocale.split('-')[1]; // e.g., 'es-ES' -> 'ES'
+      
+      if (region) {
+        const found = countries.find(c => c.code === region.toUpperCase());
+        if (found) {
+          setDefaultPrefix(found.dial_code);
+          setValue('prefix', found.dial_code);
+        }
+      }
+    }
+  }, [isOpen, setValue]);
 
   if (!isOpen) return null;
 
   const onSubmit = (userData) => {
-    const whatsappLink = generateWhatsAppLink(bookingData, userData);
+    // Combine Prefix + Phone Number
+    const fullPhone = `${userData.prefix || defaultPrefix} ${userData.phone}`;
+    const finalUserData = { ...userData, phone: fullPhone.trim() };
+
+    const whatsappLink = generateWhatsAppLink(bookingData, finalUserData);
     window.open(whatsappLink, '_blank');
     onClose();
   };
@@ -111,24 +133,46 @@ export default function BookingModal({ isOpen, onClose, bookingData }) {
                   )}
                 </div>
 
-                {/* Phone Field */}
+                {/* Phone Field with International Support */}
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">
                     <Phone className="inline mr-2" size={16} />
                     {t('booking.modal.phone', 'Teléfono')}
                   </label>
-                  <input
-                    type="tel"
-                    {...register('phone', { 
-                      required: t('booking.modal.phoneRequired', 'El teléfono es obligatorio'),
-                      pattern: {
-                        value: /^(\+34|0034|34)?[6789]\d{8}$/,
-                        message: t('booking.modal.phoneInvalid', 'Teléfono inválido (ej: 612345678)')
-                      }
-                    })}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all"
-                    placeholder={t('booking.modal.phonePlaceholder', '612345678')}
-                  />
+                  <div className="flex gap-2">
+                    {/* Country Code Selector */}
+                    <div className="relative max-w-[120px]">
+                      <select
+                        {...register('prefix')}
+                        className="w-full appearance-none bg-gray-800 border border-gray-700 rounded-lg py-3 pl-3 pr-8 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all cursor-pointer h-full text-sm"
+                        defaultValue={defaultPrefix}
+                      >
+                         {countries.map((c) => (
+                           <option key={c.code} value={c.dial_code}>
+                             {c.flag} {c.dial_code}
+                           </option>
+                         ))}
+                         <option value="">🌐 +</option>
+                      </select>
+                      <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none text-gray-500">
+                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                      </div>
+                    </div>
+
+                    {/* Phone Number Input */}
+                    <input
+                      type="tel"
+                      {...register('phone', { 
+                        required: t('booking.modal.phoneRequired', 'El teléfono es obligatorio'),
+                        pattern: {
+                          value: /^[0-9]{6,15}$/,
+                          message: t('booking.modal.phoneInvalid', 'Número inválido (mínimo 6 dígitos)')
+                        }
+                      })}
+                      className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all"
+                      placeholder="612345678"
+                    />
+                  </div>
                   {errors.phone && (
                     <p className="mt-1 text-sm text-red-400">{errors.phone.message}</p>
                   )}

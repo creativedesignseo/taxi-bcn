@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MapPin, Clock, Navigation, Loader2, Locate, ArrowRight, Calendar, Users, Briefcase } from 'lucide-react';
-import { getPlaceSuggestions, getRouteData, reverseGeocode } from '../lib/mapbox';
+import { getPlaceSuggestions, getRouteData, reverseGeocode, getPlaceDetails, generateSessionToken } from '../lib/mapbox';
 import { getCurrentLocation } from '../lib/whatsapp';
 import BookingModal from './BookingModal';
 import CustomDatePicker from './CustomDatePicker';
@@ -24,6 +24,9 @@ const BookingForm = () => {
   const [showDatePicker, setShowDatePicker] = useState(false); // New state for calendar visibility
   const [isLoadingLocation, setIsLoadingLocation] = useState(false);
   const [tick, setTick] = useState(0); // Force re-render for time slots
+  
+  // Mapbox Session Token (Search Box API)
+  const [sessionToken] = useState(generateSessionToken());
 
   // New Fields State (Moved up to avoid ReferenceError)
   const [date, setDate] = useState(() => {
@@ -92,11 +95,12 @@ const BookingForm = () => {
   // Debounce for search
   useEffect(() => {
     const timer = setTimeout(async () => {
+      // Pass sessionToken to suggestion service
       if (activeInput === 'origin' && origin.length > 2) {
-        const results = await getPlaceSuggestions(origin);
+        const results = await getPlaceSuggestions(origin, sessionToken);
         setSuggestions(results);
       } else if (activeInput === 'destination' && destination.length > 2) {
-        const results = await getPlaceSuggestions(destination);
+        const results = await getPlaceSuggestions(destination, sessionToken);
         setSuggestions(results);
       } else {
         setSuggestions([]);
@@ -104,7 +108,7 @@ const BookingForm = () => {
     }, 400);
 
     return () => clearTimeout(timer);
-  }, [origin, destination, activeInput]);
+  }, [origin, destination, activeInput, sessionToken]);
 
   // Calculate Route when both points are set
   useEffect(() => {
@@ -121,9 +125,22 @@ const BookingForm = () => {
     calculateRoute();
   }, [originCoords, destCoords]);
 
-  const handleSelectPlace = (feature) => {
-    const coords = feature.center; // [lng, lat]
-    const placeName = feature.place_name;
+  const handleSelectPlace = async (feature) => {
+    let coords = null;
+    let placeName = feature.place_name;
+
+    // Retrieve details if coordinate is missing (Search Box API flow)
+    if (feature.action === 'retrieve') {
+      const details = await getPlaceDetails(feature.id, sessionToken);
+      if (details) {
+        coords = details.center;
+        placeName = details.place_name || feature.place_name;
+      }
+    } else {
+      coords = feature.center;
+    }
+
+    if (!coords) return; // Error handling
 
     if (activeInput === 'origin') {
       setOrigin(placeName);
@@ -190,7 +207,7 @@ const BookingForm = () => {
           {/* Row 1: Date & Time */}
           <div className="grid grid-cols-2 gap-3">
             {/* Date */}
-            <div className="relative">
+            <div className={`relative ${showDatePicker ? 'z-[60]' : 'z-30'}`}>
               <label className="text-[10px] uppercase text-gray-400 font-bold ml-1 mb-1 block tracking-wider">{t('booking.form.dateLabel', 'FECHA')}</label>
               
               {/* Trigger Input */}

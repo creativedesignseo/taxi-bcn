@@ -5,6 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.5] - 2026-01-05
+
+### Changed
+- **Mapbox API Upgrade**: Migrated from legacy Geocoding API to **Mapbox Search Box API** (Standard 2026).
+  - Implemented `v1/suggest` for intelligent autocomplete with better POI recognition (e.g., "Sants Estació").
+  - Implemented `v1/retrieve` for precise coordinate fetching.
+  - Added **Session Tokens** (UUID) for API usage optimization.
+  - configured `proximity` to Barcelona center (`2.1734, 41.3851`) to prioritize local results globally.
+
+## [1.3.4] - 2026-01-05
+
+### Added
+- **International Phone Support**: Implemented a comprehensive country code selector supporting 35+ countries.
+- **Auto-Detection**: Added logic to automatically detect the user's country based on browser locale (`navigator.language`) and pre-select the correct dialing prefix.
+- **Validation**: Updated phone validation regex to accept international numbers (6-15 digits).
+- **Countries Library**: Created `src/lib/countries.js` with metadata (flags, codes) for major countries.
+
+## [1.3.3] - 2026-01-05
+
+### Fixed
+- **Z-Index Overlap**: Solved critical UI bug where Origin/Destination inputs were covering the DatePicker. Applied dynamic z-index `z-[60]` to active calendar container.
+- **Form Layout**: Fixed container stacking context to ensure DatePicker floats above all subsequent fields.
+
+### Changed
+- **Input UX**: Replaced `+/-` counters with native **Dropdown Selectors** (`<select>`) for Passengers and Luggage, enabling faster input (matching Time selector style).
+- **Passengers**: Increased maximum passenger limit from 8 to **15**.
+- **Simplification**: Removed **Transfer Type** (Simple/Ida y Vuelta) functionality from Form, Booking Modal, and WhatsApp message as requested.
+
 ## [1.3.2] - 2026-01-05
 
 ### Changed
