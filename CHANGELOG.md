@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.5] - 2026-01-05
+
+### Fixed
+- **Translations**: Externalized hardcoded Booking Form strings to locale files (`es.json`, `en.json`) enabling full bilingual support for labels and placeholders.
+- **UX**: Improved "My Location" display by accepting broader address types (neighborhoods, localities) to prevent showing raw coordinates when a specific street number is missing.
+
 ## [1.2.4] - 2026-01-05
 
 ### Fixed

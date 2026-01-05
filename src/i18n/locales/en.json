@@ -174,6 +174,16 @@
             "haveAccount": "Already have an account? Log in",
             "loginComingSoon": "Login coming soon",
             "backToGuest": "← Back to guest booking"
+        },
+        "form": {
+            "pickupLabel": "PICKUP",
+            "pickupPlaceholder": "Where should we pick you up?",
+            "destinationLabel": "DESTINATION",
+            "destinationPlaceholder": "Where are you going?",
+            "confirmRoute": "Confirm Route",
+            "useLocation": "Use my location",
+            "estimatedTime": "Estimated Time",
+            "distance": "Distance"
         }
     }
 }

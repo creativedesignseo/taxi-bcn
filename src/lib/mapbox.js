@@ -25,7 +25,7 @@ export const reverseGeocode = async (lng, lat) => {
   
   try {
     const response = await fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?access_token=${MAPBOX_TOKEN}&types=address,poi&limit=1&language=es`
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?access_token=${MAPBOX_TOKEN}&limit=1&language=es`
     );
     const data = await response.json();
     if (data.features && data.features.length > 0) {

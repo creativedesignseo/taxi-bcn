@@ -77,8 +77,8 @@ export function getCurrentLocation() {
       },
       {
         enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0
+        timeout: 10000,
+        maximumAge: 5000
       }
     );
   });

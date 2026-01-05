@@ -117,7 +117,7 @@ const BookingForm = () => {
         <div className="space-y-6 flex-grow">
           {/* Origin Input */}
           <div className={`relative ${activeInput === 'origin' ? 'z-50' : 'z-20'}`}>
-            <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">RECOGIDA</label>
+            <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">{t('booking.form.pickupLabel', 'RECOGIDA')}</label>
             <div className="flex gap-2">
               <div className="flex-1 flex items-center bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-3 focus-within:border-yellow-400 focus-within:ring-1 focus-within:ring-yellow-400 transition-all">
                 <MapPin className="text-green-400 mr-3" size={20} />
@@ -126,7 +126,7 @@ const BookingForm = () => {
                   value={origin}
                   onChange={(e) => setOrigin(e.target.value)}
                   onFocus={() => setActiveInput('origin')}
-                  placeholder="¿Dónde te recogemos?"
+                  placeholder={t('booking.form.pickupPlaceholder', '¿Dónde te recogemos?')}
                   className="bg-transparent w-full text-white placeholder-gray-500 outline-none font-medium"
                 />
                 {origin && <button onClick={() => {setOrigin(''); setOriginCoords(null)}} className="text-gray-500 hover:text-white"><div className="text-xs">✕</div></button>}
@@ -137,7 +137,7 @@ const BookingForm = () => {
                 onClick={handleUseMyLocation}
                 disabled={isLoadingLocation}
                 className="flex items-center justify-center bg-gray-800/50 border border-gray-700 rounded-xl px-4 hover:bg-gray-700 hover:border-yellow-400 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                title="Usar mi ubicación"
+                title={t('booking.form.useLocation', 'Usar mi ubicación')}
               >
                 {isLoadingLocation ? (
                   <Loader2 className="text-yellow-400 animate-spin" size={20} />
@@ -166,7 +166,7 @@ const BookingForm = () => {
 
           {/* Destination Input */}
           <div className={`relative ${activeInput === 'destination' ? 'z-50' : 'z-10'}`}>
-             <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">DESTINO</label>
+             <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">{t('booking.form.destinationLabel', 'DESTINO')}</label>
             <div className="flex items-center bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-3 focus-within:border-yellow-400 focus-within:ring-1 focus-within:ring-yellow-400 transition-all">
               <MapPin className="text-red-400 mr-3" size={20} />
               <input 
@@ -174,7 +174,7 @@ const BookingForm = () => {
                 value={destination}
                 onChange={(e) => setDestination(e.target.value)}
                 onFocus={() => setActiveInput('destination')}
-                placeholder="¿A dónde vas?"
+                placeholder={t('booking.form.destinationPlaceholder', '¿A dónde vas?')}
                 className="bg-transparent w-full text-white placeholder-gray-500 outline-none font-medium"
               />
               {destination && <button onClick={() => {setDestination(''); setDestCoords(null)}} className="text-gray-500 hover:text-white"><div className="text-xs">✕</div></button>}
@@ -202,12 +202,12 @@ const BookingForm = () => {
             <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl p-4 border border-gray-700 animate-fade-in-up">
               <div className="flex justify-between items-end mb-2">
                 <div>
-                  <p className="text-gray-400 text-xs uppercase font-bold">Tiempo estimado</p>
+                  <p className="text-gray-400 text-xs uppercase font-bold">{t('booking.form.estimatedTime', 'Tiempo estimado')}</p>
                   <p className="text-2xl font-bold text-white">{~~(routeInfo.durationSeconds / 60)} min</p>
                 </div>
               </div>
               <p className="text-xs text-center text-gray-500 mt-2 border-t border-gray-700 pt-2">
-                Distancia: {(routeInfo.distanceMeters / 1000).toFixed(1)} km
+                {t('booking.form.distance', 'Distancia')}: {(routeInfo.distanceMeters / 1000).toFixed(1)} km
               </p>
             </div>
           )}
@@ -223,7 +223,7 @@ const BookingForm = () => {
           >
             {isLoadingRoute ? <Loader2 className="animate-spin" /> : (
               <>
-                Confirmar Ruta
+                {t('booking.form.confirmRoute', 'Confirmar Ruta')}
                 <ArrowRight size={20} />
               </>
             )}
