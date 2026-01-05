@@ -183,7 +183,14 @@
             "confirmRoute": "Confirm Route",
             "useLocation": "Use my location",
             "estimatedTime": "Estimated Time",
-            "distance": "Distance"
+            "distance": "Distance",
+            "dateLabel": "Date",
+            "timeLabel": "Time",
+            "passengersLabel": "Passengers",
+            "luggageLabel": "Luggage",
+            "transferTypeLabel": "Transfer Type",
+            "oneWay": "One Way",
+            "roundTrip": "Round Trip"
         }
     }
 }

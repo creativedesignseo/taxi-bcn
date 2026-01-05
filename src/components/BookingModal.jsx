@@ -64,9 +64,19 @@ export default function BookingModal({ isOpen, onClose, bookingData }) {
               <div className="flex items-center gap-2">
                 <Clock className="text-yellow-400" size={16} />
                 <span className="text-white text-sm font-medium">
-                  {bookingData.timeEstimate} min
+                  {bookingData.date} - {bookingData.time}
                 </span>
+                <span className="text-gray-400 text-xs ml-1">({bookingData.timeEstimate} min)</span>
               </div>
+            </div>
+            
+            <div className="flex justify-between pt-2 border-t border-gray-700 text-sm">
+               <span className="text-gray-300">
+                 {bookingData.transferType === 'oneWay' ? t('booking.form.oneWay') : t('booking.form.roundTrip')}
+               </span>
+               <span className="text-gray-300">
+                 {bookingData.passengers} pax, {bookingData.luggage} bags
+               </span>
             </div>
           </div>
         </div>

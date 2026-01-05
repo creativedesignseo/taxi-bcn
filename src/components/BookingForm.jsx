@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { MapPin, Clock, Navigation, Loader2, Locate, ArrowRight } from 'lucide-react';
+import { MapPin, Clock, Navigation, Loader2, Locate, ArrowRight, Calendar, Users, Briefcase } from 'lucide-react';
 import { getPlaceSuggestions, getRouteData, reverseGeocode } from '../lib/mapbox';
 import { getCurrentLocation } from '../lib/whatsapp';
 import BookingModal from './BookingModal';
+import CustomDatePicker from './CustomDatePicker';
 
 const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 
@@ -20,7 +21,73 @@ const BookingForm = () => {
   const [routeInfo, setRouteInfo] = useState(null);
   const [isLoadingRoute, setIsLoadingRoute] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showDatePicker, setShowDatePicker] = useState(false); // New state for calendar visibility
   const [isLoadingLocation, setIsLoadingLocation] = useState(false);
+  const [tick, setTick] = useState(0); // Force re-render for time slots
+
+  // New Fields State (Moved up to avoid ReferenceError)
+  const [date, setDate] = useState(() => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  });
+  const [time, setTime] = useState(''); // Will be set by effect
+  const [passengers, setPassengers] = useState(1);
+  const [luggage, setLuggage] = useState(0);
+  const [transferType, setTransferType] = useState('oneWay'); 
+
+  // Generate 30-minute time slots (Static list)
+  const allTimeSlots = React.useMemo(() => {
+    const slots = [];
+    for (let i = 0; i < 24; i++) {
+        const hour = String(i).padStart(2, '0');
+        slots.push(`${hour}:00`);
+        slots.push(`${hour}:30`);
+    }
+    return slots;
+  }, []);
+
+  // Filter slots based on selected date
+  const getAvailableTimeSlots = useCallback(() => {
+    const today = new Date();
+    // Use local date string (YYYY-MM-DD) instead of UTC
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    const todayStr = `${year}-${month}-${day}`;
+    
+    // If selected date is today, filter past times
+    if (date === todayStr) {
+      const currentHour = today.getHours();
+      const currentMinutes = today.getMinutes();
+      
+      // Add a small buffer (e.g. 15 mins) so user doesn't book a taxi for "1 min ago" or "right now" which is impossible
+      const bufferMinutes = 15; 
+      
+      return allTimeSlots.filter(slot => {
+        const [slotHour, slotMin] = slot.split(':').map(Number);
+        const slotTimeInMinutes = slotHour * 60 + slotMin;
+        const currentTimeInMinutes = currentHour * 60 + currentMinutes;
+        
+        return slotTimeInMinutes > (currentTimeInMinutes + bufferMinutes);
+      });
+    }
+    
+    // If future date, show all
+    return allTimeSlots;
+  }, [date, allTimeSlots, tick]);
+
+  const availableSlots = getAvailableTimeSlots();
+
+  useEffect(() => {
+    const slots = getAvailableTimeSlots();
+    if (slots.length > 0 && !slots.includes(time)) {
+       // If current selected time is invalid (e.g. in the past), snap to the first available
+       setTime(slots[0]);
+    }
+  }, [date, getAvailableTimeSlots]); // We don't include 'time' to avoid loops
 
   // Debounce for search
   useEffect(() => {
@@ -96,6 +163,10 @@ const BookingForm = () => {
         setOrigin(`${latitude.toFixed(4)}, ${longitude.toFixed(4)}`);
         setOriginCoords(coords);
       }
+      
+      // Clear search state to "confirm" the selection and hide dropdown
+      setSuggestions([]);
+      setActiveInput(null);
     } catch (error) {
       console.error('Error getting location:', error);
       alert('No se pudo obtener tu ubicación. Por favor, verifica los permisos del navegador.');
@@ -114,8 +185,69 @@ const BookingForm = () => {
           {t('hero.bookingTitle', 'Reserva Express')}
         </h3>
 
-        <div className="space-y-6 flex-grow">
-          {/* Origin Input */}
+        <div className="space-y-4 flex-grow">
+          
+          {/* Row 1: Date & Time */}
+          <div className="grid grid-cols-2 gap-4">
+            {/* Date */}
+            <div className="relative">
+              <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">{t('booking.form.dateLabel', 'FECHA')}</label>
+              
+              {/* Trigger Input - LOOKS like an input but toggles the calendar */}
+              <div 
+                onClick={() => setShowDatePicker(!showDatePicker)}
+                className="flex items-center bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-4 hover:border-yellow-400 transition-colors cursor-pointer"
+              >
+                <Calendar className="text-blue-400 mr-3" size={24} />
+                <span className="text-white font-bold text-lg">
+                  {date.split('-').reverse().join('-')}
+                </span>
+              </div>
+
+              {/* Custom Date Picker Popover */}
+              {showDatePicker && (
+                <div className="absolute top-full left-0 mt-2 z-50 animate-fadeIn">
+                  {/* Backdrop to close when clicking outside */}
+                  <div className="fixed inset-0 z-40" onClick={() => setShowDatePicker(false)}></div>
+                  
+                  <div className="relative z-50">
+                    <CustomDatePicker 
+                      selectedDate={date} 
+                      onChange={(newDate) => {
+                        setDate(newDate);
+                        setShowDatePicker(false);
+                      }} 
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+            {/* Time */}
+            <div>
+              <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">{t('booking.form.timeLabel', 'HORA')}</label>
+              <div className="flex items-center bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-4 relative hover:border-yellow-400 transition-colors">
+                <Clock className="text-blue-400 mr-3 z-10" size={24} />
+                <select 
+                  value={time}
+                  onChange={(e) => setTime(e.target.value)}
+                  onFocus={() => setTick(t => t + 1)} // Refresh slots when user opens menu
+                  className="bg-transparent w-full text-white outline-none font-bold text-lg appearance-none relative z-20 cursor-pointer pl-1"
+                  style={{ backgroundColor: 'transparent' }}
+                >
+                  {availableSlots.map(slot => (
+                    <option key={slot} value={slot} className="text-black bg-white py-2">
+                      {slot}
+                    </option>
+                  ))}
+                  {availableSlots.length === 0 && (
+                     <option disabled>No hours available</option>
+                  )}
+                </select>
+              </div>
+            </div>
+          </div>
+
+          {/* Row 2: Origin Input */}
           <div className={`relative ${activeInput === 'origin' ? 'z-50' : 'z-20'}`}>
             <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">{t('booking.form.pickupLabel', 'RECOGIDA')}</label>
             <div className="flex gap-2">
@@ -164,7 +296,7 @@ const BookingForm = () => {
             )}
           </div>
 
-          {/* Destination Input */}
+          {/* Row 3: Destination Input */}
           <div className={`relative ${activeInput === 'destination' ? 'z-50' : 'z-10'}`}>
              <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">{t('booking.form.destinationLabel', 'DESTINO')}</label>
             <div className="flex items-center bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-3 focus-within:border-yellow-400 focus-within:ring-1 focus-within:ring-yellow-400 transition-all">
@@ -195,6 +327,57 @@ const BookingForm = () => {
                 ))}
               </div>
             )}
+          </div>
+
+          {/* Row 4: Transfer Type */}
+          <div>
+            <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">{t('booking.form.transferTypeLabel', 'TIPO DE TRAYECTO')}</label>
+             <div className="grid grid-cols-2 gap-2 bg-gray-800/50 p-1 rounded-xl border border-gray-700">
+               <button 
+                onClick={() => setTransferType('oneWay')}
+                className={`py-2 rounded-lg text-sm font-bold transition-all ${transferType === 'oneWay' ? 'bg-yellow-400 text-black shadow-lg' : 'text-gray-400 hover:text-white'}`}
+               >
+                 {t('booking.form.oneWay', 'Solo Ida')}
+               </button>
+               <button 
+                onClick={() => setTransferType('roundTrip')}
+                className={`py-2 rounded-lg text-sm font-bold transition-all ${transferType === 'roundTrip' ? 'bg-yellow-400 text-black shadow-lg' : 'text-gray-400 hover:text-white'}`}
+               >
+                 {t('booking.form.roundTrip', 'Ida y Vuelta')}
+               </button>
+             </div>
+          </div>
+
+          {/* Row 5: Passengers & Luggage */}
+          <div className="grid grid-cols-2 gap-4">
+            {/* Passengers */}
+             <div>
+              <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">{t('booking.form.passengersLabel', 'PASAJEROS')}</label>
+              <div className="flex items-center justify-between bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-3">
+                 <div className="flex items-center gap-2">
+                   <Users className="text-purple-400" size={18} />
+                   <span className="text-white font-bold">{passengers}</span>
+                 </div>
+                 <div className="flex gap-1">
+                   <button onClick={() => setPassengers(Math.max(1, passengers - 1))} className="w-6 h-6 rounded-full bg-gray-700 text-white flex items-center justify-center hover:bg-gray-600">-</button>
+                   <button onClick={() => setPassengers(Math.min(8, passengers + 1))} className="w-6 h-6 rounded-full bg-gray-700 text-white flex items-center justify-center hover:bg-gray-600">+</button>
+                 </div>
+              </div>
+            </div>
+             {/* Luggage */}
+             <div>
+              <label className="text-xs text-gray-400 font-bold ml-1 mb-1 block">{t('booking.form.luggageLabel', 'MALETAS')}</label>
+              <div className="flex items-center justify-between bg-gray-800/50 border border-gray-700 rounded-xl px-4 py-3">
+                 <div className="flex items-center gap-2">
+                   <Briefcase className="text-orange-400" size={18} />
+                   <span className="text-white font-bold">{luggage}</span>
+                 </div>
+                 <div className="flex gap-1">
+                   <button onClick={() => setLuggage(Math.max(0, luggage - 1))} className="w-6 h-6 rounded-full bg-gray-700 text-white flex items-center justify-center hover:bg-gray-600">-</button>
+                   <button onClick={() => setLuggage(Math.min(10, luggage + 1))} className="w-6 h-6 rounded-full bg-gray-700 text-white flex items-center justify-center hover:bg-gray-600">+</button>
+                 </div>
+              </div>
+            </div>
           </div>
 
           {/* Route Details & Price */}
@@ -245,6 +428,11 @@ const BookingForm = () => {
               address: destination,
               coordinates: destCoords
             },
+            date,
+            time,
+            passengers,
+            luggage,
+            transferType,
             timeEstimate: ~~(routeInfo.durationSeconds / 60),
             priceEstimate: parseFloat(estimatePrice(routeInfo.distanceMeters))
           }}

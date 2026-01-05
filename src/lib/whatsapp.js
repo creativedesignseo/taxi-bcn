@@ -37,15 +37,17 @@ export function generateWhatsAppLink(bookingData, userData) {
   
   const message = `Hola, quiero reservar un taxi:
 
-*Hora de solicitud:* ${requestTime}
+*Fecha de recogida:* ${bookingData.date}
+*Hora de recogida:* ${bookingData.time}
+*Tipo de servicio:* ${bookingData.transferType === 'oneWay' ? 'Solo Ida' : 'Ida y Vuelta'}
+*Pasajeros:* ${bookingData.passengers}
+*Maletas:* ${bookingData.luggage}
 
 *Origen:* ${bookingData.origin.address}
 Ver en mapa: ${originMapLink}
 
 *Destino:* ${bookingData.destination.address}
 Ver en mapa: ${destMapLink}
-
-*Tiempo estimado:* ${bookingData.timeEstimate} min
 
 *Datos del cliente:*
 Nombre: ${userData.name}

@@ -183,7 +183,14 @@
       "confirmRoute": "Confirmar Ruta",
       "useLocation": "Usar mi ubicación",
       "estimatedTime": "Tiempo estimado",
-      "distance": "Distancia"
+      "distance": "Distancia",
+      "dateLabel": "Fecha",
+      "timeLabel": "Hora",
+      "passengersLabel": "Pasajeros",
+      "luggageLabel": "Maletas",
+      "transferTypeLabel": "Tipo de Trayecto",
+      "oneWay": "Solo Ida",
+      "roundTrip": "Ida y Vuelta"
     }
   }
 }

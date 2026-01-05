@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-01-05
+
+### Added
+- **Booking Form Redesign**: Completely new layout with specific fields for Date, Time, Passengers, Luggage, and Transfer Type.
+- **Custom DatePicker**: Bespoke "Clean White" calendar component with circular selection styles.
+- **Smart Time Logic**: Strict future-only time filtering with 15-minute buffer and live refresh on interaction.
+- **ErrorBoundary**: Added global crash handler for better debugging.
+
+### Fixed
+- **Timezone Bug**: Fixed date logic to use local time instead of UTC, preventing "yesterday" errors.
+- **Crash Fixes**: Resolved ReferenceErrors and circular dependencies in form state.
+
 ## [1.2.5] - 2026-01-05
 
 ### Fixed
