@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-01-05
+
+### UI/UX Polish
+- **Layout Precision**: Changed Hero section alignment from `items-center` to `items-start` with fixed top padding (`pt-28/pt-40`) to eliminate dynamic gaps and provide consistent positioning across devices.
+- **Mobile Refining**: Removed bottom "dead space" by setting mobile height to `auto` instead of `min-h-screen`, allowing the footer buttons to sit naturally below the content.
+
 ## [1.4.9] - 2026-01-05
 
 ### UI Polish

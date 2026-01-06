@@ -169,7 +169,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<>
           {/* --- HERO SECTION --- */}
-          <header className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+          <header className="relative md:min-h-screen flex items-start pt-28 pb-24 md:py-0 md:pt-40 justify-center overflow-hidden bg-black">
             {/* Background Images with Effects */}
             <div className="absolute inset-0 z-0">
               {/* Mobile Image */}
@@ -191,7 +191,7 @@ const App = () => {
             </div>
 
 
-            <div className="container mx-auto px-4 z-10 relative mt-4 md:mt-0">
+            <div className="container mx-auto px-4 z-10 relative mt-0 md:mt-0">
               <div className="grid md:grid-cols-2 gap-4 md:gap-12 items-center">
 
                 {/* Text Content */}
