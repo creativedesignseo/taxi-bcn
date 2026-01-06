@@ -195,7 +195,13 @@
       "passenger": "Pasajero",
       "passengers": "Pasajeros",
       "suitcase": "Maleta",
-      "suitcases": "Maletas"
+      "suitcases": "Maletas",
+      "whenLabel": "¿Cuándo?",
+      "now": "Ahora",
+      "schedule": "Programar",
+      "selectDate": "Seleccionar...",
+      "selectTime": "Seleccionar...",
+      "confirmDate": "Confirmar Fecha"
     }
   }
 }

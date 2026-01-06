@@ -195,7 +195,13 @@
             "passenger": "Passenger",
             "passengers": "Passengers",
             "suitcase": "Suitcase",
-            "suitcases": "Suitcases"
+            "suitcases": "Suitcases",
+            "whenLabel": "When?",
+            "now": "Now",
+            "schedule": "Schedule",
+            "selectDate": "Select...",
+            "selectTime": "Select...",
+            "confirmDate": "Confirm Date"
         }
     }
 }

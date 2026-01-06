@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 2026-01-06
+
+### Added
+- **Scheduling System**: Reintroduced date/time scheduling with improved UX.
+  - "¿Cuándo?" dropdown with "Ahora" (default) and "Programar" options.
+  - Full-screen calendar modal for date selection (mobile-friendly).
+  - Time selector with 30-minute intervals.
+  - Smart filtering: if today is selected, only future time slots appear.
+  - Validation: red border warning on empty fields + disabled "Confirmar Ruta" button.
+- **Translations**: Added ES/EN translations for all scheduling labels.
+- **UUID Fallback**: Added polyfill for `crypto.randomUUID()` to support local network testing over HTTP.
+
 ## [1.5.0] - 2026-01-05
 
 ### UI/UX Polish

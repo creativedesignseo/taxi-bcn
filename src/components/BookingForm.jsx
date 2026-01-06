@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { MapPin, Navigation, Loader2, Locate, ArrowRight, Users, Briefcase } from 'lucide-react';
+import { MapPin, Navigation, Loader2, Locate, ArrowRight, Users, Briefcase, Clock, Calendar } from 'lucide-react';
 import { getPlaceSuggestions, getRouteData, reverseGeocode, getPlaceDetails, generateSessionToken } from '../lib/mapbox';
 import { getCurrentLocation } from '../lib/whatsapp';
+import CustomDatePicker from './CustomDatePicker';
 
 const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 
@@ -31,6 +32,39 @@ const BookingForm = () => {
   const [passengers, setPassengers] = useState(1);
   const [luggage, setLuggage] = useState(0);
   const [transferType, setTransferType] = useState('oneWay');
+
+  // Scheduling State
+  const [bookingType, setBookingType] = useState('now'); // 'now' | 'scheduled'
+  const [selectedDate, setSelectedDate] = useState('');
+  const [selectedTime, setSelectedTime] = useState('');
+  const [showCalendarModal, setShowCalendarModal] = useState(false);
+
+  // Generate time slots (every 30 minutes, future-only if today)
+  const generateTimeSlots = () => {
+    const slots = [];
+    const now = new Date();
+    const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+    const isToday = selectedDate === todayStr;
+    
+    for (let hour = 0; hour < 24; hour++) {
+      for (let minutes = 0; minutes < 60; minutes += 30) { // 30-minute intervals
+        const slotTime = new Date();
+        slotTime.setHours(hour, minutes, 0, 0);
+        
+        // If today, only show future times (with 30 min buffer)
+        if (isToday) {
+          const bufferTime = new Date(now.getTime() + 30 * 60000); // 30 min from now
+          if (slotTime <= bufferTime) continue;
+        }
+        
+        const timeStr = `${String(hour).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+        slots.push(timeStr);
+      }
+    }
+    return slots;
+  };
+
+  const timeSlots = generateTimeSlots();
 
   // Debounce for search
   useEffect(() => {
@@ -237,8 +271,118 @@ const BookingForm = () => {
             )}
           </div>
 
+          {/* Row: Scheduling (When) */}
+          <div className="grid grid-cols-2 gap-3 mt-4">
+            {/* Column 1: When/Date Selector */}
+            {bookingType === 'now' ? (
+              /* Ahora/Programar Dropdown */
+              <div className="relative group h-[58px]">
+                <div className="absolute -top-2.5 left-4 bg-white px-1 z-10">
+                  <label className="text-xs font-bold text-gray-900">{t('booking.form.whenLabel', '¿Cuándo?')}</label>
+                </div>
+                <div className="flex items-center bg-white border-2 border-gray-200 group-focus-within:border-black hover:border-black rounded-lg px-3 py-3 md:px-4 md:py-3 transition-all h-full">
+                  <Calendar className="text-black mr-2 md:mr-3 z-10 flex-shrink-0" size={20} />
+                  <select 
+                    value={bookingType}
+                    onChange={(e) => {
+                      setBookingType(e.target.value);
+                      if (e.target.value === 'scheduled') {
+                        setShowCalendarModal(true);
+                      }
+                    }}
+                    className="bg-transparent w-full text-black font-medium text-base md:text-lg outline-none appearance-none cursor-pointer"
+                  >
+                    <option value="now">{t('booking.form.now', 'Ahora')}</option>
+                    <option value="scheduled">{t('booking.form.schedule', 'Programar')}</option>
+                  </select>
+                  <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none z-10 text-black">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              /* Date Selector Button (when scheduled) */
+              <div className="relative group h-[58px]">
+                <div className="absolute -top-2.5 left-4 bg-white px-1 z-10">
+                  <label className="text-xs font-bold text-gray-900">{t('booking.form.dateLabel', 'Fecha')}</label>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setShowCalendarModal(true)}
+                  className={`flex items-center bg-white border-2 rounded-lg px-3 py-3 md:px-4 md:py-3 transition-all h-full w-full ${!selectedDate ? 'border-red-400' : 'border-gray-200 hover:border-black'}`}
+                >
+                  <Calendar className="text-black mr-2 md:mr-3 z-10 flex-shrink-0" size={20} />
+                  <span className="text-black font-medium text-base md:text-lg truncate">
+                    {selectedDate ? selectedDate : t('booking.form.selectDate', 'Seleccionar...')}
+                  </span>
+                </button>
+              </div>
+            )}
+
+            {/* Column 2: Time Selector (only if scheduled) OR empty placeholder */}
+            {bookingType === 'scheduled' ? (
+              <div className="relative group h-[58px]">
+                <div className="absolute -top-2.5 left-4 bg-white px-1 z-10">
+                  <label className="text-xs font-bold text-gray-900">{t('booking.form.timeLabel', 'Hora')}</label>
+                </div>
+                <div className={`flex items-center bg-white border-2 rounded-lg px-3 py-3 md:px-4 md:py-3 transition-all h-full ${!selectedTime ? 'border-red-400' : 'border-gray-200 group-focus-within:border-black hover:border-black'}`}>
+                  <Clock className="text-black mr-2 md:mr-3 z-10 flex-shrink-0" size={20} />
+                  <select 
+                    value={selectedTime}
+                    onChange={(e) => setSelectedTime(e.target.value)}
+                    className="bg-transparent w-full text-black font-medium text-base md:text-lg outline-none appearance-none cursor-pointer"
+                  >
+                    <option value="">{t('booking.form.selectTime', 'Seleccionar...')}</option>
+                    {timeSlots.map(slot => (
+                      <option key={slot} value={slot}>{slot}</option>
+                    ))}
+                  </select>
+                  <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none z-10 text-black">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              /* Placeholder to maintain grid when "Ahora" is selected */
+              <div className="h-[58px]"></div>
+            )}
+          </div>
+
+          {/* Calendar Modal (Full Screen on Mobile) */}
+          {showCalendarModal && (
+            <div className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+              <div className="bg-white rounded-2xl w-full max-w-sm p-6 shadow-2xl">
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-xl font-bold text-black">{t('booking.form.selectDate', 'Seleccionar fecha')}</h3>
+                  <button 
+                    onClick={() => setShowCalendarModal(false)}
+                    className="text-gray-400 hover:text-black text-2xl"
+                  >
+                    ✕
+                  </button>
+                </div>
+                
+                <CustomDatePicker 
+                  selectedDate={selectedDate}
+                  onChange={(date) => setSelectedDate(date)}
+                />
+                
+                <button
+                  onClick={() => setShowCalendarModal(false)}
+                  disabled={!selectedDate}
+                  className={`w-full mt-6 py-4 rounded-xl font-bold text-lg transition-all
+                    ${selectedDate 
+                      ? 'bg-black text-white hover:bg-gray-800' 
+                      : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}
+                >
+                  {t('booking.form.confirmDate', 'Confirmar Fecha')}
+                </button>
+              </div>
+            </div>
+          )}
+
           {/* Row 4: Passengers & Luggage (Now Dropdowns) */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-3 mt-4">
             {/* Passengers */}
              {/* Passengers */}
              <div className="relative group h-[58px]">
@@ -304,16 +448,21 @@ const BookingForm = () => {
           )}
 
           {/* Action Button */}
+          {/* Validation: If scheduled, require date AND time */}
+          {(() => {
+            const isScheduleIncomplete = bookingType === 'scheduled' && (!selectedDate || !selectedTime);
+            const isButtonDisabled = !routeInfo || isScheduleIncomplete;
+            return (
           <button 
             type="button"
-            disabled={!routeInfo}
+            disabled={isButtonDisabled}
             onClick={() => {
               if (origin && destination && routeInfo) {
                   const bookingData = {
                       origin: { address: origin, coordinates: originCoords },
                       destination: { address: destination, coordinates: destCoords },
-                      date: t('hero.timeNow', 'Ahora'),
-                      time: t('hero.immediate', 'Inmediato'),
+                      date: bookingType === 'now' ? t('hero.timeNow', 'Ahora') : selectedDate,
+                      time: bookingType === 'now' ? t('hero.immediate', 'Inmediato') : selectedTime,
                       passengers,
                       luggage,
                       vehicle: passengers > 4 ? 'Minivan' : 'Standard',
@@ -335,7 +484,7 @@ const BookingForm = () => {
               }
             }}
             className={`w-full py-4 rounded-xl font-bold text-xl flex justify-center items-center gap-2 transition-all shadow-lg mt-4
-              ${routeInfo 
+              ${!isButtonDisabled 
                 ? 'bg-black text-white hover:bg-gray-800 transform hover:scale-[1.02]' 
                 : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}
           >
@@ -346,6 +495,8 @@ const BookingForm = () => {
               </>
             )}
           </button>
+            );
+          })()}
         </div>
       </div>
 
