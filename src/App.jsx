@@ -196,27 +196,27 @@ const App = () => {
 
                 {/* Text Content */}
                 <div className="space-y-3 md:space-y-6 text-center md:text-left">
-                  <div className="hidden md:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-400/20 border border-yellow-400/30 text-yellow-400 text-sm font-semibold animate-fade-in-up">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-400/20 border border-yellow-400/30 text-yellow-400 text-sm font-semibold animate-fade-in-up">
                     <Zap size={14} className="fill-yellow-400" />
                     {t('hero.badge')}
                   </div>
 
-                  {/* Phone Number Display for Desktop & Mobile (Hidden on Mobile now) */}
+                  {/* Phone Number Display for Desktop & Mobile */}
                   <a
                     href={`tel:${PHONE_NUMBER}`}
-                    className="hidden md:block text-2xl md:text-4xl font-black text-white hover:text-yellow-400 transition-colors tracking-tighter"
+                    className="block text-2xl md:text-4xl font-black text-white hover:text-yellow-400 transition-colors tracking-tighter"
                   >
                     {PHONE_DISPLAY}
                   </a>
-                  <h1 className="hidden md:block mb-0 md:mb-auto text-4xl md:text-7xl font-bold text-white leading-tight tracking-tight">
-                    {/* Mobile: shorter text */}
+                  <h1 className="mb-0 md:mb-auto text-4xl md:text-7xl font-bold text-white leading-tight tracking-tight">
+                    {/* Mobile: SEO keyword */}
                     <span className="md:hidden">
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">Barcelona</span> sin esperas
+                      Taxi <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">Barcelona</span>
                     </span>
                     {/* Desktop: full text */}
                     <span className="hidden md:block">
-                      {t('hero.title')} <br />
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">{t('hero.titleHighlight')}</span> {t('hero.titleEnd')}
+                      Taxi <br />
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">Barcelona</span>
                     </span>
                   </h1>
                   <p className="hidden md:block text-gray-400 text-lg md:text-xl max-w-lg mx-auto md:mx-0">
