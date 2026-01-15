@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.7.0] - 2026-01-16
 
 ### Added
+- **UI UX Improvements**: 
+  - Optimized `LanguageSwitcher` for mobile: implemented click-based interaction to prevent flickering and improved dropdown alignment (left-aligned) for better usability.
 - **Multilanguage Support**: Added support for 7 new languages:
   - German (Deutsch)
   - French (Français)

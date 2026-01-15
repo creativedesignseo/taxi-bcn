@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const LanguageSwitcher = () => {
     const { i18n } = useTranslation();
+    const [isOpen, setIsOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
     const languages = [
         { code: 'es', name: 'Español', flag: '🇪🇸' },
@@ -16,11 +18,22 @@ const LanguageSwitcher = () => {
         { code: 'hi', name: 'हिन्दी', flag: '🇮🇳' },
     ];
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     const changeLanguage = (lng) => {
         i18n.changeLanguage(lng);
-        // Basic URL handling: retain cosmetic path structure if possible, but prioritize functionality
-        // Currently we do not implement full router-based path rewriting for all 9 languages to avoid breaking navigation
-        // We simply update the i18n context which updates the UI immediately.
+        setIsOpen(false);
     };
 
     // Get only the first 2 characters of the language code (e.g., 'es' from 'es-419')
@@ -28,28 +41,33 @@ const LanguageSwitcher = () => {
     const currentLang = languages.find(l => l.code === currentLangCode) || languages[0];
 
     return (
-        <div className="relative group z-50">
-            <button className="flex items-center gap-2 text-white hover:text-yellow-400 transition-colors">
+        <div className="relative z-50" ref={dropdownRef}>
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex items-center gap-2 text-white hover:text-yellow-400 transition-colors focus:outline-none"
+            >
                 <span className="text-xl leading-none">{currentLang.flag}</span>
                 <span className="text-sm font-medium uppercase">{currentLang.code}</span>
             </button>
 
             {/* Dropdown */}
-            <div className="absolute top-full right-0 mt-2 bg-white rounded-lg shadow-lg overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[160px] max-h-[300px] overflow-y-auto">
-                <div className="py-1">
-                    {languages.map((lang) => (
-                        <button
-                            key={lang.code}
-                            onClick={() => changeLanguage(lang.code)}
-                            className={`w-full px-4 py-2 text-left hover:bg-yellow-400 hover:text-black transition-colors flex items-center gap-3 ${currentLangCode === lang.code ? 'bg-yellow-100 font-bold text-black' : 'text-gray-700'
-                                }`}
-                        >
-                            <span className="text-xl leading-none">{lang.flag}</span>
-                            <span className="text-sm">{lang.name}</span>
-                        </button>
-                    ))}
+            {isOpen && (
+                <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg overflow-hidden min-w-[160px] max-h-[300px] overflow-y-auto border border-gray-100">
+                    <div className="py-1">
+                        {languages.map((lang) => (
+                            <button
+                                key={lang.code}
+                                onClick={() => changeLanguage(lang.code)}
+                                className={`w-full px-4 py-2 text-left hover:bg-yellow-400 hover:text-black transition-colors flex items-center gap-3 ${currentLangCode === lang.code ? 'bg-yellow-100 font-bold text-black' : 'text-gray-700'
+                                    }`}
+                            >
+                                <span className="text-xl leading-none">{lang.flag}</span>
+                                <span className="text-sm">{lang.name}</span>
+                            </button>
+                        ))}
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 };
