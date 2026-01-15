@@ -145,18 +145,18 @@ export default function BookingPage() {
               <label className="block text-sm font-bold text-gray-700 mb-2">
                 {t('booking.modal.phone', 'Teléfono de Contacto')}
               </label>
-              <div className="flex gap-3">
-                 <div className="relative w-[110px]">
+              <div className="flex gap-2">
+                 <div className="relative w-[130px] flex-shrink-0">
                     <select
                       {...register('prefix')}
-                      className="w-full h-full pl-4 pr-8 bg-gray-50 border-2 border-transparent focus:border-black focus:bg-white rounded-xl font-medium appearance-none outline-none cursor-pointer"
+                      className="w-full h-full py-4 pl-3 pr-7 bg-gray-50 border-2 border-transparent focus:border-black focus:bg-white rounded-xl font-medium appearance-none outline-none cursor-pointer text-sm"
                       defaultValue={defaultPrefix}
                     >
                        {countries.map((c) => (
                          <option key={c.code} value={c.dial_code}>{c.flag} {c.dial_code}</option>
                        ))}
                     </select>
-                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500 text-xs">▼</div>
+                    <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400 text-[10px]">▼</div>
                  </div>
                  <input
                     type="tel"

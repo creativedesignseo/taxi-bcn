@@ -128,7 +128,9 @@ const App = () => {
             <button onClick={() => navigate('/')} className="text-white hover:text-yellow-400 font-medium transition-colors">{t('nav.home')}</button>
             <button onClick={() => handleNavClick('servicios')} className="text-white hover:text-yellow-400 font-medium transition-colors">{t('nav.services')}</button>
             <button onClick={() => handleNavClick('tarifas')} className="text-white hover:text-yellow-400 font-medium transition-colors">{t('nav.rates')}</button>
+            {/* DISABLED: Tours section temporarily hidden
             <button onClick={() => navigate('/tours')} className="text-white hover:text-yellow-400 font-medium transition-colors">{t('nav.tours', 'Tours')}</button>
+            */}
             <LanguageSwitcher />
             <button
               onClick={handleCall}
@@ -159,7 +161,9 @@ const App = () => {
           <MobileLink href="#top" onClick={handleMobileLinkClick}>{t('nav.home')}</MobileLink>
           <MobileLink href="#servicios" onClick={handleMobileLinkClick}>{t('nav.services')}</MobileLink>
           <MobileLink href="#tarifas" onClick={handleMobileLinkClick}>{t('nav.rates')}</MobileLink>
+          {/* DISABLED: Tours section temporarily hidden
           <MobileLink href="/tours" onClick={handleMobileLinkClick}>{t('nav.tours', 'Tours')}</MobileLink>
+          */}
 
           {/* Language Switcher for Mobile */}
           <div className="border-b border-gray-800 pb-4">
