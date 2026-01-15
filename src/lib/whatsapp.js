@@ -23,17 +23,7 @@ export function generateWhatsAppLink(bookingData, userData) {
   const originMapLink = `https://www.google.com/maps?q=${originLat},${originLng}`;
   const destMapLink = `https://www.google.com/maps?q=${destLat},${destLng}`;
   
-  // Get current time in Spain timezone
-  const now = new Date();
-  const requestTime = now.toLocaleString('es-ES', {
-    timeZone: 'Europe/Madrid',
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false
-  });
+
   
   const message = `Hola, quiero reservar un taxi:
 

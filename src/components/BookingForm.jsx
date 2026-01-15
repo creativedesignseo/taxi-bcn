@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { MapPin, Navigation, Loader2, Locate, ArrowRight, Users, Briefcase, Clock, Calendar } from 'lucide-react';
+import { MapPin, Loader2, Locate, ArrowRight, Users, Briefcase, Clock, Calendar } from 'lucide-react';
 import { getPlaceSuggestions, getRouteData, reverseGeocode, getPlaceDetails, generateSessionToken } from '../lib/mapbox';
 import { getCurrentLocation } from '../lib/whatsapp';
 import CustomDatePicker from './CustomDatePicker';
@@ -21,7 +21,7 @@ const BookingForm = () => {
   const [activeInput, setActiveInput] = useState(null); // 'origin' | 'destination'
   const [routeInfo, setRouteInfo] = useState(null);
   const [isLoadingRoute, setIsLoadingRoute] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+
   
   const [isLoadingLocation, setIsLoadingLocation] = useState(false);
   
@@ -31,7 +31,7 @@ const BookingForm = () => {
   // New Fields State
   const [passengers, setPassengers] = useState(1);
   const [luggage, setLuggage] = useState(0);
-  const [transferType, setTransferType] = useState('oneWay');
+
 
   // Scheduling State
   const [bookingType, setBookingType] = useState('now'); // 'now' | 'scheduled'
@@ -127,14 +127,7 @@ const BookingForm = () => {
     setActiveInput(null);
   };
 
-  const estimatePrice = (meters) => {
-    // Taxi BCN standard rates (approximate logic for demo)
-    // Base: 2.55€, Km: 1.23€ (T1)
-    const km = meters / 1000;
-    const base = 2.55;
-    const price = base + (km * 1.30); // 1.30 average/km
-    return price < 7 ? 7.00 : price.toFixed(2); // Minimum ~7€
-  };
+
 
   const handleUseMyLocation = async () => {
     setIsLoadingLocation(true);

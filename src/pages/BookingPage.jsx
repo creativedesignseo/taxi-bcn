@@ -9,10 +9,23 @@ import RouteMap from '../components/RouteMap';
 import { Helmet } from 'react-helmet-async';
 
 export default function BookingPage() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
-  const [defaultPrefix, setDefaultPrefix] = useState('+34');
+  const [defaultPrefix] = useState(() => {
+    try {
+      if (typeof navigator === 'undefined') return '+34';
+      const browserLocale = navigator.language || 'es-ES';
+      const region = browserLocale.split('-')[1];
+      if (region) {
+        const found = countries.find(c => c.code === region.toUpperCase());
+        if (found) return found.dial_code;
+      }
+    } catch (e) {
+      console.warn('Error detecting locale:', e);
+    }
+    return '+34';
+  });
   
   // Retrieve passed state (booking details)
   const bookingData = location.state?.bookingData;
@@ -20,7 +33,11 @@ export default function BookingPage() {
   const originCoords = location.state?.originCoords;
   const destCoords = location.state?.destCoords;
 
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      prefix: defaultPrefix
+    }
+  });
 
   // Redirect if no data (user accessed /reservar directly)
   useEffect(() => {
@@ -29,18 +46,7 @@ export default function BookingPage() {
     }
   }, [bookingData, navigate]);
 
-  // Auto-detect Country
-  useEffect(() => {
-    const browserLocale = navigator.language || 'es-ES';
-    const region = browserLocale.split('-')[1];
-    if (region) {
-      const found = countries.find(c => c.code === region.toUpperCase());
-      if (found) {
-        setDefaultPrefix(found.dial_code);
-        setValue('prefix', found.dial_code);
-      }
-    }
-  }, [setValue]);
+  // Auto-detect Country logic moved to state initialization
 
   const onSubmit = (userData) => {
     console.log("Form Submitted", userData);

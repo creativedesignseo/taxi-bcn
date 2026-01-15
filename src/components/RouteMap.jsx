@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 import Map, { Source, Layer, Marker } from 'react-map-gl';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -9,7 +9,7 @@ const RouteMap = ({ originCoords, destCoords, routeGeometry }) => {
   const mapRef = useRef(null);
 
   // Function to fit map to markers and route
-  const fitMapToRoute = (mapInstance) => {
+  const fitMapToRoute = useCallback((mapInstance) => {
     if (!originCoords || !destCoords) return;
 
     const bounds = new mapboxgl.LngLatBounds();
@@ -35,13 +35,13 @@ const RouteMap = ({ originCoords, destCoords, routeGeometry }) => {
         duration: 1000
       });
     }
-  };
+  }, [originCoords, destCoords, routeGeometry]);
 
   useEffect(() => {
     if (mapRef.current) {
         fitMapToRoute(mapRef.current);
     }
-  }, [originCoords, destCoords, routeGeometry]);
+  }, [fitMapToRoute]);
 
   const routeGeoJSON = {
     type: 'Feature',

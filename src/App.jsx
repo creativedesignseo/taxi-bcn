@@ -78,7 +78,7 @@ const App = () => {
   useEffect(() => {
     if (location.state?.scrollTo) return; // Let the specific scroller handle it if state is passed
     window.scrollTo(0, 0);
-  }, [location.pathname]);
+  }, [location.pathname, location.state?.scrollTo]);
 
   const handleNavClick = (sectionId) => {
     if (location.pathname !== '/') {

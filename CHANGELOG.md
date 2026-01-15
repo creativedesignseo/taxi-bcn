@@ -5,7 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.6.0] - 2026-01-06
+
+## [1.6.1] - 2026-01-15
+
+### Maintenance & Optimization
+- **Code Quality**: Fixed 21+ ESLint errors and warnings across the codebase.
+  - Enabled Node.js globals for scripts to fix linting in build tools.
+  - Refactored `BookingPage.jsx` logic to avoid side effects during state initialization.
+  - Cleaned up unused variables and imports in `BookingForm.jsx`, `RouteMap.jsx`, and others.
+  - Fixed useEffect dependencies in `App.jsx` and `RouteMap.jsx`.
+- **Image Optimization**:
+  - Removed unused images from `public/img` to reduce repository size.
+  - Converted remaining static assets to WebP for better performance.
+  - Cleaned up `optimize-images.js` script logic.
+
 
 ### Added
 - **Scheduling System**: Reintroduced date/time scheduling with improved UX.

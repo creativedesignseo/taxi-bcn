@@ -84,7 +84,7 @@ async function optimizeImage(inputPath) {
   console.log(`\n📸 Processing: ${basename(inputPath)}`);
   console.log(`   Original size: ${formatBytes(originalSize)}`);
 
-  let totalSaved = 0;
+
 
   try {
     // Create optimized directory if it doesn't exist
@@ -108,7 +108,7 @@ async function optimizeImage(inputPath) {
     const savedPng = originalSize - optimizedSize;
     
     console.log(`   ✅ Optimized ${ext.toUpperCase()}: ${formatBytes(optimizedSize)} (saved ${formatBytes(savedPng)})`);
-    totalSaved += savedPng;
+
 
     // 2. Create WebP version
     const webpPath = join(OUTPUT_DIR, `${name}.webp`);

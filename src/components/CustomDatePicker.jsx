@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const CustomDatePicker = ({ selectedDate, onChange, onClose }) => {
+const CustomDatePicker = ({ selectedDate, onChange }) => {
   const [currentDate, setCurrentDate] = useState(new Date(selectedDate || new Date()));
   
   // Helper to get days in month
