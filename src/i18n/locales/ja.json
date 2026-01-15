@@ -1,0 +1,207 @@
+{
+    "seo": {
+        "title": "Taxi Movit | バルセロナ公式タクシー＆空港送迎 24時間365日",
+        "description": "Taxi Movitはバルセロナで最高のタクシーサービスです。空港、クルーズ港、長距離への24時間365日の公式予約。迅速なライセンスと安全な送迎。"
+    },
+    "nav": {
+        "home": "ホーム",
+        "services": "サービス",
+        "rates": "サポート"
+    },
+    "hero": {
+        "badge": "24時間公式サービス",
+        "title": "待ち時間なしで",
+        "titleHighlight": "バルセロナ",
+        "titleEnd": "を移動。",
+        "subtitle": "24時間365日のプレミアムサービス。空港、港、長距離。WhatsApp優先による即時予約。",
+        "ctaWhatsApp": "WhatsAppで予約",
+        "ctaCall": "今すぐ電話",
+        "bookingTitle": "エクスプレス予約",
+        "pickupPlaceholder": "お迎え場所はどこですか？",
+        "destinationPlaceholder": "目的地（オプション）",
+        "timeNow": "できるだけ早く（今すぐ）",
+        "time15": "15分後",
+        "time30": "30分後",
+        "timeLater": "後で予約",
+        "immediate": "即時",
+        "requestButton": "タクシーを呼ぶ",
+        "responseTime": "平均応答時間：2分"
+    },
+    "services": {
+        "title": "送迎と目的地",
+        "subtitle": "バルセロナの観光送迎と輸送ロジスティクスの専門家。",
+        "airport": {
+            "title": "バルセロナ空港 (BCN)",
+            "desc": "ターミナル1・2への直行送迎。フライト監視と即時対応。",
+            "tag": "人気"
+        },
+        "port": {
+            "title": "クルーズ港",
+            "desc": "埠頭でのお迎えとクルーズ乗客向けの個別送迎。",
+            "tag": "直行"
+        },
+        "cityTour": {
+            "title": "市内観光ツアー",
+            "desc": "サグラダ・ファミリア、グエル公園、最も象徴的な場所を快適に巡ります。",
+            "tag": "観光"
+        },
+        "business": {
+            "title": "ビジネスサービス",
+            "desc": "重役や企業イベント向けの、時間厳守で控えめな移動サービス。",
+            "tag": "プレミアム"
+        },
+        "fira": {
+            "title": "フィラ・デ・バルセロナ / イベント",
+            "desc": "モバイルワールドコングレス (MWC) や国際見本市向けのエグゼクティブ送迎。",
+            "tag": "ビジネス"
+        },
+        "bookService": "サービスを予約"
+    },
+    "rates": {
+        "active": true,
+        "title": "設備とサポート",
+        "subtitle": "乗客のあらゆるニーズに対応する専門的なサポート。",
+        "tariff1": "料金 1 (日中)",
+        "tariff2": "料金 2 (夜間/週末)",
+        "airport": "空港 T1/T2",
+        "port": "クルーズ港",
+        "sants": "サンツ駅",
+        "parkGuell": "グエル公園",
+        "consultRate": "今すぐ確認",
+        "babySeat": "チャイルドシート",
+        "babySeatDesc": "小さなお子様向けの認可済みグループ0+シートとキャリー。",
+        "petFriendly": "ペット同伴可タクシー",
+        "petFriendlyDesc": "大切なご友人と一緒にご旅行ください。犬やその他のペットを安全に受け入れます。",
+        "pmr": "福祉タクシー (PRM)",
+        "pmrDesc": "車椅子や体の不自由な乗客に対応したユーロタクシー車両。",
+        "babySeatMsg": "こんにちは、チャイルドシート（マキシコシ / グループ0+）付きのタクシーを予約したいです。",
+        "petFriendlyMsg": "こんにちは、ペット同伴可能なタクシーを予約したいです。",
+        "pmrMsg": "こんにちは、車椅子対応の福祉タクシー (PRM) を予約したいです。",
+        "bigLuggage": "タクシーXL 7名＆荷物",
+        "bigLuggageDesc": "グループ、家族、大荷物の移動に最適なミニバン。",
+        "bigLuggageMsg": "こんにちは、7名乗車可能で大きなトランクのあるXLタクシーを予約したいです。"
+    },
+    "faq": {
+        "title": "よくある質問",
+        "q1": "空港送迎を事前に予約できますか？",
+        "a1": "もちろんです！確実に乗車できるよう、早めのご予約をお勧めします。ドライバーは時間厳守で、フライトスケジュールを監視します。",
+        "q2": "対応エリアはどこですか？",
+        "a2": "バルセロナ都市圏全域をカバーし、カタルーニャ州全域（ジローナ、タラゴナ）やスペイン全土への長距離送迎も提供しています。",
+        "q3": "大人数や大荷物の場合、適切な車両はありますか？",
+        "a3": "はい、最大6～7名乗車可能な広々としたミニバンをご用意しています。最適な車両を手配するため、予約時にお知らせください。",
+        "q4": "夜間や祝日も利用できますか？",
+        "a4": "24時間365日営業しています。早朝のフライトでも深夜の外出でも、いつでもご利用いただけます。",
+        "q5": "どのような支払い方法がありますか？",
+        "a5": "利便性を考慮し、タクシー内で現金および主要なクレジットカードをご利用いただけます。"
+    },
+    "payment": {
+        "title": "利用可能な支払い方法",
+        "subtitle": "安全と利便性",
+        "visa": "Visa",
+        "mastercard": "Mastercard",
+        "cash": "現金",
+        "cards": "カード"
+    },
+    "cookiesBanner": {
+        "message": "当サイトでは、言語設定の記憶や体験向上のために独自のCookieを使用しています。",
+        "accept": "同意する",
+        "link": "Cookieポリシーを見る"
+    },
+    "footer": {
+        "description": "バルセロナ都市圏の公式タクシーサービス。公式ライセンスと規制料金。",
+        "contact": "お問い合わせ",
+        "email": "taximovit@gmail.com",
+        "location": "バルセロナ、スペイン",
+        "legal": "法的情報",
+        "legalNotice": "法的通知",
+        "privacy": "プライバシーポリシー",
+        "cookies": "Cookies",
+        "copyright": "Taxi Movit"
+    },
+    "mobile": {
+        "call": "電話",
+        "whatsapp": "WhatsApp"
+    },
+    "testimonials": {
+        "title": "お客様の声",
+        "subtitle": "毎月数千人の旅行者が私たちを信頼しています",
+        "reviews_count": "レビュー",
+        "verified": "実際の顧客による確認済みレビュー",
+        "reviews": [
+            {
+                "text": "バルセロナで利用した中で最高のタクシーサービスでした。速くて清潔で、ドライバーもとても親切でした。",
+                "name": "ローラ M.",
+                "location": "バルセロナ、スペイン"
+            },
+            {
+                "text": "問題なく空港に到着しました。ドライバーは看板を持って待機し、荷物を運んでくれました。非常にプロフェッショナルです。",
+                "name": "カルロス R.",
+                "location": "マドリード、スペイン"
+            },
+            {
+                "text": "家族（6人）のためにXLタクシーを予約しましたが、完璧でした。広くて快適で時間通りでした。100％お勧めします。",
+                "name": "アナ G.",
+                "location": "バレンシア、スペイン"
+            },
+            {
+                "text": "犬と一緒に旅行しましたが、何の問題もありませんでした。ドライバーはとても親切で、車内も綺麗でした。また利用します。",
+                "name": "ミゲル S.",
+                "location": "サラゴサ、スペイン"
+            },
+            {
+                "text": "コストパフォーマンスが素晴らしいです。港からホテルまでの移動もスムーズで、ドライバーもとても丁寧でした。間違いなくバルセロナで最高の選択肢です。",
+                "name": "パトリシア L.",
+                "location": "セビリア、スペイン"
+            }
+        ]
+    },
+    "booking": {
+        "modal": {
+            "title": "予約確認",
+            "from": "お迎え場所",
+            "to": "目的地",
+            "time": "所要時間",
+            "price": "概算料金",
+            "guestInfo": "詳細を入力して続行してください",
+            "name": "名前",
+            "namePlaceholder": "フルネーム",
+            "nameRequired": "名前は必須です",
+            "nameMin": "2文字以上",
+            "phone": "電話番号",
+            "phonePlaceholder": "612345678",
+            "phoneRequired": "電話番号は必須です",
+            "phoneInvalid": "無効な電話番号",
+            "bookWhatsApp": "WhatsAppで送信",
+            "haveAccount": "アカウントをお持ちですか？ ログイン",
+            "loginComingSoon": "ログイン機能は近日公開",
+            "backToGuest": "← ゲスト予約に戻る"
+        },
+        "form": {
+            "pickupLabel": "出発地",
+            "pickupPlaceholder": "お迎え場所はどこですか？",
+            "destinationLabel": "目的地",
+            "destinationPlaceholder": "どこへ行きますか？",
+            "confirmRoute": "ルートを確認",
+            "useLocation": "現在地を使用",
+            "estimatedTime": "所要時間",
+            "distance": "距離",
+            "dateLabel": "日付",
+            "timeLabel": "時間",
+            "passengersLabel": "乗客",
+            "luggageLabel": "荷物",
+            "transferTypeLabel": "送迎タイプ",
+            "oneWay": "片道",
+            "roundTrip": "往復",
+            "passenger": "乗客",
+            "passengers": "乗客",
+            "suitcase": "スーツケース",
+            "suitcases": "スーツケース",
+            "whenLabel": "いつ？",
+            "now": "今すぐ",
+            "schedule": "予約",
+            "selectDate": "選択...",
+            "selectTime": "選択...",
+            "confirmDate": "日付を確認"
+        }
+    }
+}

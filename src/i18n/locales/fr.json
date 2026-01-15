@@ -1,0 +1,207 @@
+{
+    "seo": {
+        "title": "Taxi Movit | Taxi Officiel Barcelone & Transfert Aéroport 24/7",
+        "description": "Taxi Movit est le meilleur service de taxi à Barcelone. Réservations officielles 24h/24 et 7j/7 vers l'aéroport, le port de croisière et les longues distances. Licences rapides et transferts sécurisés."
+    },
+    "nav": {
+        "home": "Accueil",
+        "services": "Services",
+        "rates": "Assistance"
+    },
+    "hero": {
+        "badge": "Service Officiel 24h",
+        "title": "Déplacez-vous dans",
+        "titleHighlight": "Barcelone",
+        "titleEnd": "sans attente.",
+        "subtitle": "Service premium 24h/24 et 7j/7. Aéroport, Port et longue distance. Réservations instantanées via WhatsApp prioritaire.",
+        "ctaWhatsApp": "Réserver par WhatsApp",
+        "ctaCall": "Appeler",
+        "bookingTitle": "Réservation Express",
+        "pickupPlaceholder": "Où devons-nous vous récupérer ?",
+        "destinationPlaceholder": "Destination (Optionnel)",
+        "timeNow": "Dès que possible (Maintenant)",
+        "time15": "Dans 15 minutes",
+        "time30": "Dans 30 minutes",
+        "timeLater": "Planifier pour plus tard",
+        "immediate": "Immédiat",
+        "requestButton": "Demander Taxi",
+        "responseTime": "Temps de réponse moyen : 2 minutes"
+    },
+    "services": {
+        "title": "Transferts et Destinations",
+        "subtitle": "Experts en transferts touristiques et logistique de transport à Barcelone.",
+        "airport": {
+            "title": "Aéroport de Barcelone (BCN)",
+            "desc": "Transferts directs vers et depuis T1 et T2. Suivi des vols et immédiateté.",
+            "tag": "Populaire"
+        },
+        "port": {
+            "title": "Port de Croisière",
+            "desc": "Prise en charge au quai et transferts personnalisés pour les passagers de croisière.",
+            "tag": "Direct"
+        },
+        "cityTour": {
+            "title": "Tours de Ville",
+            "desc": "Découvrez la Sagrada Familia, le Parc Güell et les coins les plus emblématiques en tout confort.",
+            "tag": "Tourisme"
+        },
+        "business": {
+            "title": "Service Affaires",
+            "desc": "Transport ponctuel et discret pour cadres supérieurs et événements d'entreprise.",
+            "tag": "Premium"
+        },
+        "fira": {
+            "title": "Fira de Barcelona / Événements",
+            "desc": "Transferts exécutifs pour le Mobile World Congress (MWC) et les foires internationales.",
+            "tag": "Affaires"
+        },
+        "bookService": "Réserver Service"
+    },
+    "rates": {
+        "active": true,
+        "title": "Équipement et Assistance",
+        "subtitle": "Assistance spécialisée pour chaque besoin des passagers.",
+        "tariff1": "Tarif 1 (Jour)",
+        "tariff2": "Tarif 2 (Nuit/Week-end)",
+        "airport": "Aéroport T1/T2",
+        "port": "Port de Croisière",
+        "sants": "Gare de Sants",
+        "parkGuell": "Parc Güell",
+        "consultRate": "Vérifier maintenant",
+        "babySeat": "Sièges Bébé",
+        "babySeatDesc": "Sièges homologués Groupe 0+ et porte-bébés pour les plus petits.",
+        "petFriendly": "Taxi Acceptant les Animaux",
+        "petFriendlyDesc": "Voyagez avec votre meilleur ami. Nous acceptons les chiens et autres animaux en toute sécurité.",
+        "pmr": "Taxi Adapté (PMR)",
+        "pmrDesc": "Véhicules Eurotaxi adaptés pour les passagers à mobilité réduite.",
+        "babySeatMsg": "Bonjour, je souhaite réserver un taxi avec un siège bébé (Maxicosi / Groupe 0+).",
+        "petFriendlyMsg": "Bonjour, je souhaite réserver un taxi acceptant les animaux.",
+        "pmrMsg": "Bonjour, je souhaite réserver un taxi adapté PMR pour accès fauteuil roulant.",
+        "bigLuggage": "Taxi XL 7 Passagers & Bagages",
+        "bigLuggageDesc": "Minivans idéaux pour les groupes, les familles et les transferts avec beaucoup de bagages.",
+        "bigLuggageMsg": "Bonjour, je souhaite réserver un taxi XL pour 7 personnes avec un grand coffre."
+    },
+    "faq": {
+        "title": "Questions Fréquemment Posées",
+        "q1": "Puis-je réserver un transfert Aéroport à l'avance ?",
+        "a1": "Absolument ! Nous recommandons de réserver tôt pour garantir votre trajet. Votre chauffeur sera ponctuel et surveillera l'horaire de votre vol.",
+        "q2": "Quelles zones couvrez-vous ?",
+        "a2": "Nous couvrons toute la zone métropolitaine de Barcelone et proposons des transferts longue distance vers n'importe quelle destination en Catalogne (Gérone, Tarragone) ou le reste de l'Espagne.",
+        "q3": "Nous sommes un grand groupe ou avons beaucoup de bagages, avez-vous des véhicules adaptés ?",
+        "a3": "Oui, notre flotte comprend des minivans spacieux pouvant accueillir jusqu'à 6-7 passagers. Informez-nous lors de la réservation pour attribuer le véhicule parfait.",
+        "q4": "Le service est-il disponible la nuit ou les jours fériés ?",
+        "a4": "Nous opérons 24h/24, 7j/7, 365 jours par an. Que ce soit pour un vol tôt le matin ou une sortie tardive, nous sommes toujours disponibles.",
+        "q5": "Quelles méthodes de paiement acceptez-vous ?",
+        "a5": "Nous acceptons les espèces et toutes les principales cartes de crédit directement dans le taxi pour votre confort."
+    },
+    "payment": {
+        "title": "Méthodes de Paiement Acceptées",
+        "subtitle": "Sécurité et confort",
+        "visa": "Visa",
+        "mastercard": "Mastercard",
+        "cash": "Espèces",
+        "cards": "Cartes"
+    },
+    "cookiesBanner": {
+        "message": "Nous utilisons nos propres cookies pour mémoriser votre langue et améliorer votre expérience.",
+        "accept": "Accepter",
+        "link": "Voir Politique de Cookies"
+    },
+    "footer": {
+        "description": "Service officiel de taxi dans la zone métropolitaine de Barcelone. Licences officielles et tarifs réglementés.",
+        "contact": "Contact",
+        "email": "taximovit@gmail.com",
+        "location": "Barcelone, Espagne",
+        "legal": "Mentions Légales",
+        "legalNotice": "Avis Légal",
+        "privacy": "Politique de Confidentialité",
+        "cookies": "Cookies",
+        "copyright": "Taxi Movit"
+    },
+    "mobile": {
+        "call": "Appeler",
+        "whatsapp": "WhatsApp"
+    },
+    "testimonials": {
+        "title": "Ce que disent nos clients",
+        "subtitle": "Des milliers de voyageurs nous font confiance chaque mois",
+        "reviews_count": "avis",
+        "verified": "Avis vérifiés de clients réels",
+        "reviews": [
+            {
+                "text": "Le meilleur service de taxi que j'ai utilisé à Barcelone. Rapide, propre et le chauffeur était super sympa.",
+                "name": "Laura M.",
+                "location": "Barcelone, Espagne"
+            },
+            {
+                "text": "Je suis arrivé à l'aéroport sans problème. Le chauffeur m'attendait avec une pancarte et m'a aidé avec mes bagages. Très professionnel.",
+                "name": "Carlos R.",
+                "location": "Madrid, Espagne"
+            },
+            {
+                "text": "J'ai réservé un taxi XL pour ma famille (nous étions 6) et c'était parfait. Spacieux, confortable et ponctuel. 100% recommandé.",
+                "name": "Ana G.",
+                "location": "Valence, Espagne"
+            },
+            {
+                "text": "J'ai voyagé avec mon chien et n'ai eu aucun problème. Le chauffeur était très gentil et la voiture impeccable. J'utiliserai à nouveau le service.",
+                "name": "Miguel S.",
+                "location": "Saragosse, Espagne"
+            },
+            {
+                "text": "Excellent rapport qualité-prix. Le trajet du port à l'hôtel a été rapide et le chauffeur très poli. Certainement la meilleure option à Barcelone.",
+                "name": "Patricia L.",
+                "location": "Séville, Espagne"
+            }
+        ]
+    },
+    "booking": {
+        "modal": {
+            "title": "Confirmer la Réservation",
+            "from": "Ramassage",
+            "to": "Destination",
+            "time": "Temps estimé",
+            "price": "Prix estimé",
+            "guestInfo": "Complétez vos coordonnées pour continuer",
+            "name": "Nom",
+            "namePlaceholder": "Votre nom complet",
+            "nameRequired": "Le nom est requis",
+            "nameMin": "Minimum 2 caractères",
+            "phone": "Téléphone",
+            "phonePlaceholder": "612345678",
+            "phoneRequired": "Le téléphone est requis",
+            "phoneInvalid": "Téléphone invalide",
+            "bookWhatsApp": "Envoyer via WhatsApp",
+            "haveAccount": "Vous avez déjà un compte ? Se connecter",
+            "loginComingSoon": "Connexion bientôt disponible",
+            "backToGuest": "← Retour à la réservation invité"
+        },
+        "form": {
+            "pickupLabel": "DÉPART",
+            "pickupPlaceholder": "Où devons-nous vous récupérer ?",
+            "destinationLabel": "ARRIVÉE",
+            "destinationPlaceholder": "Où allez-vous ?",
+            "confirmRoute": "Confirmer Route",
+            "useLocation": "Utiliser ma position",
+            "estimatedTime": "Temps estimé",
+            "distance": "Distance",
+            "dateLabel": "Date",
+            "timeLabel": "Heure",
+            "passengersLabel": "Passagers",
+            "luggageLabel": "Bagages",
+            "transferTypeLabel": "Type de Transfert",
+            "oneWay": "Aller Simple",
+            "roundTrip": "Aller-Retour",
+            "passenger": "Passager",
+            "passengers": "Passagers",
+            "suitcase": "Valise",
+            "suitcases": "Valises",
+            "whenLabel": "Quand ?",
+            "now": "Maintenant",
+            "schedule": "Planifier",
+            "selectDate": "Choisir...",
+            "selectTime": "Choisir...",
+            "confirmDate": "Confirmer Date"
+        }
+    }
+}

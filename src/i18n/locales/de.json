@@ -1,0 +1,207 @@
+{
+    "seo": {
+        "title": "Taxi Movit | Offizielles Taxi Barcelona & Flughafentransfer 24/7",
+        "description": "Taxi Movit ist der beste Taxidienst in Barcelona. Offizielle 24/7 Buchungen zum Flughafen, Kreuzfahrthafen und Fernstrecken. Schnelle Lizenzen und sichere Transfers."
+    },
+    "nav": {
+        "home": "Startseite",
+        "services": "Dienstleistungen",
+        "rates": "Tarife"
+    },
+    "hero": {
+        "badge": "Offizieller 24h-Service",
+        "title": "Bewegen Sie sich in",
+        "titleHighlight": "Barcelona",
+        "titleEnd": "ohne Wartezeit.",
+        "subtitle": "Premium-Service rund um die Uhr. Flughafen, Hafen und Fernstrecken. Sofortbuchungen über priorisiertes WhatsApp.",
+        "ctaWhatsApp": "Per WhatsApp buchen",
+        "ctaCall": "Jetzt anrufen",
+        "bookingTitle": "Express-Buchung",
+        "pickupPlaceholder": "Wo sollen wir Sie abholen?",
+        "destinationPlaceholder": "Ziel (Optional)",
+        "timeNow": "So schnell wie möglich (Jetzt)",
+        "time15": "In 15 Minuten",
+        "time30": "In 30 Minuten",
+        "timeLater": "Für später planen",
+        "immediate": "Sofort",
+        "requestButton": "Taxi bestellen",
+        "responseTime": "Durchschnittliche Antwortzeit: 2 Minuten"
+    },
+    "services": {
+        "title": "Transfers und Ziele",
+        "subtitle": "Experten für touristische Transfers und Transportlogistik in Barcelona.",
+        "airport": {
+            "title": "Flughafen Barcelona (BCN)",
+            "desc": "Direkte Transfers von und zu T1 und T2. Flugüberwachung und Unmittelbarkeit.",
+            "tag": "Beliebt"
+        },
+        "port": {
+            "title": "Kreuzfahrthafen",
+            "desc": "Abholung am Kai und personalisierte Transfers für Kreuzfahrtpassagiere.",
+            "tag": "Direkt"
+        },
+        "cityTour": {
+            "title": "Stadtrundfahrten",
+            "desc": "Entdecken Sie die Sagrada Familia, den Park Güell und die schönsten Ecken mit Komfort.",
+            "tag": "Tourismus"
+        },
+        "business": {
+            "title": "Business-Service",
+            "desc": "Pünktlicher und diskreter Transport für Führungskräfte und Firmenveranstaltungen.",
+            "tag": "Premium"
+        },
+        "fira": {
+            "title": "Fira de Barcelona / Events",
+            "desc": "Executive Transfers für den Mobile World Congress (MWC) und internationale Messen.",
+            "tag": "Geschäftlich"
+        },
+        "bookService": "Service buchen"
+    },
+    "rates": {
+        "active": true,
+        "title": "Ausstattung und Assistenz",
+        "subtitle": "Spezialisierte Unterstützung für alle Bedürfnisse der Passagiere.",
+        "tariff1": "Tarif 1 (Tag)",
+        "tariff2": "Tarif 2 (Nacht/Wochenende)",
+        "airport": "Flughafen T1/T2",
+        "port": "Kreuzfahrthafen",
+        "sants": "Bahnhof Sants",
+        "parkGuell": "Park Güell",
+        "consultRate": "Jetzt prüfen",
+        "babySeat": "Kindersitze",
+        "babySeatDesc": "Zugelassene Sitze der Gruppe 0+ und Tragen für die Kleinsten.",
+        "petFriendly": "Haustierfreundliches Taxi",
+        "petFriendlyDesc": "Reisen Sie mit Ihrem besten Freund. Wir sind tierfreundlich und akzeptieren Hunde und andere Haustiere sicher.",
+        "pmr": "Angepasstes Taxi (PRM)",
+        "pmrDesc": "Eurotaxi-Fahrzeuge, angepasst für Passagiere mit eingeschränkter Mobilität.",
+        "babySeatMsg": "Hallo, ich möchte ein Taxi mit Kindersitz (Maxicosi / Gruppe 0+) buchen.",
+        "petFriendlyMsg": "Hallo, ich möchte ein tierfreundliches Taxi buchen.",
+        "pmrMsg": "Hallo, ich möchte ein für Rollstuhlfahrer angepasstes PRM-Taxi buchen.",
+        "bigLuggage": "Taxi XL 7 Passagiere & Gepäck",
+        "bigLuggageDesc": "Minivans ideal für Gruppen, Familien und Transfers mit viel Gepäck.",
+        "bigLuggageMsg": "Hallo, ich möchte ein XL-Taxi für 7 Personen mit großem Kofferraum buchen."
+    },
+    "faq": {
+        "title": "Häufig gestellte Fragen",
+        "q1": "Kann ich einen Flughafentransfer im Voraus buchen?",
+        "a1": "Absolut! Wir empfehlen eine frühzeitige Buchung, um Ihre Fahrt zu sichern. Ihr Fahrer wird pünktlich sein und Ihren Flugplan überwachen.",
+        "q2": "Welche Gebiete decken Sie ab?",
+        "a2": "Wir decken den gesamten Großraum Barcelona ab und bieten Fernstreckentransfers zu jedem Ziel in Katalonien (Girona, Tarragona) oder dem Rest von Spanien.",
+        "q3": "Wir sind eine große Gruppe oder haben viel Gepäck, haben Sie geeignete Fahrzeuge?",
+        "a3": "Ja, unsere Flotte umfasst geräumige Minivans für bis zu 6-7 Passagiere. Teilen Sie uns dies bei der Buchung mit, um das perfekte Fahrzeug zuzuweisen.",
+        "q4": "Ist der Service nachts oder an Feiertagen verfügbar?",
+        "a4": "Wir arbeiten rund um die Uhr, 365 Tage im Jahr. Ob früher Morgenflug oder späte Nacht, wir sind immer verfügbar.",
+        "q5": "Welche Zahlungsmethoden akzeptieren Sie?",
+        "a5": "Wir akzeptieren Bargeld und alle gängigen Kreditkarten direkt im Taxi für Ihren Komfort."
+    },
+    "payment": {
+        "title": "Akzeptierte Zahlungsmethoden",
+        "subtitle": "Sicherheit und Komfort",
+        "visa": "Visa",
+        "mastercard": "Mastercard",
+        "cash": "Bargeld",
+        "cards": "Karten"
+    },
+    "cookiesBanner": {
+        "message": "Wir verwenden eigene Cookies, um Ihre Sprache zu speichern und Ihr Erlebnis zu verbessern.",
+        "accept": "Akzeptieren",
+        "link": "Cookie-Richtlinie ansehen"
+    },
+    "footer": {
+        "description": "Offizieller Taxidienst im Großraum Barcelona. Offizielle Lizenzen und regulierte Tarife.",
+        "contact": "Kontakt",
+        "email": "taximovit@gmail.com",
+        "location": "Barcelona, Spanien",
+        "legal": "Rechtliches",
+        "legalNotice": "Impressum",
+        "privacy": "Datenschutzerklärung",
+        "cookies": "Cookies",
+        "copyright": "Taxi Movit"
+    },
+    "mobile": {
+        "call": "Anrufen",
+        "whatsapp": "WhatsApp"
+    },
+    "testimonials": {
+        "title": "Was unsere Kunden sagen",
+        "subtitle": "Tausende Reisende vertrauen uns jeden Monat",
+        "reviews_count": "Bewertungen",
+        "verified": "Verifizierte Bewertungen von echten Kunden",
+        "reviews": [
+            {
+                "text": "Der beste Taxidienst, den ich in Barcelona genutzt habe. Schnell, sauber und der Fahrer war super freundlich.",
+                "name": "Laura M.",
+                "location": "Barcelona, Spanien"
+            },
+            {
+                "text": "Ich kam ohne Probleme am Flughafen an. Der Fahrer wartete mit einem Schild auf mich und half mit dem Gepäck. Sehr professionell.",
+                "name": "Carlos R.",
+                "location": "Madrid, Spanien"
+            },
+            {
+                "text": "Ich habe ein XL-Taxi für meine Familie (wir waren 6 Personen) gebucht und es war perfekt. Geräumig, komfortabel und pünktlich. 100% empfehlenswert.",
+                "name": "Ana G.",
+                "location": "Valencia, Spanien"
+            },
+            {
+                "text": "Ich bin mit meinem Hund gereist und hatte keine Probleme. Der Fahrer war sehr nett und das Auto war makellos. Werde den Service wieder nutzen.",
+                "name": "Miguel S.",
+                "location": "Saragossa, Spanien"
+            },
+            {
+                "text": "Ausgezeichnetes Preis-Leistungs-Verhältnis. Die Fahrt vom Hafen zum Hotel war schnell und der Fahrer sehr höflich. Definitiv die beste Option in Barcelona.",
+                "name": "Patricia L.",
+                "location": "Sevilla, Spanien"
+            }
+        ]
+    },
+    "booking": {
+        "modal": {
+            "title": "Buchung bestätigen",
+            "from": "Abholung",
+            "to": "Ziel",
+            "time": "Geschätzte Zeit",
+            "price": "Geschätzter Preis",
+            "guestInfo": "Vervollständigen Sie Ihre Daten, um fortzufahren",
+            "name": "Name",
+            "namePlaceholder": "Ihr vollständiger Name",
+            "nameRequired": "Name ist erforderlich",
+            "nameMin": "Mindestens 2 Zeichen",
+            "phone": "Telefon",
+            "phonePlaceholder": "612345678",
+            "phoneRequired": "Telefon ist erforderlich",
+            "phoneInvalid": "Ungültige Telefonnummer",
+            "bookWhatsApp": "Per WhatsApp senden",
+            "haveAccount": "Haben Sie bereits ein Konto? Anmelden",
+            "loginComingSoon": "Anmeldung bald verfügbar",
+            "backToGuest": "← Zurück zur Gastbuchung"
+        },
+        "form": {
+            "pickupLabel": "ABHOLUNG",
+            "pickupPlaceholder": "Wo sollen wir Sie abholen?",
+            "destinationLabel": "ZIEL",
+            "destinationPlaceholder": "Wohin geht die Reise?",
+            "confirmRoute": "Route bestätigen",
+            "useLocation": "Meinen Standort verwenden",
+            "estimatedTime": "Geschätzte Zeit",
+            "distance": "Entfernung",
+            "dateLabel": "Datum",
+            "timeLabel": "Uhrzeit",
+            "passengersLabel": "Passagiere",
+            "luggageLabel": "Gepäck",
+            "transferTypeLabel": "Fahrtart",
+            "oneWay": "Einfache Fahrt",
+            "roundTrip": "Hin- und Rückfahrt",
+            "passenger": "Passagier",
+            "passengers": "Passagiere",
+            "suitcase": "Koffer",
+            "suitcases": "Koffer",
+            "whenLabel": "Wann?",
+            "now": "Jetzt",
+            "schedule": "Planen",
+            "selectDate": "Wählen...",
+            "selectTime": "Wählen...",
+            "confirmDate": "Datum bestätigen"
+        }
+    }
+}

@@ -1,0 +1,207 @@
+{
+    "seo": {
+        "title": "Taxi Movit | 巴塞罗那官方出租车与全天候机场接送",
+        "description": "Taxi Movit 是巴塞罗那最好的出租车服务。提供24/7官方预订服务，往返机场、邮轮港口及长途接送。拥有快速许可证，确保安全接送。"
+    },
+    "nav": {
+        "home": "首页",
+        "services": "服务",
+        "rates": "协助"
+    },
+    "hero": {
+        "badge": "24小时官方服务",
+        "title": "畅游",
+        "titleHighlight": "巴塞罗那",
+        "titleEnd": "无需等待。",
+        "subtitle": "24/7尊享服务。机场、港口及长途接送。通过WhatsApp优先即时预订。",
+        "ctaWhatsApp": "通过WhatsApp预订",
+        "ctaCall": "立即致电",
+        "bookingTitle": "快速预订",
+        "pickupPlaceholder": "我们要去哪里接您？",
+        "destinationPlaceholder": "目的地（可选）",
+        "timeNow": "尽快（现在）",
+        "time15": "15分钟内",
+        "time30": "30分钟内",
+        "timeLater": "稍后安排",
+        "immediate": "即时",
+        "requestButton": "预订出租车",
+        "responseTime": "平均响应时间：2分钟"
+    },
+    "services": {
+        "title": "接送服务与目的地",
+        "subtitle": "巴塞罗那旅游接送与交通物流专家。",
+        "airport": {
+            "title": "巴塞罗那机场 (BCN)",
+            "desc": "往返T1和T2航站楼的直接接送。航班监控与即时响应。",
+            "tag": "热门"
+        },
+        "port": {
+            "title": "邮轮港口",
+            "desc": "码头接载及为邮轮乘客提供的个性化接送服务。",
+            "tag": "直达"
+        },
+        "cityTour": {
+            "title": "城市观光",
+            "desc": "舒适地探索圣家堂、桂尔公园及最具标志性的角落。",
+            "tag": "旅游"
+        },
+        "business": {
+            "title": "商务服务",
+            "desc": "为高管及企业活动提供准时、低调的交通服务。",
+            "tag": "尊享"
+        },
+        "fira": {
+            "title": "巴塞罗那会展中心 / 活动",
+            "desc": "为世界移动通信大会 (MWC) 及国际展会提供的行政接送。",
+            "tag": "商务"
+        },
+        "bookService": "预订服务"
+    },
+    "rates": {
+        "active": true,
+        "title": "设备与协助",
+        "subtitle": "针对每位乘客需求的专业协助。",
+        "tariff1": "费用 1 (日间)",
+        "tariff2": "费用 2 (夜间/周末)",
+        "airport": "机场 T1/T2",
+        "port": "邮轮港口",
+        "sants": "Sants 火车站",
+        "parkGuell": "桂尔公园",
+        "consultRate": "立即查询",
+        "babySeat": "婴儿座椅",
+        "babySeatDesc": "经认证的0+组别座椅及适合幼童的提篮。",
+        "petFriendly": "允许携带宠物",
+        "petFriendlyDesc": "与您的爱宠同行。我们欢迎犬只与其他宠物，确保行程安全。",
+        "pmr": "无障碍出租车 (PRM)",
+        "pmrDesc": "配备轮椅通道的欧洲出租车，适合行动不便的乘客。",
+        "babySeatMsg": "您好，我想预订一辆带有婴儿座椅（Maxicosi / 0+组别）的出租车。",
+        "petFriendlyMsg": "您好，我想预订一辆允许携带宠物的出租车。",
+        "pmrMsg": "您好，我想预订一辆适合轮椅使用者的无障碍出租车。",
+        "bigLuggage": "XL型出租车 7座及行李",
+        "bigLuggageDesc": "适合团体、家庭及携带大量行李的宽敞休旅车。",
+        "bigLuggageMsg": "您好，我想预订一辆拥有大后备箱的7座XL型出租车。"
+    },
+    "faq": {
+        "title": "常见问题",
+        "q1": "我可以提前预订机场接送吗？",
+        "a1": "当然可以！我们建议尽早预订以确保您的行程。您的司机将会准时并在航班抵达时监控时间。",
+        "q2": "你们的服务覆盖哪些区域？",
+        "a2": "我们覆盖整个巴塞罗那都会区，并提供前往加泰罗尼亚（吉罗纳、塔拉戈纳）或西班牙其他地区的长途接送。",
+        "q3": "我们是大型团体或有很多行李，你们有合适的车辆吗？",
+        "a3": "是的，我们的车队包括可容纳6-7名乘客的宽敞休旅车。请在预订时告知我们，以便分配最合适的车辆。",
+        "q4": "这项服务在夜间或节假日提供吗？",
+        "a4": "我们全年365天，全天24小时运营。无论是清晨的航班还是深夜出行，我们将随时为您服务。",
+        "q5": "你们接受哪些付款方式？",
+        "a5": "我们在出租车内接受现金及所有主要的信用卡，以方便您的支付。"
+    },
+    "payment": {
+        "title": "接受的付款方式",
+        "subtitle": "安全与便捷",
+        "visa": "Visa",
+        "mastercard": "万事达卡",
+        "cash": "现金",
+        "cards": "银行卡"
+    },
+    "cookiesBanner": {
+        "message": "我们使用自家的Cookies来记住您的语言偏好并改善体验。",
+        "accept": "接受",
+        "link": "查看Cookie政策"
+    },
+    "footer": {
+        "description": "巴塞罗那都会区的官方出租车服务。拥有官方许可证及受监管的资费。",
+        "contact": "联系方式",
+        "email": "taximovit@gmail.com",
+        "location": "西班牙，巴塞罗那",
+        "legal": "法律信息",
+        "legalNotice": "法律声明",
+        "privacy": "隐私政策",
+        "cookies": "Cookies",
+        "copyright": "Taxi Movit"
+    },
+    "mobile": {
+        "call": "致电",
+        "whatsapp": "WhatsApp"
+    },
+    "testimonials": {
+        "title": "客户评价",
+        "subtitle": "每月有成千上万的旅客信赖我们",
+        "reviews_count": "条评价",
+        "verified": "来自真实客户的验证评价",
+        "reviews": [
+            {
+                "text": "这是我在巴塞罗那用过最好的出租车服务。快捷、干净，司机非常友好。",
+                "name": "Laura M.",
+                "location": "西班牙，巴塞罗那"
+            },
+            {
+                "text": "我很顺利地到达了机场。司机举着牌子等我，并帮我拿行李。非常专业。",
+                "name": "Carlos R.",
+                "location": "西班牙，马德里"
+            },
+            {
+                "text": "我为家人（一共6人）预订了一辆XL型出租车，简直完美。宽敞舒适且准时。100%推荐。",
+                "name": "Ana G.",
+                "location": "西班牙，瓦伦西亚"
+            },
+            {
+                "text": "我带着狗旅行，没有遇到任何问题。司机很和蔼，车子一尘不染。我会再次使用这项服务。",
+                "name": "Miguel S.",
+                "location": "西班牙，萨拉戈萨"
+            },
+            {
+                "text": "性价比极高。从港口到酒店的行程很快，司机非常有礼貌。绝对是巴塞罗那的最佳选择。",
+                "name": "Patricia L.",
+                "location": "西班牙，塞维利亚"
+            }
+        ]
+    },
+    "booking": {
+        "modal": {
+            "title": "确认预订",
+            "from": "接载点",
+            "to": "目的地",
+            "time": "预计时间",
+            "price": "预计价格",
+            "guestInfo": "请填写您的详细信息以继续",
+            "name": "姓名",
+            "namePlaceholder": "您的全名",
+            "nameRequired": "姓名为必填项",
+            "nameMin": "至少2个字符",
+            "phone": "电话",
+            "phonePlaceholder": "612345678",
+            "phoneRequired": "电话为必填项",
+            "phoneInvalid": "电话号码无效",
+            "bookWhatsApp": "通过WhatsApp发送",
+            "haveAccount": "已有账户？登录",
+            "loginComingSoon": "登录功能即将推出",
+            "backToGuest": "← 返回访客预订"
+        },
+        "form": {
+            "pickupLabel": "出发地",
+            "pickupPlaceholder": "我们要去哪里接您？",
+            "destinationLabel": "目的地",
+            "destinationPlaceholder": "您要去哪里？",
+            "confirmRoute": "确认路线",
+            "useLocation": "使用我的位置",
+            "estimatedTime": "预计时间",
+            "distance": "距离",
+            "dateLabel": "日期",
+            "timeLabel": "时间",
+            "passengersLabel": "乘客",
+            "luggageLabel": "行李",
+            "transferTypeLabel": "接送类型",
+            "oneWay": "单程",
+            "roundTrip": "往返",
+            "passenger": "乘客",
+            "passengers": "乘客",
+            "suitcase": "行李箱",
+            "suitcases": "行李箱",
+            "whenLabel": "时间？",
+            "now": "现在",
+            "schedule": "预约",
+            "selectDate": "选择...",
+            "selectTime": "选择...",
+            "confirmDate": "确认日期"
+        }
+    }
+}
