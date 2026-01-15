@@ -1,12 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate, useLocation } from 'react-router-dom';
+
+// Supported languages - must match main.jsx
+const SUPPORTED_LANGUAGES = ['es', 'en', 'de', 'fr', 'pt', 'zh', 'ja', 'ar', 'hi', 'ru'];
+const DEFAULT_LANGUAGE = 'es';
 
 const LanguageSwitcher = () => {
     const { i18n } = useTranslation();
+    const navigate = useNavigate();
+    const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
 
-    // Languages with SVG flag URLs (using flagcdn.com for circular flags)
+    // Languages with SVG flag URLs (using Wise's CDN for circular flags)
     const languages = [
         { code: 'es', name: 'Español', flagCode: 'es' },
         { code: 'en', name: 'English', flagCode: 'gb' },
@@ -36,8 +43,42 @@ const LanguageSwitcher = () => {
         };
     }, []);
 
-    const changeLanguage = (lng) => {
-        i18n.changeLanguage(lng);
+    /**
+     * Get current path without language prefix
+     */
+    const getPathWithoutLang = () => {
+        const path = location.pathname;
+        // Remove language prefix if present
+        const langRegex = new RegExp(`^/(${SUPPORTED_LANGUAGES.join('|')})`);
+        return path.replace(langRegex, '') || '/';
+    };
+
+    /**
+     * Build URL for a specific language
+     */
+    const buildLanguageUrl = (langCode) => {
+        const pathWithoutLang = getPathWithoutLang();
+        
+        // Spanish is default - no prefix needed
+        if (langCode === DEFAULT_LANGUAGE) {
+            return pathWithoutLang;
+        }
+        
+        // Other languages get prefix
+        if (pathWithoutLang === '/') {
+            return `/${langCode}`;
+        }
+        return `/${langCode}${pathWithoutLang}`;
+    };
+
+    const changeLanguage = (langCode) => {
+        // Change i18n language
+        i18n.changeLanguage(langCode);
+        
+        // Navigate to new URL with language prefix
+        const newUrl = buildLanguageUrl(langCode);
+        navigate(newUrl);
+        
         setIsOpen(false);
     };
 
