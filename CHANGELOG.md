@@ -6,6 +6,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [1.8.0] - 2026-01-15
+
+### Added
+- **Russian Language Support**: Added complete Russian translation (`ru.json`) with all UI strings
+- **Mobile Quick Language Access**: Language switcher now visible in mobile navigation bar (next to hamburger menu)
+
+### Changed  
+- **Language Switcher Redesign**: 
+  - New minimalist globe icon (lucide-react) instead of flag emoji on button
+  - Rounded circular containers for flags in dropdown
+  - Right-aligned dropdown with modern `rounded-2xl` styling
+  - Visual checkmark (✓) indicator for selected language
+- **Dependencies**: Updated i18next (25.7.4) and react-i18next (16.5.3) to latest versions
+
 ## [1.7.0] - 2026-01-16
 
 ### Added
