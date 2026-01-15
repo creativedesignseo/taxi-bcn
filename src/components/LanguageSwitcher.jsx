@@ -1,24 +1,27 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Globe } from 'lucide-react';
 
 const LanguageSwitcher = () => {
     const { i18n } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
 
+    // Languages with SVG flag URLs (using flagcdn.com for circular flags)
     const languages = [
-        { code: 'es', name: 'Español', flag: '🇪🇸' },
-        { code: 'en', name: 'English', flag: '🇬🇧' },
-        { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-        { code: 'fr', name: 'Français', flag: '🇫🇷' },
-        { code: 'pt', name: 'Português', flag: '🇵🇹' },
-        { code: 'zh', name: '中文', flag: '🇨🇳' },
-        { code: 'ja', name: '日本語', flag: '🇯🇵' },
-        { code: 'ar', name: 'العربية', flag: '🇸🇦' },
-        { code: 'hi', name: 'हिन्दी', flag: '🇮🇳' },
-        { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+        { code: 'es', name: 'Español', flagCode: 'es' },
+        { code: 'en', name: 'English', flagCode: 'gb' },
+        { code: 'de', name: 'Deutsch', flagCode: 'de' },
+        { code: 'fr', name: 'Français', flagCode: 'fr' },
+        { code: 'pt', name: 'Português', flagCode: 'pt' },
+        { code: 'zh', name: '中文', flagCode: 'cn' },
+        { code: 'ja', name: '日本語', flagCode: 'jp' },
+        { code: 'ar', name: 'العربية', flagCode: 'sa' },
+        { code: 'hi', name: 'हिन्दी', flagCode: 'in' },
+        { code: 'ru', name: 'Русский', flagCode: 'ru' },
     ];
+
+    // Generate flag URL (using Wise's CDN for high-quality circular flags)
+    const getFlagUrl = (flagCode) => `https://wise.com/web-art/assets/flags/${flagCode}.svg`;
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -44,41 +47,44 @@ const LanguageSwitcher = () => {
 
     return (
         <div className="relative z-50" ref={dropdownRef}>
-            {/* Minimalist Globe Button */}
+            {/* Large Round SVG Flag Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-2 text-white hover:text-yellow-400 transition-all duration-200 focus:outline-none group"
+                className="flex items-center justify-center w-10 h-10 rounded-full overflow-hidden bg-white/10 hover:bg-white/20 border-2 border-white/30 hover:border-yellow-400 transition-all duration-200 focus:outline-none shadow-lg hover:shadow-xl hover:scale-110 active:scale-95"
                 aria-label="Change language"
             >
-                <Globe 
-                    size={20} 
-                    className="opacity-80 group-hover:opacity-100 transition-opacity" 
-                    strokeWidth={1.5}
+                <img 
+                    src={getFlagUrl(currentLang.flagCode)} 
+                    alt={currentLang.name}
+                    className="w-full h-full object-cover"
+                    loading="eager"
                 />
-                <span className="text-sm font-medium uppercase tracking-wide">{currentLang.code}</span>
             </button>
 
-            {/* Dropdown with Rounded Flags */}
+            {/* Dropdown with SVG Flags */}
             {isOpen && (
-                <div className="absolute top-full right-0 mt-3 bg-white rounded-2xl shadow-2xl overflow-hidden min-w-[180px] max-h-[320px] overflow-y-auto border border-gray-100 animate-fade-in">
+                <div className="absolute top-full right-0 mt-3 bg-white rounded-2xl shadow-2xl overflow-hidden min-w-[200px] max-h-[350px] overflow-y-auto border border-gray-100">
                     <div className="py-2">
                         {languages.map((lang) => (
                             <button
                                 key={lang.code}
                                 onClick={() => changeLanguage(lang.code)}
-                                className={`w-full px-4 py-2.5 text-left hover:bg-yellow-50 transition-all duration-150 flex items-center gap-3 ${
+                                className={`w-full px-4 py-3 text-left hover:bg-yellow-50 transition-all duration-150 flex items-center gap-3 ${
                                     currentLangCode === lang.code 
                                         ? 'bg-yellow-100 font-semibold text-black' 
                                         : 'text-gray-700'
                                 }`}
                             >
-                                {/* Rounded Flag Container */}
-                                <span className="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-lg overflow-hidden shadow-sm border border-gray-200">
-                                    {lang.flag}
-                                </span>
-                                <span className="text-sm">{lang.name}</span>
+                                {/* Round SVG Flag */}
+                                <img 
+                                    src={getFlagUrl(lang.flagCode)} 
+                                    alt={lang.name}
+                                    className="w-8 h-8 rounded-full object-cover shadow-sm border border-gray-200"
+                                    loading="lazy"
+                                />
+                                <span className="text-sm font-medium">{lang.name}</span>
                                 {currentLangCode === lang.code && (
-                                    <span className="ml-auto text-yellow-500">✓</span>
+                                    <span className="ml-auto text-yellow-500 text-lg">✓</span>
                                 )}
                             </button>
                         ))}
