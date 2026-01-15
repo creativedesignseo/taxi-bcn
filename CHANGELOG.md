@@ -6,10 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [1.8.1] - 2026-01-16
+## [1.8.2] - 2026-01-16
 
-### Improved
-- **Core Architecture**: Refactored `App.jsx` to dynamically generate routes for all supported languages, solving layout issues on language-prefixed URLs.
+### Added
+- **SEO Automation**: Implemented `scripts/generate-sitemap.js` to automatically create a `sitemap.xml` with 50+ language-specific URLs on build.
+- **UX**: Improved "Scroll to Top" behavior when clicking the logo, ensuring a smooth return to the top even from the same page.
+
+
 - **Components**: Extracted `HomePage` logic from `App.jsx` to a dedicated component to enable reusability across routes.
 - **Routing**: Implemented `LanguageSync` component for bi-directional URL/i18n synchronization and updated `LanguageSwitcher` to navigate to language-prefixed URLs.
 - **SEO**: Added dynamic `hreflang` tags and canonical URLs for all 10 supported languages to improve international SEO.

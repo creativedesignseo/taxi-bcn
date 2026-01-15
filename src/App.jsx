@@ -83,7 +83,21 @@ const App = () => {
     const isDefaultLang = currentLang === 'es' || !SUPPORTED_LANGUAGES.includes(currentLang);
     const basePath = isDefaultLang ? '/' : `/${currentLang}`;
 
-    // If not on home page (of the current language), navigate there
+    // Special handling for 'top' to ensure reliable scrolling
+    if (sectionId === 'top') {
+      if (location.pathname !== basePath && location.pathname !== basePath + '/') {
+        navigate(basePath);
+        // Wait for navigation then scroll
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 100);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      return;
+    }
+
+    // Normal section navigation
     if (location.pathname !== basePath && location.pathname !== basePath + '/') {
       navigate(basePath);
       setTimeout(() => {
