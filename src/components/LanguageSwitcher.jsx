@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Globe } from 'lucide-react';
 
 const LanguageSwitcher = () => {
     const { i18n } = useTranslation();
@@ -16,6 +17,7 @@ const LanguageSwitcher = () => {
         { code: 'ja', name: '日本語', flag: '🇯🇵' },
         { code: 'ar', name: 'العربية', flag: '🇸🇦' },
         { code: 'hi', name: 'हिन्दी', flag: '🇮🇳' },
+        { code: 'ru', name: 'Русский', flag: '🇷🇺' },
     ];
 
     useEffect(() => {
@@ -42,27 +44,42 @@ const LanguageSwitcher = () => {
 
     return (
         <div className="relative z-50" ref={dropdownRef}>
+            {/* Minimalist Globe Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-2 text-white hover:text-yellow-400 transition-colors focus:outline-none"
+                className="flex items-center gap-2 text-white hover:text-yellow-400 transition-all duration-200 focus:outline-none group"
+                aria-label="Change language"
             >
-                <span className="text-xl leading-none">{currentLang.flag}</span>
-                <span className="text-sm font-medium uppercase">{currentLang.code}</span>
+                <Globe 
+                    size={20} 
+                    className="opacity-80 group-hover:opacity-100 transition-opacity" 
+                    strokeWidth={1.5}
+                />
+                <span className="text-sm font-medium uppercase tracking-wide">{currentLang.code}</span>
             </button>
 
-            {/* Dropdown */}
+            {/* Dropdown with Rounded Flags */}
             {isOpen && (
-                <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg overflow-hidden min-w-[160px] max-h-[300px] overflow-y-auto border border-gray-100">
-                    <div className="py-1">
+                <div className="absolute top-full right-0 mt-3 bg-white rounded-2xl shadow-2xl overflow-hidden min-w-[180px] max-h-[320px] overflow-y-auto border border-gray-100 animate-fade-in">
+                    <div className="py-2">
                         {languages.map((lang) => (
                             <button
                                 key={lang.code}
                                 onClick={() => changeLanguage(lang.code)}
-                                className={`w-full px-4 py-2 text-left hover:bg-yellow-400 hover:text-black transition-colors flex items-center gap-3 ${currentLangCode === lang.code ? 'bg-yellow-100 font-bold text-black' : 'text-gray-700'
-                                    }`}
+                                className={`w-full px-4 py-2.5 text-left hover:bg-yellow-50 transition-all duration-150 flex items-center gap-3 ${
+                                    currentLangCode === lang.code 
+                                        ? 'bg-yellow-100 font-semibold text-black' 
+                                        : 'text-gray-700'
+                                }`}
                             >
-                                <span className="text-xl leading-none">{lang.flag}</span>
+                                {/* Rounded Flag Container */}
+                                <span className="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-lg overflow-hidden shadow-sm border border-gray-200">
+                                    {lang.flag}
+                                </span>
                                 <span className="text-sm">{lang.name}</span>
+                                {currentLangCode === lang.code && (
+                                    <span className="ml-auto text-yellow-500">✓</span>
+                                )}
                             </button>
                         ))}
                     </div>

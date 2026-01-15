@@ -10,7 +10,8 @@
   "nav": {
     "home": "Inicio",
     "services": "Servicios",
-    "rates": "Asistencia"
+    "rates": "Asistencia",
+    "tours": "Tours"
   },
   "payment": {
     "title": "Métodos de Pago Aceptados",

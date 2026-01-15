@@ -6,7 +6,8 @@
     "nav": {
         "home": "Home",
         "services": "Services",
-        "rates": "Assistance"
+        "rates": "Assistance",
+        "tours": "Tours"
     },
     "hero": {
         "badge": "Official 24h Service",

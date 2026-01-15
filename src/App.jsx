@@ -20,6 +20,7 @@ const MobileLink = ({ href, children, onClick }) => {
 };
 import BookingForm from './components/BookingForm';
 import BookingPage from './pages/BookingPage'; // [NEW]
+import ToursPage from './pages/ToursPage';
 
 const App = () => {
   const { t, i18n } = useTranslation();
@@ -127,6 +128,7 @@ const App = () => {
             <button onClick={() => navigate('/')} className="text-white hover:text-yellow-400 font-medium transition-colors">{t('nav.home')}</button>
             <button onClick={() => handleNavClick('servicios')} className="text-white hover:text-yellow-400 font-medium transition-colors">{t('nav.services')}</button>
             <button onClick={() => handleNavClick('tarifas')} className="text-white hover:text-yellow-400 font-medium transition-colors">{t('nav.rates')}</button>
+            <button onClick={() => navigate('/tours')} className="text-white hover:text-yellow-400 font-medium transition-colors">{t('nav.tours', 'Tours')}</button>
             <LanguageSwitcher />
             <button
               onClick={handleCall}
@@ -137,13 +139,16 @@ const App = () => {
             </button>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden text-white"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          {/* Mobile: Language + Menu Toggle */}
+          <div className="md:hidden flex items-center gap-3">
+            <LanguageSwitcher />
+            <button
+              className="text-white"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
       </nav>
       )}
@@ -154,6 +159,7 @@ const App = () => {
           <MobileLink href="#top" onClick={handleMobileLinkClick}>{t('nav.home')}</MobileLink>
           <MobileLink href="#servicios" onClick={handleMobileLinkClick}>{t('nav.services')}</MobileLink>
           <MobileLink href="#tarifas" onClick={handleMobileLinkClick}>{t('nav.rates')}</MobileLink>
+          <MobileLink href="/tours" onClick={handleMobileLinkClick}>{t('nav.tours', 'Tours')}</MobileLink>
 
           {/* Language Switcher for Mobile */}
           <div className="border-b border-gray-800 pb-4">
@@ -503,6 +509,7 @@ const App = () => {
 
         {/* [NEW] Booking Confirmation Page */}
         <Route path="/reservar" element={<BookingPage />} />
+        <Route path="/tours" element={<ToursPage />} />
 
         <Route path="/aviso-legal" element={
           <>
